@@ -18,7 +18,7 @@
     <section id="one" class="wrapper style2">
         <div class="inner">
             <div class="grid-style">
-
+            @for($i = 0 ; $i<10; $i ++)
                 <div>
                     <div class="box">
                         <div class="image fit">
@@ -26,39 +26,17 @@
                         </div>
                         <div class="content">
                             <header class="align-center">
-                                <p>maecenas sapien feugiat ex purus</p>
-                                <h2>Lorem ipsum dolor</h2>
+                                <p>Name</p>
+                                <h2>Space number {{$i}}</h2>
                             </header>
-                            <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit
-                                amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex
-                                purus, quis volutpat lacus placerat malesuada.</p>
+                            <p> This will be the street or any other specification that there is to include maybe we can use some sort of description</p>
                             <footer class="align-center">
                                 <a href="#" class="button alt">Learn More</a>
                             </footer>
                         </div>
                     </div>
                 </div>
-
-                <div>
-                    <div class="box">
-                        <div class="image fit">
-                            <img src="images/pic03.jpg" alt=""/>
-                        </div>
-                        <div class="content">
-                            <header class="align-center">
-                                <p>mattis elementum sapien pretium tellus</p>
-                                <h2>Vestibulum sit amet</h2>
-                            </header>
-                            <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit
-                                amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex
-                                purus, quis volutpat lacus placerat malesuada.</p>
-                            <footer class="align-center">
-                                <a href="#" class="button alt">Learn More</a>
-                            </footer>
-                        </div>
-                    </div>
-                </div>
-
+            @endfor
             </div>
         </div>
     </section>
