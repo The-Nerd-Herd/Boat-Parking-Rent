@@ -10,6 +10,7 @@
 
 <!-- Header -->
 <header id="header" class="alt">
+    <a href="{{ route('login') }}">Login</a>
     <a href="#menu">Menu</a>
 </header>
 

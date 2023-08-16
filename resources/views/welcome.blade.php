@@ -8,7 +8,7 @@
             <div class="inner">
                 <header>
                     <p>Rent any boat parking space</p>
-                    <h2>Boat haven rentals</h2>
+                    <h2>Boat Haven Rentals</h2>
                 </header>
             </div>
         </article>
