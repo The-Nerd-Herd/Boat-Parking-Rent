@@ -13,7 +13,7 @@ class ParkingSpaceController extends Controller
      */
     public function index()
     {
-        //
+        return view('parkingSpace.show');
     }
 
     /**
@@ -37,7 +37,7 @@ class ParkingSpaceController extends Controller
      */
     public function show(ParkingSpace $parkingSpace)
     {
-        //
+        return view('parkingSpace.show', ['parkingSpace' => $parkingSpace]);
     }
 
     /**
