@@ -17,21 +17,21 @@
     <!-- One -->
     <section id="one" class="wrapper style2">
         <div class="inner">
-            <div class="grid-style">
-            @for($i = 0 ; $i<10; $i ++)
+            <div class="grid-style justify-center">
+            @for($i = 0 ; $i<1; $i ++)
                 <div>
                     <div class="box">
                         <div class="image fit">
-                            <img src="images/pic02.jpg" alt=""/>
+                            <img src="images/ricardo.jpg" alt=""/>
                         </div>
                         <div class="content">
                             <header class="align-center">
-                                <p>Name</p>
-                                <h2>Space number {{$i}}</h2>
+                                <p>Neeltje Jans</p>
+                                <h2>Boat Haven - Ricardo Beuken</h2>
                             </header>
-                            <p> This will be the street or any other specification that there is to include maybe we can use some sort of description</p>
+                            <p class="align-center pb-4"> Description placeholder</p>
                             <footer class="align-center">
-                                <a href="#" class="button alt">Learn More</a>
+                                <a href="{{ route('parkingSpace.show') }}" class="button alt">Learn More</a>
                             </footer>
                         </div>
                     </div>
