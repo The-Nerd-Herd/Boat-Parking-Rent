@@ -1,15 +1,17 @@
 @extends('layouts/layout')
 
 @section('content')
-<main class="flex flex-col items items-center bg-red-200 p-6 gap-6 self-center">
-    <section class="flex lg:flex-row flex-col items-center w-full h-2/4 gap-6">
-        <div class="h-2/4 w-2/4 mt-10 ml-10">
-            <img src="images/banner1.jpg" alt="image" class="rounded-lg"/>
-
+<main class="flex flex-col items items-center bg-red-200 p-6 gap-6">
+    <section class="flex lg:flex-row flex-col w-full gap-8 mt-5 p-8">
+        <div class="lg:w-2/4 flex items-center">
+            <img src="images/banner1.jpg" alt="image" class=" rounded-lg"/>
         </div>
         <div class="flex flex-col">
-            <h1>Rent parking space of 100m in Vlissingen</h1>
-            <p>Name of the street</p>
+            <h1 class="text-4xl">Rent parking space of 100m in Vlissingen</h1>
+            <p class="text-xl">Name of the street</p>
+            <div class="bg-red-800 h-full">
+                lol
+            </div>
         </div>
     </section>
     <section class="w-full p-8">
@@ -19,16 +21,9 @@
     <section class="w-full p-8 ">
         <h1>Parking rules</h1>
         <div class="grid grid-cols-5 gap-4">
-            <div class="bg-red-100 p-6">1</div>
-            <div class="bg-red-100 p-6">1</div>
-            <div class="bg-red-100 p-6">1</div>
-            <div class="bg-red-100 p-6">1</div>
-            <div class="bg-red-100 p-6">1</div>
-            <div class="bg-red-100 p-6">1</div>
-            <div class="bg-red-100 p-6">1</div>
-            <div class="bg-red-100 p-6">1</div>
-            <div class="bg-red-100 p-6">1</div>
-            <div class="bg-red-100 p-6">1</div>
+            @for( $i = 0; $i < 10; $i++)
+                <div class="bg-red-100 p-6 rounded-md text-center">1</div>
+            @endfor
         </div>
     </section>
 </main>
