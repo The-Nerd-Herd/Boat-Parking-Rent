@@ -19,8 +19,8 @@
 <nav id="menu">
     <ul class="links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="generic.html">Generic</a></li>
-        <li><a href="elements.html">Elements</a></li>
+        <li><a>Profile</a></li>
+{{--        <li><a href="elements.html">Elements</a></li>--}}
     </ul>
 </nav>
 
@@ -29,11 +29,12 @@
 <!-- Footer -->
 <footer id="footer">
     <div class="container">
+        <p>Made with &#10084 by The Data Crusaders</p>
         <ul class="icons">
-            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+{{--            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>--}}
+{{--            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>--}}
+{{--            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>--}}
+{{--            <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>--}}
         </ul>
     </div>
 </footer>
