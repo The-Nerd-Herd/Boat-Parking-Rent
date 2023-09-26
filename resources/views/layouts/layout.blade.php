@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css"/>
-    @vite('resources/css/app.css');
+    @vite('resources/css/app.css')
 </head>
 <body>
 
@@ -18,7 +18,7 @@
 <!-- Nav -->
 <nav id="menu">
     <ul class="links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a>Profile</a></li>
 {{--        <li><a href="elements.html">Elements</a></li>--}}
     </ul>
