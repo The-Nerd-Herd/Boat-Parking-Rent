@@ -1,22 +1,101 @@
 @extends('layouts/layout')
 
 @section('content')
-<main class="flex flex-col items items-center bg-red-200 p-6 gap-6">
+<main class="flex flex-col items items-center bg-zinc-100 gap-6">
     <section class="flex lg:flex-row flex-col w-full gap-8 mt-5 p-8">
-        <div class="lg:w-2/4 flex items-center">
-            <img src="images/banner1.jpg" alt="image" class=" rounded-lg"/>
+        <div class="flex">
+            <img src="images/banner1.jpg" alt="image"/>
         </div>
+
+        <!--Price info-->
         <div class="flex flex-col">
             <h1 class="text-4xl">Rent parking space of 100m in Vlissingen</h1>
             <p class="text-xl">Name of the street</p>
-            <div class="bg-red-800 h-full">
-                lol
+            <div class="bg-white w-full p-2 flex flex-col text-center gap-5">
+                <!--Boat length annual rate-->
+
+                    <h1 class="text-left">Boat length annual rate</h1>
+                    <table>
+                        <tbody class="text-gray-400 text-sm">
+                            <tr class="border-b-2 border-t-0">
+                                <td class="bg-white text-left">First 7 meters</td>
+                                <td class="bg-white text-right">150 € per meter</td>
+                            </tr>
+                            <tr class="border-b-2 border-t-0">
+                                <td class="bg-white text-left">Next 5 meters (up to 12 meters)</td>
+                                <td class="bg-white text-right">100 € per meter</td>
+                            </tr>
+                            <tr class="border-b-2 border-t-0">
+                                <td class="bg-white text-left">Every meter above 12 (up to 18 meters)</td>
+                                <td class="bg-white text-right">80 € per meter</td>
+                            </tr>
+                            <tr class="border-b-2 border-t-0">
+                                <td class="bg-white text-left">Mooring outside pontoon or longitudinal jetty 10% surcharge on total</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                <!--Monthly-->
+                <h1 class="text-left">Monthly rate</h1>
+                <table>
+                    <tbody class="text-gray-400 text-sm">
+                        <tr class="border-b-2 border-t-0">
+                            <td class="bg-white text-left">Monthly rate</td>
+                            <td class="bg-white text-right">Annual rate / 10</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!--Daily rates-->
+                <h1 class="text-left">Daily rate</h1>
+                <table>
+                    <tbody class="text-gray-400 text-sm">
+                    <tr class="border-b-2 border-t-0">
+                        <td class="bg-white text-left">Daily rate</td>
+                        <td class="bg-white text-right">1.5 €</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <!--Special req.-->
+                <h1 class="text-left">Special requirements</h1>
+                <table>
+                    <tbody class="text-gray-400 text-sm">
+                    <tr class="border-b-2 border-t-0">
+                        <td class="bg-white text-left">Length above 18 meters</td>
+                        <td class="bg-white text-right">Price on request</td>
+                    </tr>
+                    <tr class="border-b-2 border-t-0">
+                        <td class="bg-white text-left">Width above 5 meters</td>
+                        <td class="bg-white text-right">Price on request</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <!--Additional req.-->
+                <h1 class="text-left">Additional requirements</h1>
+                <table>
+                    <tbody class="text-gray-400 text-sm">
+                    <tr class="border-b-2 border-t-0">
+                        <td class="bg-white text-left">Prices include VAT</td>
+                    </tr>
+                    <tr class="border-b-2 border-t-0">
+                        <td class="bg-white text-left">No rights can be derived from this overview</td>
+                    </tr>
+                    <tr class="border-b-2 border-t-0">
+                        <td class="bg-white text-left">For berth request, please contact Hoop Maritiem BV</td>
+                    </tr>
+                    <tr class="border-b-2 border-t-0">
+                        <td class="bg-white text-left">Please note that these rates are subject to change and it's advisable to contact Hoop Maritiem BV directly for the most up-to-date pricing and availability</td>
+                    </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
     </section>
-    <section class="w-full p-8">
-        The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content.
-        The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
+    <section class="w-full p-8 ">
+
     </section>
     <section class="w-full p-8 ">
         <h1>Parking rules</h1>
