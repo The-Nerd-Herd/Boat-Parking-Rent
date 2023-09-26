@@ -31,7 +31,7 @@
                             </header>
                             <p class="align-center pb-6"> Ligplaatsen te huur bij Neeltje Jans</p>
                             <footer class="align-center">
-                                <a class="button alt">Learn More</a>
+                                <a href="{{route('parkingSpace.index')}}" class="button alt">Lees meer</a>
                             </footer>
                         </div>
                     </div>
@@ -68,9 +68,4 @@
             </div>
         </div>
     </section>
-    <div class="flex flex-col bg-gray-200">
-        <div class="p-3 bg-emerald-300">
-            <p> Test</p>
-        </div>
-    </div>
 @endsection
