@@ -7,8 +7,8 @@
             <img src="images/banner1.jpg" alt=""/>
             <div class="inner">
                 <header>
-                    <p>Rent any boat parking space</p>
-                    <h2>Boat Haven Rentals</h2>
+                    <p>Huur eventuele ligplaatsen</p>
+                    <h2>Boot Ligplaats Verhuur</h2>
                 </header>
             </div>
         </article>
@@ -17,21 +17,21 @@
     <!-- One -->
     <section id="one" class="wrapper style2">
         <div class="inner">
-            <div class="grid-style">
-            @for($i = 0 ; $i<10; $i ++)
+            <div class="grid-style justify-center">
+            @for($i = 0 ; $i<1; $i ++)
                 <div>
                     <div class="box">
                         <div class="image fit">
-                            <img src="images/pic02.jpg" alt=""/>
+                            <img src="images/ricardo.jpg" alt=""/>
                         </div>
-                        <div class="content">
+                        <div class="content pl-8">
                             <header class="align-center">
-                                <p>Name</p>
-                                <h2>Space number {{$i}}</h2>
+                                <p>Neeltje Jans</p>
+                                <h2>Ligplaatsverhuur van Ricardo Beuken</h2>
                             </header>
-                            <p> This will be the street or any other specification that there is to include maybe we can use some sort of description</p>
+                            <p class="align-center pb-6"> Ligplaatsen te huur bij Neeltje Jans</p>
                             <footer class="align-center">
-                                <a href="#" class="button alt">Learn More</a>
+                                <a class="button alt">Learn More</a>
                             </footer>
                         </div>
                     </div>
@@ -45,8 +45,8 @@
     <section id="two" class="wrapper style3">
         <div class="inner">
             <header class="align-center">
-                <p>Nam vel ante sit amet libero scelerisque facilisis eleifend vitae urna</p>
-                <h2>Morbi maximus justo</h2>
+                <p>Ontdek uw perfecte ligplaats vandaag bij</p>
+                <h2>Neeltje Jans</h2>
             </header>
         </div>
     </section>
@@ -54,29 +54,15 @@
     <!-- Three -->
     <section id="three" class="wrapper style2">
         <div class="inner">
-            <header class="align-center">
-                <p class="special">Nam vel ante sit amet libero scelerisque facilisis eleifend vitae urna</p>
-                <h2>Morbi maximus justo</h2>
-            </header>
             <div class="gallery">
                 <div>
                     <div class="image fit">
-                        <a href="#"><img src="images/pic01.jpg" alt=""/></a>
+                        <a href="#"><img src="images/neeltjeJans1.jpg" alt=""/></a>
                     </div>
                 </div>
                 <div>
                     <div class="image fit">
-                        <a href="#"><img src="images/pic02.jpg" alt=""/></a>
-                    </div>
-                </div>
-                <div>
-                    <div class="image fit">
-                        <a href="#"><img src="images/pic03.jpg" alt=""/></a>
-                    </div>
-                </div>
-                <div>
-                    <div class="image fit">
-                        <a href="#"><img src="images/pic04.jpg" alt=""/></a>
+                        <a href="#"><img src="images/neeltjeJans2.jpg" alt=""/></a>
                     </div>
                 </div>
             </div>
