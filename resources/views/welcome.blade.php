@@ -8,7 +8,7 @@
             <div class="inner">
                 <header>
                     <p>Huur eventuele ligplaatsen</p>
-                    <h2>Boot Ligplaats Verhuur</h2>
+                    <h2 >Boot Ligplaats Verhuur</h2>
                 </header>
             </div>
         </article>
