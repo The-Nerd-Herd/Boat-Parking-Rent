@@ -2,7 +2,7 @@
 
 <style>
     td{
-        padding-top: 15px;
+        padding-top: 17px;
     }
     tr {
 
@@ -11,7 +11,7 @@
 
 @section('content')
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
-        <section class="flex lg:flex-row flex-col w-full gap-8 mt-[50px] p-8">
+        <section class="flex lg:flex-row flex-col items-start b w-full gap-8 mt-[50px] p-8">
             <article class="flex">
                 <img class="shadow-xl" src="images/banner1.jpg" alt="image"/>
             </article>
@@ -20,7 +20,7 @@
             <div class="flex flex-col">
                 <h1 class="text-4xl">Rent parking space of 100m in Vlissingen</h1>
                 <p class="text-xl">Name of the street</p>
-                <div class="bg-white w-full p-2 flex flex-col text-center gap-5  shadow-xl">
+                <div class="bg-white w-full p-2 flex flex-col text-center rounded-md gap-5  shadow-xl">
                     <!--Boat length annual rate-->
 
                     <h1 class="text-xl">Boat length annual rate</h1>
@@ -108,8 +108,12 @@
                 </div>
             </div>
         </section>
-        <section class="w-full p-8 ">
 
+        <!--Contact info-->
+        <section class="w-full p-8 ">
+            <h1 class="text-2xl">Contact info</h1>
+            <h2 class="text-xl">e-mail</h2>
+            <p class="text-lg">ricardobeuken@hotmail.com</p>
         </section>
         <section class="w-full p-8 ">
             <h1>Parking rules</h1>
