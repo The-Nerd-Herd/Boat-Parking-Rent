@@ -11,19 +11,20 @@
 
 @section('content')
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
-        <section class="flex lg:flex-row flex-col items-start b w-full gap-8 mt-[50px] p-8">
-            <article class="flex">
-                <img class="shadow-xl" src="images/banner1.jpg" alt="image"/>
+        <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
+            <article class="flex p-8 bg-white shadow-xl lg:w-[1400px] lg:h-[600px]">
+                <img class="object-scale-down" src="https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?cs=srgb&dl=pexels-christian-heitz-842711.jpg&fm=jpg" alt="image"/>
             </article>
 
-            <!--Price info-->
             <div class="flex flex-col">
                 <h1 class="text-4xl">Rent parking space of 100m in Vlissingen</h1>
                 <p class="text-xl">Name of the street</p>
-                <div class="bg-white w-full p-2 flex flex-col text-center rounded-md gap-5  shadow-xl">
+
+                <!--Price info-->
+                <div class="bg-white w-full p-2 flex flex-col text-center rounded-md gap-5 overflow-y-auto lg:h-[500px] shadow-xl">
                     <!--Boat length annual rate-->
 
-                    <h1 class="text-xl">Boat length annual rate</h1>
+                    <h1 class="text-xl font-semibold">Boat length annual rate</h1>
                     <table >
                         <tbody class="text-gray-400 lg:text-base text-sm ">
                         <tr class="border-b-2 border-t-0">
@@ -47,7 +48,7 @@
                     </table>
 
                     <!--Monthly-->
-                    <h1 class="text-xl">Monthly rate</h1>
+                    <h1 class="text-xl font-semibold">Monthly rate</h1>
                     <table>
                         <tbody class="text-gray-400 text-sm lg:text-base">
                         <tr class="border-b-2 border-t-0">
@@ -58,7 +59,7 @@
                     </table>
 
                     <!--Daily rates-->
-                    <h1 class="text-xl">Daily rate</h1>
+                    <h1 class="text-xl font-semibold">Daily rate</h1>
                     <table>
                         <tbody class="text-gray-400 text-sm lg:text-base">
                         <tr class="border-b-2 border-t-0">
@@ -69,7 +70,7 @@
                     </table>
 
                     <!--Special req.-->
-                    <h1 class="text-xl">Special requirements</h1>
+                    <h1 class="text-xl font-semibold">Special requirements</h1>
                     <table>
                         <tbody class="text-gray-400 text-sm lg:text-base">
                         <tr class="border-b-2 border-t-0">
@@ -84,7 +85,7 @@
                     </table>
 
                     <!--Additional req.-->
-                    <h1 class="text-xl">Additional requirements</h1>
+                    <h1 class="text-xl font-semibold">Additional requirements</h1>
                     <table>
                         <tbody class="text-gray-400 text-sm lg:text-base">
                         <tr class="border-b-2 border-t-0">
