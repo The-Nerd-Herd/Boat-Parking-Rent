@@ -14,7 +14,7 @@
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
             <article class="flex p-8 bg-white shadow-xl lg:w-[1400px] lg:h-[600px]">
-                <img class="object-scale-down" src="https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?cs=srgb&dl=pexels-christian-heitz-842711.jpg&fm=jpg" alt="image"/>
+                <img class="object-scale-down" src="images/ricardo.jpg" alt="image"/>
             </article>
 
             <div class="flex flex-col">
@@ -22,7 +22,7 @@
                 <p class="text-xl">Name of the street</p>
 
                 <!--Price info-->
-                <div class="bg-white w-full p-2 flex flex-col text-center rounded-md gap-5 overflow-y-auto lg:h-[500px] shadow-xl">
+                <div class="bg-white w-full p-10  flex flex-col text-center rounded-md gap-5 overflow-y-auto lg:h-[500px] shadow-xl">
                     <!--Boat length annual rate-->
 
                     <h1 class="text-xl font-semibold">Boat length annual rate</h1>
