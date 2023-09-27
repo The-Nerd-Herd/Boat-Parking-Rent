@@ -4,12 +4,13 @@
     td{
         padding-top: 17px;
     }
-    tr {
-
-    }
 </style>
 
 @section('content')
+    <script>
+        let navBar = document.getElementById('header');
+        navBar.className = 'reveal'
+    </script>
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
             <article class="flex p-8 bg-white shadow-xl lg:w-[1400px] lg:h-[600px]">
