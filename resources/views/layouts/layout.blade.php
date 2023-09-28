@@ -11,7 +11,6 @@
 
 <!-- Header -->
 <header id="header" class="alt">
-   <!-- <a class="logo"><img class="w-1/2 is-align-self-center" src="images/paper-boat.jpg"></a>-->
     <a href="/" class="logo"><img class="scale-50" src="images/paper-boat.jpg"></a>
     <a href="{{ route('login') }}">Login</a>
     <a href="#menu">Menu</a>
