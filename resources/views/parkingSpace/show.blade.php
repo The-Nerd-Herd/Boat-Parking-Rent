@@ -29,7 +29,7 @@
                     <table >
                         <tbody class="text-gray-400 lg:text-base text-sm ">
                         <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Eerste 7 meter</td>
+                            <td class="bg-white text-left">Eerste 7 meters</td>
                             <td class="bg-white text-right ">150 € / meter</td>
                         </tr>
                         <tr class="border-b-2 border-t-0">
@@ -69,7 +69,7 @@
                     </table>
 
                     <!--Special req.-->
-                    <h1 class="text-xl font-semibold">Special requirements</h1>
+                    <h1 class="text-xl font-semibold">Speciale vereisten</h1>
                     <table>
                         <tbody class="text-gray-400 text-sm lg:text-base">
                         <tr class="border-b-2 border-t-0">
