@@ -13,16 +13,16 @@
     </script>
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
-            <article class="flex p-8 bg-white shadow-xl lg:w-[1400px] lg:h-[600px]">
+            <article class="flex p-8 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
                 <img class="object-scale-down" src="images/ricardo.jpg" alt="image"/>
             </article>
 
-            <div class="flex flex-col">
+            <div class="flex flex-col h-[600px] justify-between">
                 <h1 class="text-4xl">Rent parking space of 100m in Vlissingen</h1>
-                <p class="text-xl">Name of the street</p>
+                <p class="text-xl">Neeltje Jans</p>
 
                 <!--Price info-->
-                <div class="bg-white w-full p-10  flex flex-col text-center rounded-md gap-5 overflow-y-auto lg:h-[500px] shadow-xl">
+                <div class="bg-white w-full p-10 flex flex-col text-center rounded-md gap-5 overflow-y-auto lg:h-[500px] shadow-xl">
                     <!--Boat length annual rate-->
 
                     <h1 class="text-xl font-semibold">Jaartarief</h1>
@@ -117,11 +117,6 @@
         </section>
         <section class="w-full p-8 ">
             <h1>Parking rules</h1>
-            <div class="grid grid-cols-5 gap-4">
-                @for( $i = 0; $i < 10; $i++)
-                    <div class="bg-red-100 p-6 rounded-md text-center">1</div>
-                @endfor
-            </div>
         </section>
     </main>
 @endsection
