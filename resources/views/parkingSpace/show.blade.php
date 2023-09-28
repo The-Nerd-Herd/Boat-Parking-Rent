@@ -17,7 +17,7 @@
                 <img class="object-scale-down" src="images/ricardo.jpg" alt="image"/>
             </article>
 
-            <div class="flex flex-col h-[600px] justify-between">
+            <div class="flex flex-col h-[600px] w-[1000px] justify-between">
                 <h1 class="text-4xl">Rent parking space of 100m in Vlissingen</h1>
                 <p class="text-xl">Neeltje Jans</p>
 
