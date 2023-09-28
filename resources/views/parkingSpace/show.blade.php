@@ -110,13 +110,25 @@
         </section>
 
         <!--Contact info-->
-        <section class="w-full p-8 ">
-            <h1 class="text-2xl">Contact info</h1>
-            <h2 class="text-xl">e-mail</h2>
-            <p class="text-lg">ricardobeuken@hotmail.com</p>
-        </section>
-        <section class="w-full p-8 ">
-            <h1>Parking rules</h1>
-        </section>
+        <form class="mx-10 lg:w-2/4 flex flex-col gap-6 p-4 bg-white">
+            <h1>Contact the seller</h1>
+            <div>
+                <label for="email" value="email">Email</label>
+                <input  class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full" id="email" type="email" name="email" required="required" autofocus="autofocus" autocomplete="username">
+            </div>
+
+            <div class="flex flex-row justify-between gap-6 ">
+                <div>
+                    <label for="email" value="email">Initial</label>
+                    <input  class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full" id="email" type="email" name="email" required="required" autofocus="autofocus" autocomplete="username">
+                </div>
+
+                <div class="w-3/4">
+                    <label for="email" value="email">Surname</label>
+                    <input  class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full" id="email" type="email" name="email" required="required" autofocus="autofocus" autocomplete="username">
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
     </main>
 @endsection
