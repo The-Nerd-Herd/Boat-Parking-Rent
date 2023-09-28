@@ -17,12 +17,12 @@
                 <img class="object-scale-down" src="images/ricardo.jpg" alt="image"/>
             </article>
 
-            <div class="flex flex-col h-[600px] w-[1000px] justify-between">
+            <div class="flex flex-col lg:h-[600px] lg:w-[1000px] justify-between">
                 <h1 class="text-4xl">Rent parking space of 100m in Vlissingen</h1>
                 <p class="text-xl">Neeltje Jans</p>
 
                 <!--Price info-->
-                <div class="bg-white w-full p-10 flex flex-col text-center rounded-md gap-5 overflow-y-auto lg:h-[500px] shadow-xl">
+                <div class="bg-white w-full p-10 flex flex-col text-center rounded-md gap-5 lg:overflow-y-auto lg:h-[500px] shadow-xl">
                     <!--Boat length annual rate-->
 
                     <h1 class="text-xl font-semibold">Jaartarief</h1>
