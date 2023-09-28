@@ -116,24 +116,23 @@
 
             <div id="accordion-collapse" data-accordion="collapse">
                 <h2 id="accordion-collapse-heading-1">
-                    <details class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                        <summary class="mb-2 text-gray-500 dark:text-gray-400"><strong class="text-white font-bold">Havenreglement</strong>
+                    <details class="p-5 border border-b-0 border-gray-200 rounded-md shadow-xl cursor-pointer">
+                        <summary class="mb-2 text-gray-500 dark:text-gray-400"><strong class="text-black font-bold align-center">Havenreglement</strong>
+                            <div class="align-center text-black font-bold">
+                                <!-- Title -->
+                                <h1 class="align-center text-black font-bold opacity-90">Noordlandhaven binnen/Neeltje Jans.</h1>
+                                <br>
+                                <p class="opacity-60">Dit Reglement geldt in de haven van:</p>
+                                <p class="opacity-40">“Hoop Maritiem BV”</p>
+                                <p class="opacity-20">Datum: 1-8-2023</p>
+                            </div>
                         </summary>
-                        <br>
-                        <div class="align-center text-white font-bold">
-                            <!-- Title -->
-                            <h1 class="align-center text-white font-bold">Noordlandhaven binnen/Neeltje Jans.</h1>
-                            <br>
-                            <p>Dit Reglement geldt in de haven van:</p>
-                            <p>“Hoop Maritiem BV”</p>
-                            <p>Datum: 1-8-2023</p>
-                        </div>
                         <br>
                         <div class="px-12">
                         <!-- Article 1 -->
-                        <h3><strong class="text-white font-medium">Artikel 1 Definities</strong></h3>
+                        <h3><strong class="text-black font-medium">Artikel 1 Definities</strong></h3>
                         <br>
-                        <ol class="text-white pl-4">
+                        <ol class="text-black pl-4">
                             <li>A. Verhuurder: Hoop Maritiem BV.</li>
                             <li>B. Huurder: Is een natuurlijk persoon die tegen betaling aan verhuurder, een deel van de
                                 haven in gebruik heeft/neemt.
@@ -152,9 +151,9 @@
                             <br>
                         </ol>
                         <!-- Article 2 -->
-                        <h3><strong class="text-white font-medium">Artikel 2 Geldigheid</strong></h3>
+                        <h3><strong class="text-black font-medium">Artikel 2 Geldigheid</strong></h3>
                         <br>
-                        <ol class="text-white pl-4">
+                        <ol class="text-black pl-4">
                             <li>1. Dit regelement is van toepassing vanaf datum vermeld in titel.</li>
                             <li>2. Dit regelement kan te allen tijde worden aangevuld / gewijzigd door verhuurder.
                                 Wijzigingen zullen met huurders worden gedeeld.
@@ -162,9 +161,9 @@
                         </ol>
                         <br>
                         <!-- Article 3 -->
-                        <h3><strong class="text-white font-medium">Artikel 3 Toepasselijkheid</strong></h3>
+                        <h3><strong class="text-black font-medium">Artikel 3 Toepasselijkheid</strong></h3>
                         <br>
-                        <ol class="text-white pl-4">
+                        <ol class="text-black pl-4">
                             <li>1. Wanneer de huurovereenkomst, niet minimaal 3 maanden voor het verlopen van de
                                 huurtermijn
                                 schriftelijk door de huurder dan wel verhuurder wordt opgezegd, dan wordt deze
@@ -197,9 +196,9 @@
                         </ol>
                         <br>
                         <!-- Article 4 -->
-                        <h3><strong class="text-white font-medium">Artikel 4 Gebruik steigers</strong></h3>
+                        <h3><strong class="text-black font-medium">Artikel 4 Gebruik steigers</strong></h3>
                         <br>
-                        <ol class="text-white pl-4">
+                        <ol class="text-black pl-4">
                             <li>1. Verhuurder bepaald in goed overleg met huurder de in te nemen ligplaats door huurder.
                             </li>
                             <li>2. De verhuurder behoud het recht om de indeling van de ligplaatsen aan de afmeer
@@ -231,9 +230,9 @@
                         </ol>
                         <br>
                         <!-- Article 5 -->
-                        <h3><strong class="text-white font-medium">Artikel 5 Aansprakelijkheid</strong></h3>
+                        <h3><strong class="text-black font-medium">Artikel 5 Aansprakelijkheid</strong></h3>
                         <br>
-                        <ol class="text-white pl-4">
+                        <ol class="text-black pl-4">
                             <li>1. De verhuurder aanvaardt geen enkele aansprakelijkheid voor diefstel, vernieling,
                                 schade of ongevallen voortkomende uit
                                 het gebruik van de loopbruggen, ponton en de afmeersteigers. Het afmeren aan en betreden
@@ -273,7 +272,7 @@
                         </ol>
                         <br>
                         <!-- Article 6 -->
-                        <h3><strong class="text-white font-medium">Artikel 6 Verzekering <br>
+                        <h3><strong class="text-black font-medium">Artikel 6 Verzekering <br>
                                 De huurder dient zijn vaartuig tegen wettelijke aansprakelijkheid te verzekeren
                                 gedurende de tijd dat hij gebruik maakt
                                 van een ligplaats in de haven van verhuurder. Een kopie van de verzekering moet
@@ -283,9 +282,9 @@
                             </strong></h3>
                         <br>
                         <!-- Article 7 -->
-                        <h3><strong class="text-white font-medium">Artikel 7 Gedrag en orde</strong></h3>
+                        <h3><strong class="text-black font-medium">Artikel 7 Gedrag en orde</strong></h3>
                         <br>
-                        <ol class="text-white pl-4">
+                        <ol class="text-black pl-4">
                             <li>1. Afmeer lijnen mogen alleen bevestigd worden aan de daarvoor bedoelde bolders en
                                 meerogen.
                             </li>
@@ -329,9 +328,9 @@
                         </ol>
                         <br>
                         <!-- Article 8 -->
-                        <h3><strong class="text-white font-medium">Artikel 8 Milieu</strong></h3>
+                        <h3><strong class="text-black font-medium">Artikel 8 Milieu</strong></h3>
                         <br>
-                        <ol class="text-white pl-4">
+                        <ol class="text-black pl-4">
                             <li>1. In het kader van de Wet Verontreinigingsheffing Oppervlaktewateren en de
                                 Watervergunning van de waterwet is het
                                 verboden zodanige werkzaamheden aan het vaartuig te verrichten die direct of indirect
@@ -340,7 +339,7 @@
                             <li>2. Het is ten strengste verboden om bilge en/of oliehoudend water te lozen op het
                                 oppervlakte water.
                             </li>
-                            <li><strong class="text-white"><u>3. Het is ten strengste verboden afval overboord te zetten
+                            <li><strong class="text-black"><u>3. Het is ten strengste verboden afval overboord te zetten
                                         dan wel op het
                                         steiger of op de wal achter te laten. Houd uw
                                         schip en de omgeving schoon.</u></strong>
@@ -348,9 +347,9 @@
                         </ol>
                         <br>
                         <!-- Article 9 -->
-                        <h3><strong class="text-white font-medium">Artikel 9 Slotbepalingen</strong></h3>
+                        <h3><strong class="text-black font-medium">Artikel 9 Slotbepalingen</strong></h3>
                         <br>
-                        <ol class="text-white pl-4">
+                        <ol class="text-black pl-4">
                             <li>1. In alle gevallen waarin het havenreglement en de huurovereenkomst niet in voorziet
                                 gelden alle normale wettelijke regels
                                 en bepalingen.
