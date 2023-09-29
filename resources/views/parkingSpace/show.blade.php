@@ -10,6 +10,28 @@
     }
 </style>
 
+<script>
+    window.addEventListener('load', function (){
+        const  houseRule= document.getElementById('houseRuleHead');
+    const toggleBtnEl = document.getElementById('toggle-btn');
+    const moreTextEl = document.getElementById('more-text');
+    const hideBtnEl = document.getElementById('hide-btn');
+    toggleBtnEl.addEventListener('click', () => {
+        moreTextEl.classList.toggle('hidden');
+        toggleBtnEl.classList.toggle('hidden');
+        hideBtnEl.classList.toggle('hidden');
+        houseRule.className='align-center text-black font-bold';
+    });
+
+    hideBtnEl.addEventListener('click', () => {
+        moreTextEl.classList.toggle('hidden');
+        toggleBtnEl.classList.toggle('hidden');
+        hideBtnEl.classList.toggle('hidden');
+        houseRule.className='align-center text-black font-bold bg-gradient-to-b from-black to-transparent text-transparent bg-clip-text';
+    });
+    });
+</script>
+
 @section('content')
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col w-full gap-8 mt-[50px] p-8">
@@ -109,26 +131,27 @@
                 </div>
             </div>
         </section>
-        <section class="w-full p-8 ">
 
-        </section>
-        <section class="w-full p-8 ">
+        <section class="lg:w-1/2 w-full p-8">
 
-            <div id="accordion-collapse" data-accordion="collapse">
+            <div id="accordion-collapse" data-accordion="collapse" class="bg-white rounded-xl shadow-xl pt-7 flex flex-col items-center">
+
                 <h2 id="accordion-collapse-heading-1">
-                    <details class="p-5 border border-b-0 border-gray-200 rounded-md shadow-xl cursor-pointer">
-                        <summary class="mb-2 text-gray-500 dark:text-gray-400"><strong class="text-black font-bold align-center">Havenreglement</strong>
-                            <div class="align-center text-black font-bold">
-                                <!-- Title -->
-                                <h1 class="align-center text-black font-bold opacity-90">Noordlandhaven binnen/Neeltje Jans.</h1>
-                                <br>
-                                <p class="opacity-60">Dit Reglement geldt in de haven van:</p>
-                                <p class="opacity-40">“Hoop Maritiem BV”</p>
-                                <p class="opacity-20">Datum: 1-8-2023</p>
-                            </div>
-                        </summary>
+                    <div class="align-center">
+                    <strong class="text-black font-bold">Havenreglement</strong>
+                    </div>
+                    <div id="houseRuleHead" class="align-center text-center text-black font-bold bg-gradient-to-b from-black to-transparent text-transparent bg-clip-text">
+                        <!-- Title -->
+                        <h1 class="align-center text-black font-bold">Noordlandhaven binnen/Neeltje Jans.</h1>
                         <br>
-                        <div class="px-12">
+                        <p>Dit Reglement geldt in de haven van:</p>
+                        <p>“Hoop Maritiem BV”</p>
+                        <p>Datum: 1-8-2023</p>
+                        <button id="toggle-btn" class="mt-4 bg-black hover:bg-gray-400 text-white py-2 px-4 rounded-full">Read More</button>
+                    </div>
+                    <br>
+                    <span class="hidden" id="more-text">
+                    <div class="px-12">
                         <!-- Article 1 -->
                         <h3><strong class="text-black font-medium">Artikel 1 Definities</strong></h3>
                         <br>
@@ -369,9 +392,11 @@
                                 Politiereglement (BPR) van kracht.
                             </li>
                         </ol>
-                        </div>
-                    </details>
+                    </div>
+                    </span>
                 </h2>
+
+            <button id="hide-btn" class="hidden mt-4 text-blue-500 focus:outline-none">Hide</button>
             </div>
 
 
