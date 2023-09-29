@@ -11,6 +11,7 @@
 
 <!-- Header -->
 <header id="header" class="alt">
+    <a href="/" class="logo"><img class="scale-50" src="images/paper-boat.jpg"></a>
     <a href="{{ route('login') }}">Login</a>
     <a href="#menu">Menu</a>
 </header>
@@ -31,10 +32,7 @@
     <div class="container">
         <p>Made with &#10084 by The Data Crusaders</p>
         <ul class="icons">
-{{--            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>--}}
-{{--            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>--}}
-{{--            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>--}}
-{{--            <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>--}}
+
         </ul>
     </div>
 </footer>
