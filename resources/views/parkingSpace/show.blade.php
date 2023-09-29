@@ -110,9 +110,9 @@
         </section>
 
         <!--Contact info-->
-        <form method="POST" action="{{route('email.send')}}" class="mx-10 lg:w-2/4 flex flex-col gap-6 p-4 bg-white">
+        <form method="POST" action="{{route('email.send')}}" class="mx-10 shadow-xl lg:w-2/4 flex flex-col gap-6 p-4 bg-white">
+            <h1  class="text-xl">Contact the seller</h1>
             @csrf
-            <h1>Contact the seller</h1>
             <div class="flex flex-col lg:flex-row gap-6 w-full">
                 <div class="w-full lg:w-1/2">
                     <label for="email" value="email">Email</label>
@@ -136,7 +136,7 @@
                     <input  class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full" id="surname" type="text" name="surname" required="required" autofocus="autofocus" autocomplete="name">
                 </div>
             </div>
-            <button class="lg:w-1/4 self-end bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit</button>
+            <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit</button>
         </form>
     </main>
 @endsection
