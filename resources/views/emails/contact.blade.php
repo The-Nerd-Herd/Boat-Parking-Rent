@@ -1,5 +1,6 @@
+
 <h1>
-    Whants to contact you
+    Want to contact you
 </h1>
 
 <p>
