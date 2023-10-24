@@ -17,9 +17,23 @@ return new class extends Migration {
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->string('title');
+            $table->string('street');
+            $table->integer('number');
+            $table->string('city');
             $table->string('picture');
             $table->string('description');
-            $table->string('rules');
+            $table->foreignId('yearlyFees_id')
+                ->references('id')
+                ->on('yearly_fees')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->integer('dailyTariff');
+            $table->foreignId('additionalInformation')
+                ->references('id')
+                ->on('additional_information')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

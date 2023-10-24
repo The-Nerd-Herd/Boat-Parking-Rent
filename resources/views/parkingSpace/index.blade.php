@@ -1,4 +1,4 @@
-@extends('layouts/layout')
+@extends('layouts.layout')
 
 @section('content')
     <!-- Banner -->
@@ -18,7 +18,6 @@
     <section id="one" class="wrapper style2">
         <div class="inner">
             <div class="grid-style justify-center">
-            @for($i = 0 ; $i<1; $i ++)
                 <div>
                     <div class="box">
                         <div class="image fit">
@@ -31,12 +30,30 @@
                             </header>
                             <p class="align-center pb-6"> Ligplaatsen te huur bij Neeltje Jans</p>
                             <footer class="align-center">
-                                <a href="{{route('parkingSpace.index')}}" class="button alt">Lees meer</a>
+                                <a href="parkingSpace/1" class="button alt">Lees meer</a>
                             </footer>
                         </div>
                     </div>
                 </div>
-            @endfor
+                @foreach($parkingSpaces as $parkingSpace)
+                    <div>
+                        <div class="box">
+                            <div class="image fit">
+                                <img src="{{$parkingSpace->picture}}" alt=""/>
+                            </div>
+                            <div class="content pl-8">
+                                <header class="align-center">
+                                    <p>{{$parkingSpace->title}}</p>
+                                    <h2>{{$parkingSpace->user->name}}</h2>
+                                </header>
+                                <p class="align-center pb-6"> {{$parkingSpace->description}}</p>
+                                <footer class="align-center">
+                                    <a href="{{route('parkingSpace.show', $parkingSpace->id)}}" class="button alt">Lees meer</a>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

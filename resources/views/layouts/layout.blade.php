@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="./public/images/paper-boat.jpg">
-    <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="/assets/css/main.css"/>
     @vite('resources/css/app.css')
 </head>
 <body>

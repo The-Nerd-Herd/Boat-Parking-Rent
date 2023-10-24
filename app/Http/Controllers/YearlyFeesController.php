@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ParkingSpace;
+use App\Models\yearlyFees;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ParkingSpaceController extends Controller
+class YearlyFeesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $parkingSpaces = ParkingSpace::all();
-        return view('parkingSpace.index', compact('parkingSpaces'));
+        //
     }
 
     /**
@@ -30,21 +29,21 @@ class ParkingSpaceController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(ParkingSpace $parkingSpace)
+    public function show(yearlyFees $yearlyFees)
     {
-        return view('parkingSpace.show', ['parkingSpace' => $parkingSpace]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ParkingSpace $parkingSpace)
+    public function edit(yearlyFees $yearlyFees)
     {
         //
     }
@@ -52,7 +51,7 @@ class ParkingSpaceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ParkingSpace $parkingSpace)
+    public function update(Request $request, yearlyFees $yearlyFees)
     {
         //
     }
@@ -60,7 +59,7 @@ class ParkingSpaceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ParkingSpace $parkingSpace)
+    public function destroy(yearlyFees $yearlyFees)
     {
         //
     }

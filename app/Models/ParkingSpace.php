@@ -12,4 +12,12 @@ class ParkingSpace extends Model
     public function user(){
        return $this->belongsTo(User::class);
     }
+
+    public function additionalInformation():additionalInformation{
+        return $this->hasMany(additionalInformation::class);
+    }
+
+    public function yearlyFees():yearlyFees{
+        return $this->hasMany(yearlyFees::class);
+    }
 }

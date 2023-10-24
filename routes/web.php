@@ -15,10 +15,6 @@ use App\Http\Controllers\SendEmailControler;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -29,8 +25,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+Route::get('/parkingSpace/1', function(){
+   return view('show-hard-coded');
+});
+
 Route::resource('/parkingSpace', ParkingSpaceController::class);
 
 Route::post('/email/send', [SendEmailControler::class, 'send'])->name('email.send');
+
 
 require __DIR__.'/auth.php';

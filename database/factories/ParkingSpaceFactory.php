@@ -17,10 +17,16 @@ class ParkingSpaceFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'=>$this->faker->numberBetween(1,5),
-            'picture'=> "public/images/underwater.jpg",
-            'description'=>'this is a description',
-            'rules'=>$this->faker->text(),
+            'user_id'=>$this->faker->numberBetween(1,3),
+            'title'=>$this->faker->sentence,
+            'street'=>$this->faker->streetName,
+            'number'=>$this->faker->buildingNumber,
+            'city'=>$this->faker->city,
+            'picture'=>$this->faker->imageUrl,
+            'description'=>$this->faker->sentence,
+            'yearlyFees_id'=>$this->faker->numberBetween(1,3),
+            'dailyTariff'=>$this->faker->numberBetween(0,100),
+            'additionalInformation' =>$this->faker->numberBetween(1,5),
             'created_at'=>now(),
             'updated_at'=>now()
         ];
