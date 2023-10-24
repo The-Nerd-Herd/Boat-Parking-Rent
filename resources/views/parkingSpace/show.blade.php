@@ -18,7 +18,7 @@
             </article>
 
             <div class="flex flex-col lg:h-[600px] lg:w-[1000px] justify-between">
-                <h1 class="text-4xl">Parkeerplaats huren in Neeltje Jans</h1>
+                <h1 class="text-3xl font-semibold">Parkeerplaats huren in Neeltje Jans</h1>
                 <p class="text-xl">Straatnaam</p>
 
                 <!--Price info-->
