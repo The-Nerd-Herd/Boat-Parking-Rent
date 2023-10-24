@@ -4,6 +4,7 @@
     <title>Boat park renting</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="./public/images/paper-boat.jpg">
     <link rel="stylesheet" href="assets/css/main.css"/>
     @vite('resources/css/app.css')
 </head>
@@ -11,6 +12,7 @@
 
 <!-- Header -->
 <header id="header" class="alt">
+    <a href="/" class="logo"><img class="scale-50" src="images/paper-boat.jpg"></a>
     <a href="{{ route('login') }}">Login</a>
     <a href="#menu">Menu</a>
 </header>
@@ -31,10 +33,7 @@
     <div class="container">
         <p>Made with &#10084 by The Data Crusaders</p>
         <ul class="icons">
-{{--            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>--}}
-{{--            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>--}}
-{{--            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>--}}
-{{--            <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>--}}
+
         </ul>
     </div>
 </footer>

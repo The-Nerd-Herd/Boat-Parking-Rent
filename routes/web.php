@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParkingSpaceController;
-
+use App\Http\Controllers\SendEmailControler;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,5 +30,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('/parkingSpace', ParkingSpaceController::class);
+
+Route::post('/email/send', [SendEmailControler::class, 'send'])->name('email.send');
 
 require __DIR__.'/auth.php';
