@@ -171,7 +171,7 @@
                     <div id="houseRuleHead"
                          class="align-center text-center text-black font-bold bg-gradient-to-b from-black to-transparent text-transparent bg-clip-text">
                         <!-- Title -->
-                        <h1 class="align-center text-black font-bold">Noordlandhaven binnen/{{$parkingSpace->title}}</h1>
+                        <h1 class="align-center text-black font-bold">Noordlandhaven binnen/{{$parkingSpace->city}}</h1>
                         <br>
                         <p>Dit Reglement geldt in de haven van:</p>
                         <p>“{{$parkingSpace->street}}”</p>
