@@ -8,13 +8,8 @@ use Illuminate\Http\Request;
 
 class ParkingSpaceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $parkingSpaces = ParkingSpace::all();
-        return view('parkingSpace.index', compact('parkingSpaces'));
+    public function index(){
+        return abort(404);
     }
 
     /**

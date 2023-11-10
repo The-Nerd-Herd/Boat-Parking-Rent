@@ -12,7 +12,11 @@
 
 <!-- Header -->
 <header id="header" class="alt">
-    <a href="/" class="logo"><img class="scale-50" src="images/paper-boat.jpg"></a>
+    @if(Request::is('/'))
+    <a href="/" class="logo"><img class="scale-50" src="./images/paper-boat.jpg"></a>
+    @else
+        <a href="/" class="logo"><img class="scale-50" src="./../images/paper-boat.jpg"></a>
+    @endif
     <a href="{{ route('login') }}">Login</a>
     <a href="#menu">Menu</a>
 </header>

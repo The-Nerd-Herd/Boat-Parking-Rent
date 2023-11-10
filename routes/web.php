@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParkingSpaceController;
 use App\Http\Controllers\SendEmailControler;
+use App\Http\Controllers\WelcomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +16,7 @@ use App\Http\Controllers\SendEmailControler;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [WelcomeController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -26,7 +25,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/parkingSpace/1', function(){
+Route::get('/hardCoded', function(){
    return view('show-hard-coded');
 });
 
