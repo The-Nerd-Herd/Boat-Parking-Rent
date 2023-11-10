@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\SpecialRequirements;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,9 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            ParkingSpaceSeeder::class,
             AdditionalInformationSeeder::class,
             YearlyFeesSeeder::class,
-            ParkingSpaceSeeder::class,
+            SpecialRequirementsSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

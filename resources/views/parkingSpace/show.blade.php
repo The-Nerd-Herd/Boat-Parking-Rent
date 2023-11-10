@@ -1,7 +1,7 @@
 @extends('layouts/layout')
 
 <style>
-    td{
+    td {
         padding-top: 17px;
     }
 </style>
@@ -22,27 +22,19 @@
                 <p class="text-xl">Straatnaam</p>
 
                 <!--Price info-->
-                <div class="bg-white w-full p-10 flex flex-col text-center rounded-md gap-5 lg:overflow-y-auto lg:h-[500px] shadow-xl">
+                <div
+                    class="bg-white w-full p-10 flex flex-col text-center rounded-md gap-5 lg:overflow-y-auto lg:h-[500px] shadow-xl">
                     <!--Boat length annual rate-->
 
                     <h1 class="text-xl font-semibold">Jaartarief</h1>
-                    <table >
+                    <table>
                         <tbody class="text-gray-400 lg:text-base text-sm ">
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Eerste {{$parkingSpace->yearlyFees->length}} meters</td>
-                            <td class="bg-white text-right ">{{$parkingSpace->yearlyFees->amount}} € / meter</td>
-                        </tr>
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Volgende 5 meters (tot 12 meters)</td>
-                            <td class="bg-white text-right">100 € per meter</td>
-                        </tr>
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Elke meter boven de 12 (tot 18 meters)</td>
-                            <td class="bg-white text-right">80 € per meter</td>
-                        </tr>
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Ligplaats buiten ponton van langssteiger 10% opslag over totaal</td>
-                        </tr>
+                        @foreach($parkingSpace->yearlyFees as $yearlyFees)
+                            <tr class="border-b-2 border-t-0">
+                                <td class="bg-white text-left">{{$yearlyFees->length}} meters</td>
+                                <td class="bg-white text-right ">{{$yearlyFees->amount}} € / meter</td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
 
@@ -51,8 +43,8 @@
                     <table>
                         <tbody class="text-gray-400 text-sm lg:text-base">
                         <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Maandtarief </td>
-                            <td class="bg-white text-right">Jaartarief / 10 ({{($parkingSpace->yearlyFees->amount)/10}} €)</td>
+                            <td class="bg-white text-left">Maandtarief</td>
+                            <td class="bg-white text-right">Jaartarief / 10 €({{$parkingSpace->yearlyFees[0]->amount / 10}})</td>
                         </tr>
                         </tbody>
                     </table>
@@ -72,14 +64,12 @@
                     <h1 class="text-xl font-semibold">Speciale vereisten</h1>
                     <table>
                         <tbody class="text-gray-400 text-sm lg:text-base">
+                       @foreach($parkingSpace->specialRequirements as $requirement)
                         <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Lengte langer dan 18 meter</td>
-                            <td class="bg-white text-right">Prijs op aanvraag</td>
+                            <td class="bg-white text-left">{{$requirement->requirement}}</td>
+                            <td class="bg-white text-right">{{$requirement->price}} €</td>
                         </tr>
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Breedte Groter dan 5 meter</td>
-                            <td class="bg-white text-right">prijs op aanvraag</td>
-                        </tr>
+                       @endforeach
                         </tbody>
                     </table>
 
@@ -87,9 +77,11 @@
                     <h1 class="text-xl font-semibold">Aanvullende vereisten</h1>
                     <table>
                         <tbody class="text-gray-400 text-sm lg:text-base">
+                        @foreach($parkingSpace->additionalInformation as $information)
                         <tr class="border-b-2 border-t-0">
-                       <td class="bg-white text-left">{{$parkingSpace->additionalInformation->information}}</td>
+                            <td class="bg-white text-left">{{$information->information}}</td>
                         </tr>
+                        @endforeach
                         </tbody>
                     </table>
 
@@ -98,33 +90,48 @@
         </section>
 
         <!--Contact info-->
-        <form method="POST" action="{{route('email.send')}}" class="mx-10 rounded-md shadow-xl lg:w-2/4 flex flex-col gap-6 p-4 bg-white">
-            <h1  class="text-xl">Contact the seller</h1>
+        <form method="POST" action="{{route('email.send')}}"
+              class="mx-10 rounded-md shadow-xl lg:w-2/4 flex flex-col gap-6 p-4 bg-white">
+            <h1 class="text-xl">Contact the seller</h1>
             @csrf
             <div class="flex flex-col lg:flex-row gap-6 w-full">
                 <div class="w-full lg:w-1/2">
                     <label for="email" value="email">Email</label>
-                    <input  class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 " id="email" type="email" name="email" required="required" autofocus="autofocus" autocomplete="email">
+                    <input
+                        class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
+                        id="email" type="email" name="email" required="required" autofocus="autofocus"
+                        autocomplete="email">
                 </div>
 
                 <div class="w-full lg:w-1/2">
-                    <label for="phone" >Phone</label>
-                    <input  class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 " id="phone" type="text"  name="phone" required="required" autofocus="autofocus" autocomplete="phone">
+                    <label for="phone">Phone</label>
+                    <input
+                        class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
+                        id="phone" type="text" name="phone" required="required" autofocus="autofocus"
+                        autocomplete="phone">
                 </div>
             </div>
 
             <div class="flex flex-row justify-between gap-6 ">
                 <div>
-                    <label for="initials" >Initial</label>
-                    <input  class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 " id="initials" type="text" name="initials" maxlength="1"  autofocus="autofocus" autocomplete="name">
+                    <label for="initials">Initial</label>
+                    <input
+                        class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
+                        id="initials" type="text" name="initials" maxlength="1" autofocus="autofocus"
+                        autocomplete="name">
                 </div>
 
                 <div class="w-3/4">
-                    <label for="surname" >Surname</label>
-                    <input  class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full" id="surname" type="text" name="surname" required="required" autofocus="autofocus" autocomplete="name">
+                    <label for="surname">Surname</label>
+                    <input
+                        class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full"
+                        id="surname" type="text" name="surname" required="required" autofocus="autofocus"
+                        autocomplete="name">
                 </div>
             </div>
-            <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit</button>
+            <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">
+                Submit
+            </button>
         </form>
 
 

@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('length');
             $table->integer('amount');
+            $table->foreignId('parking_space_id')
+                ->references('id')
+                ->on('parking_spaces')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

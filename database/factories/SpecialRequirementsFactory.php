@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\yearlyFees>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SpecialRequirements>
  */
-class YearlyFeesFactory extends Factory
+class SpecialRequirementsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class YearlyFeesFactory extends Factory
     public function definition(): array
     {
         return [
-            'length'=>$this->faker->numberBetween(0,10),
-            'amount'=>$this->faker->numberBetween(80,150),
+            'requirement' => $this->faker->sentence,
+            'price'=> $this->faker->numberBetween(0,500),
             'parking_space_id'=>$this->faker->numberBetween(1,10),
         ];
     }

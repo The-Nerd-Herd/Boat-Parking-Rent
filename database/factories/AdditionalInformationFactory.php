@@ -18,6 +18,7 @@ class AdditionalInformationFactory extends Factory
     {
         return [
             'information' => $this->faker->text(100),
+            'parking_space_id'=>$this->faker->numberBetween(1,10)
         ];
     }
 }

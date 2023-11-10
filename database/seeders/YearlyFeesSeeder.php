@@ -14,6 +14,6 @@ class YearlyFeesSeeder extends Seeder
      */
     public function run(): void
     {
-        yearlyFees::factory(5)->create();
+        yearlyFees::factory(30)->create();
     }
 }

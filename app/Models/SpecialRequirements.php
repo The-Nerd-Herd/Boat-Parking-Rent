@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class yearlyFees extends Model
+class SpecialRequirements extends Model
 {
     use HasFactory;
 
-    public function parkingSpace()
-    {
+    public function parkingSpaces(){
         return $this->belongsTo(ParkingSpace::class);
     }
 }

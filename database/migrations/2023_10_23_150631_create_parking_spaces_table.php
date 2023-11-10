@@ -23,17 +23,7 @@ return new class extends Migration {
             $table->string('city');
             $table->string('picture');
             $table->string('description');
-            $table->foreignId('yearly_fees_id')
-                ->references('id')
-                ->on('yearly_fees')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->integer('dailyTariff');
-            $table->foreignId('additional_information_id')
-                ->references('id')
-                ->on('additional_information')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }
