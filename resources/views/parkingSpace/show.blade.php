@@ -29,8 +29,8 @@
                     <table >
                         <tbody class="text-gray-400 lg:text-base text-sm ">
                         <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Eerste 7 meters</td>
-                            <td class="bg-white text-right ">150 € / meter</td>
+                            <td class="bg-white text-left">Eerste {{$parkingSpace->yearlyFees->length}} meters</td>
+                            <td class="bg-white text-right ">{{$parkingSpace->yearlyFees->amount}} € / meter</td>
                         </tr>
                         <tr class="border-b-2 border-t-0">
                             <td class="bg-white text-left">Volgende 5 meters (tot 12 meters)</td>
@@ -52,7 +52,7 @@
                         <tbody class="text-gray-400 text-sm lg:text-base">
                         <tr class="border-b-2 border-t-0">
                             <td class="bg-white text-left">Maandtarief </td>
-                            <td class="bg-white text-right">Jaartarief / 10</td>
+                            <td class="bg-white text-right">Jaartarief / 10 ({{($parkingSpace->yearlyFees->amount)/10}} €)</td>
                         </tr>
                         </tbody>
                     </table>
@@ -63,7 +63,7 @@
                         <tbody class="text-gray-400 text-sm lg:text-base">
                         <tr class="border-b-2 border-t-0">
                             <td class="bg-white text-left">Dagtarief</td>
-                            <td class="bg-white text-right">1.5 € per meter</td>
+                            <td class="bg-white text-right">{{$parkingSpace->dailyTariff}} € per meter</td>
                         </tr>
                         </tbody>
                     </table>
@@ -88,19 +88,7 @@
                     <table>
                         <tbody class="text-gray-400 text-sm lg:text-base">
                         <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Prijzen zijn inclusief BTW</td>
-                        </tr>
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Aan dit overzicht kunnen geen rechten worden ontleend</td>
-                        </tr>
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Voor een ligplaatsaanvraag neemt u contact op met Hoop Maritiem BV</td>
-                        </tr>
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">
-                                Houd er rekening mee dat deze tarieven onderhevig zijn aan wijzigingen
-                                Het is raadzaam om direct contact op te nemen met Hoop Maritiem BV voor de meest actuele prijzen en beschikbaarheid
-                            </td>
+                       <td class="bg-white text-left">{{$parkingSpace->additionalInformation->information}}</td>
                         </tr>
                         </tbody>
                     </table>

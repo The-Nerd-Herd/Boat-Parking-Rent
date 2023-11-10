@@ -17,7 +17,7 @@ class AdditionalInformationFactory extends Factory
     public function definition(): array
     {
         return [
-            'additionalInformation' => $this->faker->text(100),
+            'information' => $this->faker->text(100),
         ];
     }
 }

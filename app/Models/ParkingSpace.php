@@ -13,11 +13,11 @@ class ParkingSpace extends Model
        return $this->belongsTo(User::class);
     }
 
-    public function additionalInformation():additionalInformation{
-        return $this->hasMany(additionalInformation::class);
+    public function additionalInformation(){
+        return $this->belongsTo(additionalInformation::class);
     }
 
-    public function yearlyFees():yearlyFees{
-        return $this->hasMany(yearlyFees::class);
+    public function yearlyFees(){
+        return $this->belongsTo(yearlyFees::class);
     }
 }

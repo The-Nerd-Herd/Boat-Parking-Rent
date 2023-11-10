@@ -11,7 +11,7 @@ class additionalInformation extends Model
 
     public function parkingSpace()
     {
-        $this->belongsTo(ParkingSpace::class);
+        $this->hasOne(ParkingSpace::class);
     }
 
 }

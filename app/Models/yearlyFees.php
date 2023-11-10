@@ -11,6 +11,6 @@ class yearlyFees extends Model
 
     public function parkingSpace()
     {
-        return $this->belongsTo(ParkingSpace::class);
+        return $this->hasOne(ParkingSpace::class);
     }
 }
