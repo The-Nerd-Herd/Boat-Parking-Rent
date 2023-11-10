@@ -12,4 +12,9 @@ class ParkingSpace extends Model
     public function user(){
        return $this->belongsTo(User::class);
     }
+
+    protected $fillable = [
+        'name',
+        'file_path'
+    ];
 }

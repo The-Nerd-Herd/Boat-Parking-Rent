@@ -33,6 +33,9 @@ Route::resource('/parkingSpace', ParkingSpaceController::class);
 
 Route::post('/email/send', [SendEmailControler::class, 'send'])->name('email.send');
 
+Route::get('/parkingSpace/create', [ParkingSpaceController::class, 'createForm']);
+Route::post('/parkingSpace/create', [ParkingSpaceController::class, 'fileUpload'])->name('fileUpload');
+
 Route::get('/payment', '\App\Http\Controllers\StripeController@index')->name('index');
 Route::post('/checkout', '\App\Http\Controllers\StripeController@checkout')->name('checkout');
 Route::get('/success', '\App\Http\Controllers\StripeController@success')->name('success');
