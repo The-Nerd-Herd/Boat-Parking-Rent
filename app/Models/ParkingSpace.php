@@ -21,7 +21,11 @@ class ParkingSpace extends Model
         return $this->hasMany(yearlyFees::class);
     }
 
-    public  function specialRequirements(){
+    public function specialRequirements(){
         return $this->hasMany(SpecialRequirements::class);
+    }
+
+    public function houseRules(){
+        return $this->hasMany(HouseRules::class);
     }
 }

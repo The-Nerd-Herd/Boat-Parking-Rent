@@ -5,6 +5,27 @@
         padding-top: 17px;
     }
 </style>
+<script>
+    window.addEventListener('load', function () {
+        const houseRule = document.getElementById('houseRuleHead');
+        const toggleBtnEl = document.getElementById('toggle-btn');
+        const moreTextEl = document.getElementById('more-text');
+        const hideBtnEl = document.getElementById('hide-btn');
+        toggleBtnEl.addEventListener('click', () => {
+            moreTextEl.classList.toggle('hidden');
+            toggleBtnEl.classList.toggle('hidden');
+            hideBtnEl.classList.toggle('hidden');
+            houseRule.className = 'align-center text-black font-bold';
+        });
+
+        hideBtnEl.addEventListener('click', () => {
+            moreTextEl.classList.toggle('hidden');
+            toggleBtnEl.classList.toggle('hidden');
+            hideBtnEl.classList.toggle('hidden');
+            houseRule.className = 'align-center text-black font-bold bg-gradient-to-b from-black to-transparent text-transparent bg-clip-text';
+        });
+    });
+</script>
 
 @section('content')
     <script>
@@ -18,8 +39,8 @@
             </article>
 
             <div class="flex flex-col lg:h-[600px] lg:w-[1000px] justify-between">
-                <h1 class="text-4xl">Parkeerplaats huren in Neeltje Jans</h1>
-                <p class="text-xl">Straatnaam</p>
+                <h1 class="text-4xl">Parkeerplaats huren in {{$parkingSpace->city}}</h1>
+                <p class="text-xl">{{$parkingSpace->street}} {{$parkingSpace->number}}</p>
 
                 <!--Price info-->
                 <div
@@ -44,7 +65,9 @@
                         <tbody class="text-gray-400 text-sm lg:text-base">
                         <tr class="border-b-2 border-t-0">
                             <td class="bg-white text-left">Maandtarief</td>
-                            <td class="bg-white text-right">Jaartarief / 10 €({{$parkingSpace->yearlyFees[0]->amount / 10}})</td>
+                            <td class="bg-white text-right">Jaartarief / 10
+                                €({{$parkingSpace->yearlyFees[0]->amount / 10}})
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -64,12 +87,12 @@
                     <h1 class="text-xl font-semibold">Speciale vereisten</h1>
                     <table>
                         <tbody class="text-gray-400 text-sm lg:text-base">
-                       @foreach($parkingSpace->specialRequirements as $requirement)
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">{{$requirement->requirement}}</td>
-                            <td class="bg-white text-right">{{$requirement->price}} €</td>
-                        </tr>
-                       @endforeach
+                        @foreach($parkingSpace->specialRequirements as $requirement)
+                            <tr class="border-b-2 border-t-0">
+                                <td class="bg-white text-left">{{$requirement->requirement}}</td>
+                                <td class="bg-white text-right">{{$requirement->price}} €</td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
 
@@ -78,9 +101,9 @@
                     <table>
                         <tbody class="text-gray-400 text-sm lg:text-base">
                         @foreach($parkingSpace->additionalInformation as $information)
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">{{$information->information}}</td>
-                        </tr>
+                            <tr class="border-b-2 border-t-0">
+                                <td class="bg-white text-left">{{$information->information}}</td>
+                            </tr>
                         @endforeach
                         </tbody>
                     </table>
@@ -134,6 +157,51 @@
             </button>
         </form>
 
+
+        {{--        House rules       --}}
+        <section class=" w-full p-20">
+
+            <div id="accordion-collapse" data-accordion="collapse"
+                 class="bg-white rounded-xl shadow-xl pt-7 flex flex-col items-center">
+
+                <h2 id="accordion-collapse-heading-1">
+                    <div class="align-center">
+                        <strong class="text-black font-bold">Havenreglement</strong>
+                    </div>
+                    <div id="houseRuleHead"
+                         class="align-center text-center text-black font-bold bg-gradient-to-b from-black to-transparent text-transparent bg-clip-text">
+                        <!-- Title -->
+                        <h1 class="align-center text-black font-bold">Noordlandhaven binnen/{{$parkingSpace->title}}</h1>
+                        <br>
+                        <p>Dit Reglement geldt in de haven van:</p>
+                        <p>“{{$parkingSpace->street}}”</p>
+                        {{--                        turning date from database into d-m-y date format--}}
+                        <p>Datum: {{date('d-m-y',strtotime($parkingSpace->created_at))}}</p>
+                        <button id="toggle-btn"
+                                class="mt-4 bg-black hover:bg-gray-400 text-white py-2 px-4 rounded-full">Read More
+                        </button>
+                    </div>
+                    <br>
+                    <span class="hidden" id="more-text">
+                    <div class="px-12">
+                        @foreach($parkingSpace->houseRules as $articles)
+                        <h3><strong class="text-black font-medium">{{$articles->title}}</strong></h3>
+                        <br>
+                            <ol class="text-black pl-4">
+                        @foreach($articles->bulletPoints as $bulletpoints)
+                            <li>{{$bulletpoints->text}}</li>
+                        @endforeach
+                            <br>
+                        </ol>
+                        @endforeach
+                    </div>
+                    </span>
+                </h2>
+
+                <button id="hide-btn" class="hidden mt-4 text-blue-500 focus:outline-none">Hide</button>
+            </div>
+
+        </section>
 
     </main>
 @endsection

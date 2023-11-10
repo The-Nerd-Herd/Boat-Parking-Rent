@@ -18,7 +18,7 @@ class ParkingSpaceFactory extends Factory
     {
         return [
             'user_id'=>$this->faker->numberBetween(1,3),
-            'title'=>$this->faker->sentence,
+            'title'=>$this->faker->text(20),
             'street'=>$this->faker->streetName,
             'number'=>$this->faker->buildingNumber,
             'city'=>$this->faker->city,
