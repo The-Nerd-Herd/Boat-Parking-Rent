@@ -25,7 +25,7 @@
 <nav id="menu">
     <ul class="links">
         <li><a href="/">Home</a></li>
-        <li><a>Profile</a></li>
+        <li><a href="{{route('profile.edit')}}">Profile</a></li>
 {{--        <li><a href="elements.html">Elements</a></li>--}}
     </ul>
 </nav>
