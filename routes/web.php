@@ -33,9 +33,4 @@ Route::resource('/parkingSpace', ParkingSpaceController::class);
 
 Route::post('/email/send', [SendEmailControler::class, 'send'])->name('email.send');
 
-
-//Route::get('/payment', '\App\Http\Controllers\StripeController@index')->name('index');
-//Route::post('/checkout', '\App\Http\Controllers\StripeController@checkout')->name('checkout');
-//Route::get('/success', '\App\Http\Controllers\StripeController@success')->name('success');
-
 require __DIR__.'/auth.php';
