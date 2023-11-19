@@ -16,7 +16,7 @@
         Welcome, {{$user->name}}
     </h1>
     <div class="snap-mandatory snap-x lg:snap-none overflow-x-scroll flex flex-row gap-5 w-full justify-center lg:p-0 pl-8 pr-8">
-        <div class="flex flex-row lg:w-[1020px] bg-white shadow-xl items-center justify-center rounded-md pl-5 pr-5 gap-5 lg:ml-0 ml-[600px]">
+        <div class="flex flex-row lg:w-[1070px] bg-white shadow-xl items-center justify-center rounded-md pl-5 pr-5 gap-5 lg:ml-0 ml-[600px]">
             <div class="snap-center lg:snap-none lg:w-full w-[300px]">
                 @include('profile.partials.update-profile-information-form')
             </div>
@@ -31,7 +31,7 @@
     <h1 class="text-4xl font-semibold pt-[10px] pb-[10px]">
         Your listings
     </h1>
- <div class="grid lg:grid-cols-3 grid-cols-1 grid-auto-rows gap-5 lg:w-[1400px] bg-white shadow-xl rounded-md p-5 mb-[10px]">
+ <div class="grid lg:grid-cols-3 grid-cols-1 grid-auto-rows gap-5 lg:w-[1450px] bg-white shadow-xl rounded-md p-5 mb-[10px]">
      <img src="images/pic02.jpg" alt="rental property">
      <img src="images/pic03.jpg" alt="rental property">
      <img src="images/pic01.jpg" alt="rental property">
