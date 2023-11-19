@@ -2,18 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use Database\Factories\YearlyFeesFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\yearlyFees;
 
-class UserSeeder extends Seeder
+class YearlyFeesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        User::factory(5)->create();
+        yearlyFees::factory(30)->create();
     }
-
 }

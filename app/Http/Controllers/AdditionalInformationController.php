@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ParkingSpace;
+use App\Models\additionalInformation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ParkingSpaceController extends Controller
+class AdditionalInformationController extends Controller
 {
-    public function index(){
-        return abort(404);
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
     }
 
     /**
@@ -25,21 +29,21 @@ class ParkingSpaceController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(ParkingSpace $parkingSpace)
+    public function show(additionalInformation $additionalInformation)
     {
-        return view('parkingSpace.show', ['parkingSpace' => $parkingSpace]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ParkingSpace $parkingSpace)
+    public function edit(additionalInformation $additionalInformation)
     {
         //
     }
@@ -47,7 +51,7 @@ class ParkingSpaceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ParkingSpace $parkingSpace)
+    public function update(Request $request, additionalInformation $additionalInformation)
     {
         //
     }
@@ -55,7 +59,7 @@ class ParkingSpaceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ParkingSpace $parkingSpace)
+    public function destroy(additionalInformation $additionalInformation)
     {
         //
     }

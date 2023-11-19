@@ -5,14 +5,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="./public/images/paper-boat.jpg">
-    <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="stylesheet" href="/assets/css/main.css"/>
     @vite('resources/css/app.css')
 </head>
 <body>
 
 <!-- Header -->
 <header id="header" class="alt">
-    <a href="/" class="logo"><img class="scale-50" src="images/paper-boat.jpg"></a>
+    @if(Request::is('/'))
+    <a href="/" class="logo"><img class="scale-50" src="./images/paper-boat.jpg"></a>
+    @else
+        <a href="/" class="logo"><img class="scale-50" src="./../images/paper-boat.jpg"></a>
+    @endif
     <a href="{{ route('login') }}">Login</a>
     <a href="#menu">Menu</a>
 </header>

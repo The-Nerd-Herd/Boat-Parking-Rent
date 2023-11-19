@@ -4,22 +4,21 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('parking_spaces', function (Blueprint $table) {
+        Schema::create('additional_information', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
+            $table->string('information');
+            $table->foreignId('parking_space_id')
                 ->references('id')
-                ->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            $table->string('picture');
-            $table->string('description');
-            $table->string('rules');
+                ->on('parking_spaces')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('parking_spaces');
+        Schema::dropIfExists('additional_information');
     }
 };
