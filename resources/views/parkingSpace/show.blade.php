@@ -27,6 +27,7 @@
     });
 </script>
 
+
 @section('content')
     <script>
         let navBar = document.getElementById('header');
@@ -41,6 +42,7 @@
             <div class="flex flex-col lg:h-[600px] lg:w-[1000px] justify-between">
                 <h1 class="text-4xl">Parkeerplaats huren in {{$parkingSpace->city}}</h1>
                 <p class="text-xl">{{$parkingSpace->street}} {{$parkingSpace->number}}</p>
+
 
                 <!--Price info-->
                 <div
@@ -157,7 +159,6 @@
             </button>
         </form>
 
-
         {{--        House rules       --}}
         <section class=" w-full p-20">
 
@@ -202,6 +203,8 @@
             </div>
 
         </section>
+
+
 
     </main>
 @endsection
