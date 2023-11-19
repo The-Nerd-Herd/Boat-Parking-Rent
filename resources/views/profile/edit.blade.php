@@ -32,12 +32,9 @@
         Your listings
     </h1>
  <div class="grid lg:grid-cols-3 grid-cols-1 grid-auto-rows gap-5 lg:w-[1450px] bg-white shadow-xl rounded-md p-5 mb-[10px]">
-     <img src="images/pic02.jpg" alt="rental property">
-     <img src="images/pic03.jpg" alt="rental property">
-     <img src="images/pic01.jpg" alt="rental property">
-     <img src="images/pic04.jpg" alt="rental property">
-     <img src="images/pic03.jpg" alt="rental property">
-     <img src="images/pic01.jpg" alt="rental property">
+     @foreach($parkingSpaces as $space)
+        <a href="{{route('parkingSpace.show', $space->id)}}"><img class="transform hover:scale-95" src="{{$space->picture}}"></a>
+     @endforeach
  </div>
     <!-- @include('profile.partials.delete-user-form')-->
 </main>
