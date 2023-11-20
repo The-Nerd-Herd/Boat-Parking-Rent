@@ -58,6 +58,10 @@ class ParkingSpaceController extends Controller
 //
 //        $request->image->move(public_path('images'), $imageName);
 
+       for ($i =1; $i<=$request->inputCount;$i++){
+           $inputname = "input${i}" ;
+           dump($request->$inputname);
+       }
 
         dd($request);
 
