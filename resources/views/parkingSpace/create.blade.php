@@ -20,7 +20,7 @@
 </style>
 
     <main class="bg-zinc-100 mt-[50px]">
-        <form method="POST" action="{{route('parkingSpace.store')}}" class="mx-10 rounded-md shadow-xl p-4 bg-white">
+        <form method="POST" action="{{route('parkingSpace.store')}}" class="mx-10 rounded-md shadow-xl p-4 bg-white" enctype="multipart/form-data" >
             <h1  class="text-xl">Create listing</h1>
             @csrf
             <div id="formContent" class="flex flex-wrap flex-col lg:flex-row gap-6 w-full">
@@ -35,6 +35,8 @@
             <input id="inputCount" class="hidden" type="text" name="inputCount">
             <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 mt rounded-md text-white" type="submit">Submit</button>
 
+
+            <input type="file" name="image" accept="image/png, image/jpeg">
 {{--                <div class="w-full lg:w-1/2">--}}
 {{--                    <label for="phone">Upload Picture</label>--}}
 {{--                    <input  class="bg-gray-100 text-black rounded-md shadow-sm block mt-1" id="image" type="file"  name="phone" required="required" autofocus="autofocus" autocomplete="phone">--}}

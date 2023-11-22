@@ -36,7 +36,7 @@
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
             <article class="flex p-8 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
-                <img class="object-scale-down" src="images/ricardo.jpg" alt="image"/>
+                <img class="object-scale-down" src="../../../public/{{$parkingSpace->picture}}" alt="image"/>
             </article>
 
             <div class="flex flex-col lg:h-[600px] lg:w-[1000px] justify-between">

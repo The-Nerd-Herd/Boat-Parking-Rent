@@ -5,28 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\ParkingSpace;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use function Webmozart\Assert\Tests\StaticAnalysis\resource;
 
 class ParkingSpaceController extends Controller
 {
-    public function createForm(){
+    public function createForm()
+    {
         return view('parkingSpace/create');
-    }
-    public function fileUpload(Request $req){
-        $req->validate([
-            'file' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
-        ]);
-        $fileModel = new File;
-        if($req->file()) {
-            $fileName = time().'_'.$req->file->getClientOriginalName();
-            $filePath = $req->file('file')->storeAs('uploads', $fileName, 'public');
-            $fileModel->name = time().'_'.$req->file->getClientOriginalName();
-            $fileModel->file_path = '/storage/' . $filePath;
-            $fileModel->save();
-            return back()
-                ->with('success','File has been uploaded.')
-                ->with('file', $fileName);
-        }
     }
 
     /**
@@ -58,12 +44,34 @@ class ParkingSpaceController extends Controller
 //
 //        $request->image->move(public_path('images'), $imageName);
 
-       for ($i =1; $i<=$request->inputCount;$i++){
-           $inputname = "input${i}" ;
-           dump($request->$inputname);
-       }
+        $newParking = new ParkingSpace();
+        $newParking->user_id =1;
+        $newParking->title ="asd";
+        $newParking->street="hihi";
+        $newParking->number=132;
+        $newParking->city="Cigány";
+        $newParking->description="asddd";
+        $newParking->dailyTariff=69;
 
-        dd($request);
+        if ($request->inputCount != null) {
+            for ($i = 1; $i <= $request->inputCount; $i++) {
+                $inputname = "input${i}";
+                dump($request->$inputname);
+            }
+        }
+
+        $imagePath =null;
+        if ($request->hasFile('image')){
+            $imagePath= $request->file('image')->store(
+                'images',
+                'public'
+            );
+        }
+        $newParking->picture=$imagePath;
+
+        $newParking->save();
+
+        return redirect(route('parkingSpace.show',$newParking->id));
 
     }
 
