@@ -48,15 +48,24 @@ class ParkingSpaceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) {
     {
-//        $request->validate([
-//            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-//        ]);
-//
-//        $imageName = time().'.'.$request->image->extension();
-//
-//        $request->image->move(public_path('images'), $imageName);
+        // Validate your request if needed
+        $request->validate([
+            'editorContent' => 'required',
+        ]);
+        $newParking = new ParkingSpace();
+        $newParking->user_id = 1;
+        $newParking->picture = '';
+        $newParking->description = $request->editorContent;
+        $newParking->rules ='';
+
+        $newParking->save();
+
+        // Save $content to the database using your model
+
+        return redirect()->back()->with('success', 'Content saved successfully.');
+    }
 
        for ($i =1; $i<=$request->inputCount;$i++){
            $inputname = "input${i}" ;
