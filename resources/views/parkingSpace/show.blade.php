@@ -36,7 +36,7 @@
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
             <article class="flex p-8 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
-                <img class="object-scale-down" src="../../../public/{{$parkingSpace->picture}}" alt="image"/>
+                <img class="object-scale-down" src="/storage/{{$parkingSpace->picture}}" alt="image"/>
             </article>
 
             <div class="flex flex-col lg:h-[600px] lg:w-[1000px] justify-between">
@@ -160,6 +160,7 @@
             <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit</button>
         </form>
 
+    <a href="/storage/{{$parkingSpace->pdf_path}}" target="_blank" >PDF</a>
         <!--Contact info-->
         <section class=" w-full p-20">
 

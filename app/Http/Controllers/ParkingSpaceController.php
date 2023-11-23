@@ -6,13 +6,14 @@ use App\Models\ParkingSpace;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function Laravel\Prompts\error;
 use function Webmozart\Assert\Tests\StaticAnalysis\resource;
 
 class ParkingSpaceController extends Controller
 {
     public function createForm()
     {
-        return view('parkingSpace/create');
+        return view('parkingSpace.create');
     }
 
     /**
@@ -20,7 +21,7 @@ class ParkingSpaceController extends Controller
      */
     public function index()
     {
-        return view('parkingSpace.show');
+        return abort(404);
     }
 
     /**
@@ -46,12 +47,7 @@ class ParkingSpaceController extends Controller
 
         $newParking = new ParkingSpace();
         $newParking->user_id =1;
-        $newParking->title ="asd";
-        $newParking->street="hihi";
-        $newParking->number=132;
-        $newParking->city="Cigány";
         $newParking->description="asddd";
-        $newParking->dailyTariff=69;
 
         if ($request->inputCount != null) {
             for ($i = 1; $i <= $request->inputCount; $i++) {
@@ -67,6 +63,14 @@ class ParkingSpaceController extends Controller
                 'public'
             );
         }
+        $pdfPath=null;
+        if ($request->hasFile('pdf')){
+            $pdfPath = $request->file('pdf')->store(
+                'pdfs',
+                'public'
+            );
+        }
+        $newParking->pdf_path=$pdfPath;
         $newParking->picture=$imagePath;
 
         $newParking->save();

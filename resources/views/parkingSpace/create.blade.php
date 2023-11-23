@@ -34,9 +34,14 @@
             </div>
             <input id="inputCount" class="hidden" type="text" name="inputCount">
             <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 mt rounded-md text-white" type="submit">Submit</button>
-
-
+            <div>
+                <label>Image</label>
             <input type="file" name="image" accept="image/png, image/jpeg">
+            </div>
+            <div>
+                <label>Pdf</label>
+            <input type="file" name="pdf" accept="application/pdf">
+            </div>
 {{--                <div class="w-full lg:w-1/2">--}}
 {{--                    <label for="phone">Upload Picture</label>--}}
 {{--                    <input  class="bg-gray-100 text-black rounded-md shadow-sm block mt-1" id="image" type="file"  name="phone" required="required" autofocus="autofocus" autocomplete="phone">--}}

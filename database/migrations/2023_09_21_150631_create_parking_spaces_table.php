@@ -18,8 +18,9 @@ return new class extends Migration {
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->string('picture');
+            $table->string('pdf_path')->nullable();
             $table->string('description');
-            $table->string('rules');
+            $table->string('rules')->nullable();
             $table->timestamps();
         });
     }
