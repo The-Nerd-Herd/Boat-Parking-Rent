@@ -107,4 +107,10 @@ class ParkingSpaceController extends Controller
     {
         //
     }
+
+    public function houseRules(ParkingSpace $parkingSpace, $description) {
+        $rules = ParkingSpace::findOrFail($description);
+
+        return view('parkingSpace.houseRules', ['rules' => $rules]);
+    }
 }

@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('/parkingSpace', ParkingSpaceController::class);
 
+Route::get('/parkingSpace/{id}/houseRules', [ParkingSpaceController::class, 'houseRules']);
+
 Route::post('/email/send', [SendEmailControler::class, 'send'])->name('email.send');
 
 Route::get('/parkingSpace/create', [ParkingSpaceController::class, 'createForm']);
