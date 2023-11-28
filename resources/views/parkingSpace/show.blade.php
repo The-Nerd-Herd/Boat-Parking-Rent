@@ -5,6 +5,7 @@
         padding-top: 17px;
     }
 </style>
+
 <script>
     window.addEventListener('load', function () {
         const houseRule = document.getElementById('houseRuleHead');
@@ -42,7 +43,6 @@
             <div class="flex flex-col lg:h-[600px] lg:w-[1000px] justify-between">
                 <h1 class="text-4xl">Parkeerplaats huren in {{$parkingSpace->city}}</h1>
                 <p class="text-xl">{{$parkingSpace->street}} {{$parkingSpace->number}}</p>
-
 
                 <!--Price info-->
                 <div
@@ -161,7 +161,6 @@
 
         {{--        House rules       --}}
         <section class=" w-full p-20">
-
             <div id="accordion-collapse" data-accordion="collapse"
                  class="bg-white rounded-xl shadow-xl pt-7 flex flex-col items-center">
 
@@ -201,10 +200,6 @@
 
                 <button id="hide-btn" class="hidden mt-4 text-blue-500 focus:outline-none">Hide</button>
             </div>
-
         </section>
-
-
-
     </main>
 @endsection
