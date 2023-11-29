@@ -76,7 +76,8 @@ class ParkingSpaceController extends Controller
         $newParking->picture = $imagePath;
 
         $newParking->save();
-
+        // note to self, only the js is being sent to the database
+        // not the original input fields
         $this->saveInput($request, "year", $newParking->id);
         $this->saveInput($request, "month", $newParking->id);
         $this->saveInput($request, "day", $newParking->id);
