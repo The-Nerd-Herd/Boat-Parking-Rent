@@ -19,8 +19,22 @@
     @else
         <a href="/" class="logo"><img class="scale-50" src="./../images/paper-boat.jpg"></a>
     @endif
-    <a href="{{ route('login') }}">Login</a>
-    <a href="#menu">Menu</a>
+    <div class="flex gap-6 justify-end h-[80%] w-full pr-10" >
+        @if (auth()->check())
+            <form method="POST" class="h-full flex items-center flex-col justify-center" action="{{route('logout')}}">
+                @csrf
+                @method('POST')
+                <div class="flex items-center h-full flex-col">
+                    <button class="flex items-center justify-center bg-white w-20 h-full rounded-lg  bg-opacity-80 hover:bg-opacity-100" type="submit" >Log Out</button>
+                </div>
+            </form>
+        @else
+            <a href="{{ route('login') }}">Login</a>
+        @endif
+            <div class="flex transform duration-100 flex-col items-center justify-center bg-white bg-opacity-80 hover:bg-opacity-100 h-full w-20 rounded-lg">
+                <a href="#menu" class="text-black">Menu</a>
+            </div>
+    </div>
 </header>
 
 <!-- Nav -->

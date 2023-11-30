@@ -33,6 +33,8 @@ class ParkingSpaceController extends Controller
      */
     public function show(ParkingSpace $parkingSpace)
     {
+        dd(auth()->user()->id);
+
         return view('parkingSpace.show', ['parkingSpace' => $parkingSpace]);
     }
 
