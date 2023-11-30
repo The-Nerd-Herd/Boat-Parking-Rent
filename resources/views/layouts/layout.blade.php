@@ -13,7 +13,11 @@
 
 <!-- Header -->
 <header id="header" class="alt">
-    <a href="/" class="logo"><img class="scale-50" src="/images/paper-boat.jpg"></a>
+    @if(Request::is('/'))
+    <a href="/" class="logo"><img class="scale-50" src="./images/paper-boat.jpg"></a>
+    @else
+        <a href="/" class="logo"><img class="scale-50" src="./../images/paper-boat.jpg"></a>
+    @endif
     <a href="{{ route('login') }}">Login</a>
     <a href="#menu">Menu</a>
 </header>
@@ -22,7 +26,7 @@
 <nav id="menu">
     <ul class="links">
         <li><a href="/">Home</a></li>
-        <li><a>Profile</a></li>
+        <li><a href="{{route('profile.edit')}}">Profile</a></li>
 {{--        <li><a href="elements.html">Elements</a></li>--}}
     </ul>
 </nav>

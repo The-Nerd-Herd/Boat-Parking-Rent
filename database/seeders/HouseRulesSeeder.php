@@ -2,18 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\HouseRules;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class HouseRulesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        User::factory(5)->create();
+        HouseRules::factory(20)->create();
     }
-
 }

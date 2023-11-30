@@ -1,29 +1,41 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('layouts/layout')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
+@section('content')
+    <script>
+        let navBar = document.getElementById('header');
+        navBar.className = 'reveal';
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            height: 4px;
+        }
+    </style>
+
+<main class="flex flex-col items items-center bg-zinc-100 gap-6 mt-[50px]">
+    <h1 class="text-4xl font-semibold pt-[25px] pb-[20px]">
+        Welcome, {{$user->name}}
+    </h1>
+    <div class="snap-mandatory snap-x lg:snap-none overflow-x-scroll flex flex-row gap-5 w-full justify-center lg:p-0 pl-8 pr-8">
+        <div class="flex flex-row lg:w-[1070px] bg-white shadow-xl items-center justify-center rounded-md pl-5 pr-5 gap-5 lg:ml-0 ml-[600px]">
+            <div class="snap-center lg:snap-none lg:w-full w-[300px]">
+                @include('profile.partials.update-profile-information-form')
             </div>
-
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
+            <div class="snap-center lg:snap-none lg:w-full w-[300px] pt-[8px]">
+                @include('profile.partials.update-password-form')
             </div>
         </div>
+        <div class="snap-center lg:snap-none flex flex-row lg:w-[360px] items-center justify-center bg-white shadow-xl rounded-md pl-5 pr-5">
+            <i class="fa fa-user" style="font-size: 200px"></i>
+        </div>
     </div>
-</x-app-layout>
+    <h1 class="text-4xl font-semibold pt-[10px] pb-[10px]">
+        Your listings
+    </h1>
+ <div class="grid lg:grid-cols-3 grid-cols-1 grid-auto-rows gap-5 lg:w-[1450px] bg-white shadow-xl rounded-md p-5 mb-[10px]">
+     @foreach($parkingSpaces as $space)
+        <a href="{{route('parkingSpace.show', $space->id)}}"><img class="transform hover:scale-95" src="{{$space->picture}}"></a>
+     @endforeach
+ </div>
+    <!-- @include('profile.partials.delete-user-form')-->
+</main>
+@endsection

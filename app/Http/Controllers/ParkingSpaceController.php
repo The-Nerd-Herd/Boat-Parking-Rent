@@ -16,10 +16,6 @@ use function Webmozart\Assert\Tests\StaticAnalysis\resource;
 
 class ParkingSpaceController extends Controller
 {
-    public function createForm()
-    {
-        return view('parkingSpace.create');
-    }
 
     /**
      * Display a listing of the resource.
@@ -43,7 +39,7 @@ class ParkingSpaceController extends Controller
 
 
     public function store(Request $request) {
-    
+
         // Validate your request if needed
         $request->validate([
             'editorContent' => 'required',
@@ -71,6 +67,7 @@ class ParkingSpaceController extends Controller
         }
 
         return redirect(route('parkingSpace.show', $newParking->id));
+
     }
 
     private function storeFile(Request $request, string $fileKey, string $storagePath)
@@ -86,8 +83,12 @@ class ParkingSpaceController extends Controller
 
     private function saveInput(Request $request, string $name, int $id)
     {
-        $reference = "${name}Count";
-        if ($request->$reference === null) {
+        $reference = "${name
+}
+
+Count";
+        if (
+$request->$reference === null) {
             return;
         }
         $table = $this->chooseTable($name);

@@ -21,6 +21,10 @@ return new class extends Migration {
             $table->string('pdf_path')->nullable();
             $table->string('description');
             $table->string('rules')->nullable();
+            $table->string('title');
+            $table->string('street');
+            $table->integer('number');
+            $table->string('city');
             $table->timestamps();
         });
     }
