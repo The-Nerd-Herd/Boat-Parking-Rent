@@ -10,7 +10,6 @@
         }
     </style>
 <main class="flex flex-col items items-center bg-zinc-100 h-full w-full  gap-6 mt-[50px]">
-    @include('profile.partials.delete-user-pop-up')
     <h1 class="text-4xl font-semibold pt-[25px] pb-[20px]">
         Welcome, {{$user->name}}
     </h1>
@@ -25,7 +24,7 @@
         </div>
         <div class="snap-center lg:snap-none flex flex-col lg:w-[360px] items-center justify-center bg-white shadow-xl rounded-md pl-5 pr-5">
             <i class="fa fa-user" style="font-size: 200px"></i>
-            <button class="w-1/2 rounded-lg mt-10 hover:bg-red-500" onclick="openPupup">Delete account</button>
+            <button id="deleteUserButton" class="w-1/2 rounded-lg mt-10 hover:bg-red-500">Delete account</button>
         </div>
     </div>
     <h1 class="text-4xl font-semibold pt-[10px] pb-[10px]">
@@ -46,8 +45,10 @@
             </div>
         @endforeach
     </div>
-    <div id="mask" disabled="true" class="absolute h-full w-full z-50 blur bg-transparent-200">
-
+    <div id="mask" class="absolute backdrop-filter backdrop-blur-[20px] h-[100%]  w-full z-50 bg-gray-600 bg-opacity-25 " style="display: none">
+        <div class="h-full w-full flex items-center justify-center mb-2">
+            @include('profile.partials.delete-user-pop-up')
+        </div>
     </div>
 
 </main>
