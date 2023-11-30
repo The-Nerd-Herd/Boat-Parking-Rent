@@ -16,12 +16,13 @@ use App\Http\Controllers\WelcomeController;
 |
 */
 
-Route::get('/', [WelcomeController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [WelcomeController::class,'index'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/email/send', [SendEmailControler::class, 'send'])->name('email.send');
 });
 
 
@@ -31,6 +32,5 @@ Route::get('/hardCoded', function(){
 
 Route::resource('/parkingSpace', ParkingSpaceController::class);
 
-Route::post('/email/send', [SendEmailControler::class, 'send'])->name('email.send');
 
 require __DIR__.'/auth.php';

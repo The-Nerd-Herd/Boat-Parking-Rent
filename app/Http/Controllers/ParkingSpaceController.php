@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class ParkingSpaceController extends Controller
 {
     public function index(){
+        //TODO: Show the all parking spaces
         return abort(404);
     }
 
@@ -33,7 +34,6 @@ class ParkingSpaceController extends Controller
      */
     public function show(ParkingSpace $parkingSpace)
     {
-        dd(auth()->user()->id);
 
         return view('parkingSpace.show', ['parkingSpace' => $parkingSpace]);
     }

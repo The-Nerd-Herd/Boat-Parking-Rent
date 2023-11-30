@@ -29,7 +29,7 @@
                 </div>
             </form>
         @else
-            <a href="{{ route('login') }}">Login</a>
+            <a class="flex items-center text-black justify-center bg-white w-20 h-full rounded-lg  bg-opacity-80 hover:bg-opacity-100" href="{{ route('login') }}">Login</a>
         @endif
             <div class="flex transform duration-100 flex-col items-center justify-center bg-white bg-opacity-80 hover:bg-opacity-100 h-full w-20 rounded-lg">
                 <a href="#menu" class="text-black">Menu</a>
@@ -41,7 +41,7 @@
 <nav id="menu">
     <ul class="links">
         <li><a href="/">Home</a></li>
-        <li><a href="{{route('profile.edit')}}">Profile</a></li>
+        <li><a href="@if(auth()->check()){{route('profile.edit')}}@else{{route('login')}}@endif">Profile</a></li>
 {{--        <li><a href="elements.html">Elements</a></li>--}}
     </ul>
 </nav>
