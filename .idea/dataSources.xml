@@ -15,11 +15,15 @@
       <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="laravel@localhost" uuid="28e3c4e8-8784-4c80-8ee6-aeab1ee852ed">
+    <data-source source="LOCAL" name="@localhost [2]" uuid="28e3c4e8-8784-4c80-8ee6-aeab1ee852ed">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+<<<<<<< HEAD
       <jdbc-url>jdbc:mysql://localhost:3306/laravel</jdbc-url>
+>>>>>>> main
+=======
+      <jdbc-url>jdbc:mysql://localhost:3306/</jdbc-url>
 >>>>>>> main
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
