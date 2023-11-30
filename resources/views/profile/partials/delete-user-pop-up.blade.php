@@ -8,10 +8,10 @@
     <p class="">This action will delete <b class="text-red-600 font-bold">EVERYTHING!</b></p>
     <div class=" flex flex-row gap-10 mt-4">
         <button id="popupClose" class=" bg-gray-400 rounded-md shadow-xl hover:bg-green-500 transform w-20 w-20 duration-75">Cancel</button>
-        <form method="post" action="{{ route('profile.destroy') }}" >
+        <form method="POST" action="{{ route('profile.destroy') }}" >
             @csrf
-            @method('delete')
-            <button class="hover:cursor-pointer text-center  p-3 h rounded-md hover:bg-red-500 hover:text-white">
+            @method('DELETE')
+            <button type="submit" class="hover:cursor-pointer text-center  p-3 h rounded-md hover:bg-red-500 hover:text-white">
                 Yes
             </button>
         </form>
