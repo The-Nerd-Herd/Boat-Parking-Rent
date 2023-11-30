@@ -41,11 +41,21 @@ class ParkingSpaceController extends Controller
      * Store a newly created resource in storage.
      */
 
-    public function store(Request $request)
-    {
+
+    public function store(Request $request) {
+    
+        // Validate your request if needed
+        $request->validate([
+            'editorContent' => 'required',
+        ]);
         $newParking = new ParkingSpace();
         $newParking->user_id = 1;
-        $newParking->description = "asddd";
+        $newParking->picture = '';
+        $newParking->description = $request->editorContent;
+        $newParking->rules ='';
+
+        $newParking->save();
+
 
         $imagePath = $this->storeFile($request, 'image', 'images');
         $pdfPath = $this->storeFile($request, 'pdf', 'pdfs');
@@ -138,5 +148,11 @@ class ParkingSpaceController extends Controller
     public function destroy(ParkingSpace $parkingSpace)
     {
         //
+    }
+
+    public function houseRules(ParkingSpace $parkingSpace, $description) {
+        $rules = ParkingSpace::findOrFail($description);
+
+        return view('parkingSpace.houseRules', ['rules' => $rules]);
     }
 }
