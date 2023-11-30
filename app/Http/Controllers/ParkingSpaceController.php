@@ -40,91 +40,77 @@ class ParkingSpaceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
-//        $request->validate([
-//            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-//        ]);
-//
-//        $imageName = time().'.'.$request->image->extension();
-//
-//        $request->image->move(public_path('images'), $imageName);
-
-
         $newParking = new ParkingSpace();
-
-
         $newParking->user_id = 1;
         $newParking->description = "asddd";
 
+        $imagePath = $this->storeFile($request, 'image', 'images');
+        $pdfPath = $this->storeFile($request, 'pdf', 'pdfs');
 
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store(
-                'images',
-                'public'
-            );
-        }
-        $pdfPath = null;
-        if ($request->hasFile('pdf')) {
-            $pdfPath = $request->file('pdf')->store(
-                'pdfs',
-                'public'
-            );
-        }
         $newParking->pdf_path = $pdfPath;
         $newParking->picture = $imagePath;
 
         $newParking->save();
-        // note to self, only the js is being sent to the database
-        // not the original input fields
-        $this->saveInput($request, "year", $newParking->id);
-        $this->saveInput($request, "month", $newParking->id);
-        $this->saveInput($request, "day", $newParking->id);
-        $this->saveInput($request, "special", $newParking->id);
-        $this->saveInput($request, "additional", $newParking->id);
-        return redirect(route('parkingSpace.show', $newParking->id));
 
+        $inputNames = ["year", "month", "day", "special", "additional"];
+        foreach ($inputNames as $inputName) {
+            $this->saveInput($request, $inputName, $newParking->id);
+        }
+
+        return redirect(route('parkingSpace.show', $newParking->id));
     }
 
-    function saveInput(Request $request, string $name, int $id)
+    private function storeFile(Request $request, string $fileKey, string $storagePath)
+    {
+        $filePath = null;
+
+        if ($request->hasFile($fileKey)) {
+            $filePath = $request->file($fileKey)->store($storagePath, 'public');
+        }
+
+        return $filePath;
+    }
+
+    private function saveInput(Request $request, string $name, int $id)
     {
         $reference = "${name}Count";
-        if ($request->$reference == null) return;
-        for ($i = 0; $i <= $request->$reference; $i++) {
-            $inputname = "${name}${i}";
-            $table = $this->chooseTable($name);
-            $table->post_id = $id;
-            $table->text = $request->$inputname;
-            $table->save();
+        if ($request->$reference === null) {
+            return;
+        }
+        $table = $this->chooseTable($name);
 
+        for ($i = 1; $i <= $request->$reference; $i++) {
+            $inputName = "${name}${i}";
+            $table->post_id = $id;
+            $table->text = $request->$inputName;
+            $table->save();
         }
     }
 
-    function chooseTable($name)
+    private function chooseTable($name)
     {
         switch ($name) {
             case "year":
                 return new Yearly();
-
             case "month":
                 return new Monthly();
-
             case "day":
                 return new Daily();
-
             case "special":
                 return new Special();
-
             case "additional":
                 return new Additional();
             default:
                 break;
-
         }
     }
 
-    /**
+
+
+/**
      * Display the specified resource.
      */
     public function show(ParkingSpace $parkingSpace)

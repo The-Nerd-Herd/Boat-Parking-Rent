@@ -92,8 +92,6 @@
             </div>
         </div>
 
-
-        <input id="titleCount" class="hidden" type="text" name="titleCount">
         <input id="yearCount" class="hidden" type="text" name="yearCount">
         <input id="monthCount" class="hidden" type="text" name="monthCount">
         <input id="dayCount" class="hidden" type="text" name="dayCount">
