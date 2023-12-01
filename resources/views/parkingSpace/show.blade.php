@@ -52,62 +52,63 @@
                     <h1 class="text-xl font-semibold">Jaartarief</h1>
                     <table>
                         <tbody class="text-gray-400 lg:text-base text-sm ">
+                        @dd($parkingSpace->yearly)
+                        @if($parkingSpace->yearlyFees)
                         @foreach($parkingSpace->yearlyFees as $yearlyFees)
                             <tr class="border-b-2 border-t-0">
-                                <td class="bg-white text-left">{{$yearlyFees->length}} meters</td>
-                                <td class="bg-white text-right ">{{$yearlyFees->amount}} € / meter</td>
+                                <td class="bg-white text-left">{{$yearlyFees->text}} meters</td>
                             </tr>
                         @endforeach
+                        @endif
                         </tbody>
                     </table>
 
                     <!--Monthly-->
-                    <h1 class="text-xl font-semibold">Maandtarief</h1>
-                    <table>
-                        <tbody class="text-gray-400 text-sm lg:text-base">
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Maandtarief</td>
-                            <td class="bg-white text-right">Jaartarief / 10
-                                €({{$parkingSpace->yearlyFees[0]->amount / 10}})
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+{{--                    <h1 class="text-xl font-semibold">Maandtarief</h1>--}}
+{{--                    <table>--}}
+{{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
+{{--                        <tr class="border-b-2 border-t-0">--}}
+{{--                          @foreach($parkingSpace)--}}
+
+{{--                          @endforeach--}}
+{{--                        </tr>--}}
+{{--                        </tbody>--}}
+{{--                    </table>--}}
 
                     <!--Daily rates-->
-                    <h1 class="text-xl font-semibold">Dagtarief </h1>
-                    <table>
-                        <tbody class="text-gray-400 text-sm lg:text-base">
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Dagtarief</td>
-                            <td class="bg-white text-right">{{$parkingSpace->dailyTariff}} € per meter</td>
-                        </tr>
-                        </tbody>
-                    </table>
+{{--                    <h1 class="text-xl font-semibold">Dagtarief </h1>--}}
+{{--                    <table>--}}
+{{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
+{{--                        <tr class="border-b-2 border-t-0">--}}
+{{--                            <td class="bg-white text-left">Dagtarief</td>--}}
+{{--                            <td class="bg-white text-right">{{$parkingSpace->dailyTariff}} € per meter</td>--}}
+{{--                        </tr>--}}
+{{--                        </tbody>--}}
+{{--                    </table>--}}
 
                     <!--Special req.-->
-                    <h1 class="text-xl font-semibold">Speciale vereisten</h1>
-                    <table>
-                        <tbody class="text-gray-400 text-sm lg:text-base">
-                        @foreach($parkingSpace->specialRequirements as $requirement)
-                            <tr class="border-b-2 border-t-0">
-                                <td class="bg-white text-left">{{$requirement->requirement}}</td>
-                                <td class="bg-white text-right">{{$requirement->price}} €</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+{{--                    <h1 class="text-xl font-semibold">Speciale vereisten</h1>--}}
+{{--                    <table>--}}
+{{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
+{{--                        @foreach($parkingSpace->specialRequirements as $requirement)--}}
+{{--                            <tr class="border-b-2 border-t-0">--}}
+{{--                                <td class="bg-white text-left">{{$requirement->requirement}}</td>--}}
+{{--                                <td class="bg-white text-right">{{$requirement->price}} €</td>--}}
+{{--                            </tr>--}}
+{{--                        @endforeach--}}
+{{--                        </tbody>--}}
+{{--                    </table>--}}
 
                     <!--Additional req.-->
-                    <h1 class="text-xl font-semibold">Aanvullende vereisten</h1>
-                    <table>
-                        <tbody class="text-gray-400 text-sm lg:text-base">
-                        @foreach($parkingSpace->additionalInformation as $information)
-                            <tr class="border-b-2 border-t-0">
-                                <td class="bg-white text-left">{{$information->information}}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
+{{--                    <h1 class="text-xl font-semibold">Aanvullende vereisten</h1>--}}
+{{--                    <table>--}}
+{{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
+{{--                        @foreach($parkingSpace->additionalInformation as $information)--}}
+{{--                            <tr class="border-b-2 border-t-0">--}}
+{{--                                <td class="bg-white text-left">{{$information->information}}</td>--}}
+{{--                            </tr>--}}
+{{--                        @endforeach--}}
+{{--                        </tbody>--}}
                     </table>
 
                 </div>

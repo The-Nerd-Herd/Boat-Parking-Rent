@@ -1,6 +1,10 @@
 {
+  "public/images/login.jpg": {
+    "file": "assets/login-5ba7cb47.jpg",
+    "src": "public/images/login.jpg"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-4bf562cc.css",
+    "file": "assets/app-cd072fc7.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },

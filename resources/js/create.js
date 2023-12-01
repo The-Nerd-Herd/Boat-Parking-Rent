@@ -15,16 +15,6 @@ function initialize() {
         });
     });
 }
-
-function forcePageRefreshOnce() {
-    // Check if the page has been refreshed before
-    if (!sessionStorage.getItem('refreshed')) {
-        // If not, refresh the page
-        sessionStorage.setItem('refreshed', 'true');
-        location.reload(true);
-    }
-}
-
 function deleteInput() {
     const divId = this.parentElement.parentElement.lastElementChild.id;
     this.parentElement.remove();

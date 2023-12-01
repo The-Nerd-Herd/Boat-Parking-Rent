@@ -38,19 +38,25 @@ class ParkingSpaceController extends Controller
      */
 
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
-        // Validate your request if needed
-        $request->validate([
-            'editorContent' => 'required',
-        ]);
         $newParking = new ParkingSpace();
-        $newParking->user_id = 1;
-        $newParking->picture = '';
-        $newParking->description = $request->editorContent;
-        $newParking->rules ='';
-
+        $newParking->user_id = $request->user()->id;
+        $newParking->description = $request->description;
+        $newParking->title = $request->title;
+        $newParking->street = $request->street;
+        $newParking->number = $request->streetNumber;
+        $newParking->city = $request->city;
         $newParking->save();
+
+        // Adding things to other table
+        $newYear = new Yearly();
+        $newYear->parking_space_id = $newParking->id;
+        $newYear->text = $request->year;
+        $newYear->save();
+//        $newMonth = new Monthly();
+//        $newMonth->text = $request->month;
 
 
         $imagePath = $this->storeFile($request, 'image', 'images');
@@ -70,6 +76,12 @@ class ParkingSpaceController extends Controller
 
     }
 
+    private  function saveToOtherTable(Request $request, string $name){
+     $newRow = new $name();
+     $newRow->text = $request->text;
+     $newRow->save();
+    }
+
     private function storeFile(Request $request, string $fileKey, string $storagePath)
     {
         $filePath = null;
@@ -83,12 +95,9 @@ class ParkingSpaceController extends Controller
 
     private function saveInput(Request $request, string $name, int $id)
     {
-        $reference = "${name
-}
-
-Count";
+        $reference = "${name}Count";
         if (
-$request->$reference === null) {
+            $request->$reference === null) {
             return;
         }
         $table = $this->chooseTable($name);
@@ -119,7 +128,7 @@ $request->$reference === null) {
         }
     }
 
-/**
+    /**
      * Display the specified resource.
      */
     public function show(ParkingSpace $parkingSpace)
@@ -151,7 +160,8 @@ $request->$reference === null) {
         //
     }
 
-    public function houseRules(ParkingSpace $parkingSpace, $description) {
+    public function houseRules(ParkingSpace $parkingSpace, $description)
+    {
         $rules = ParkingSpace::findOrFail($description);
 
         return view('parkingSpace.houseRules', ['rules' => $rules]);

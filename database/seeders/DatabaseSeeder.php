@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ParkingSpaceSeeder::class,
             AdditionalInformationSeeder::class,
-            YearlyFeesSeeder::class,
             SpecialRequirementsSeeder::class,
             HouseRulesSeeder::class,
             ArticleBulletPointsSeeder::class,

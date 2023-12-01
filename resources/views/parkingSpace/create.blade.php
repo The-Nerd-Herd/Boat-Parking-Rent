@@ -1,7 +1,6 @@
 @extends('layouts/layout')
 
 @section('js')
-    <<<<<<< HEAD
     @vite('resources/js/create.js')
 @endsection
 
@@ -48,7 +47,16 @@
                     <label for="title" value="text">Title</label>
                     <input
                         class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                        id="text" type="text" name="title" required="required" autofocus="autofocus"
+                         type="text" name="title" required="required" autofocus="autofocus"
+                        autocomplete="text">
+                </div>
+
+                <div class="w-full lg:w-1/2">
+
+                    <label for="title" value="text">description</label>
+                    <input
+                        class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
+                         type="text" name="description" required="required" autofocus="autofocus"
                         autocomplete="text">
                 </div>
 
@@ -56,7 +64,23 @@
                     <label for="street" value="text">Street</label>
                     <input
                         class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                        id="text" type="text" name="street" required="required" autofocus="autofocus"
+                         type="text" name="street" required="required" autofocus="autofocus"
+                        autocomplete="text">
+                </div>
+
+                <div class="w-full lg:w-1/2">
+                    <label for="street" value="text">Street number</label>
+                    <input
+                        class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
+                         type="number" name="streetNumber" required="required" autofocus="autofocus"
+                        autocomplete="text">
+                </div>
+
+                <div class="w-full lg:w-1/2">
+                    <label for="street" value="text">City</label>
+                    <input
+                        class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
+                        type="text" name="city" required="required" autofocus="autofocus"
                         autocomplete="text">
                 </div>
 
@@ -64,7 +88,7 @@
                     <label for="year" value="text">Year</label>
                     <input
                         class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                        id="text" type="text" name="year" required="required" autofocus="autofocus" autocomplete="text">
+                         type="text" name="year" required="required" autofocus="autofocus" autocomplete="text">
                     <div id="year" class="bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center">
                         <p class="text-center">+</p>
                     </div>
@@ -74,7 +98,7 @@
                     <label for="month" value="text">month</label>
                     <input
                         class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                        id="text" type="text" name="month" required="required" autofocus="autofocus"
+                         type="text" name="month" required="required" autofocus="autofocus"
                         autocomplete="text">
                     <div id="month" class="bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center">
                         <p class="text-center">+</p>
@@ -85,7 +109,7 @@
                     <label for="day" value="text">Day</label>
                     <input
                         class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                        id="text" type="text" name="day" required="required" autofocus="autofocus" autocomplete="text">
+                         type="text" name="day" required="required" autofocus="autofocus" autocomplete="text">
                     <div id="day" class="bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center">
                         <p class="text-center">+</p>
                     </div>
@@ -95,7 +119,7 @@
                     <label for="special" value="text">special</label>
                     <input
                         class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                        id="text" type="text" name="special" required="required" autofocus="autofocus"
+                         type="text" name="special" required="required" autofocus="autofocus"
                         autocomplete="text">
                     <div id="special" class="bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center">
                         <p class="text-center">+</p>
@@ -106,7 +130,7 @@
                     <label for="additional" value="text">additional</label>
                     <input
                         class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                        id="text" type="text" name="additional" required="required" autofocus="autofocus"
+                         type="text" name="additional" required="required" autofocus="autofocus"
                         autocomplete="text">
                     <div id="additional" class="bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center">
                         <p class="text-center">+</p>

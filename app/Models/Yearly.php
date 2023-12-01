@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Yearly extends Model
 {
     use HasFactory;
+
+
+    function parkingSpace(){
+        return $this->belongsTo(ParkingSpace::class);
+    }
 }
