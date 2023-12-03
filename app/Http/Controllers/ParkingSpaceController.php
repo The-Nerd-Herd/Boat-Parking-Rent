@@ -8,7 +8,7 @@ use App\Models\Monthly;
 use App\Models\ParkingSpace;
 use App\Http\Controllers\Controller;
 use App\Models\Special;
-use App\Models\yearly;
+use App\Models\Yearly;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use function Laravel\Prompts\error;
@@ -100,11 +100,11 @@ class ParkingSpaceController extends Controller
             $request->$reference === null) {
             return;
         }
-        $table = $this->chooseTable($name);
 
         for ($i = 1; $i <= $request->$reference; $i++) {
+            $table = $this->chooseTable($name);
             $inputName = "${name}${i}";
-            $table->post_id = $id;
+            $table->parking_space_id = $id;
             $table->text = $request->$inputName;
             $table->save();
         }
