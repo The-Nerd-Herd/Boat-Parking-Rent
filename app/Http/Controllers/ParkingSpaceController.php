@@ -40,7 +40,6 @@ class ParkingSpaceController extends Controller
 
     public function store(Request $request)
     {
-
         $newParking = new ParkingSpace();
         $newParking->user_id = $request->user()->id;
         $newParking->description = $request->description;
@@ -76,12 +75,6 @@ class ParkingSpaceController extends Controller
 
     }
 
-    private  function saveToOtherTable(Request $request, string $name){
-     $newRow = new $name();
-     $newRow->text = $request->text;
-     $newRow->save();
-    }
-
     private function storeFile(Request $request, string $fileKey, string $storagePath)
     {
         $filePath = null;
@@ -95,17 +88,18 @@ class ParkingSpaceController extends Controller
 
     private function saveInput(Request $request, string $name, int $id)
     {
-        $reference = "${name}Count";
+        $inputReference = "${name}Count";
         if (
-            $request->$reference === null) {
+            $request->$inputReference === null) {
             return;
         }
-
-        for ($i = 1; $i <= $request->$reference; $i++) {
+        for ($i = 1; $i <= $request->$inputReference; $i++) {
             $table = $this->chooseTable($name);
             $inputName = "${name}${i}";
+            $price ="${name}Price${i}";
             $table->parking_space_id = $id;
             $table->text = $request->$inputName;
+            if($name != "additional") $table->price = $request->$price;
             $table->save();
         }
     }

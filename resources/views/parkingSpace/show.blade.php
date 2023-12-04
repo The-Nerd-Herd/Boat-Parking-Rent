@@ -52,11 +52,13 @@
                     <h1 class="text-xl font-semibold">Jaartarief</h1>
                     <table>
                         <tbody class="text-gray-400 lg:text-base text-sm ">
-                        @dd($parkingSpace->yearly)
-                        @if($parkingSpace->yearlyFees)
-                        @foreach($parkingSpace->yearlyFees as $yearlyFees)
+                        @if($parkingSpace->yearly)
+                        @foreach($parkingSpace->yearly as $yearlyFees)
                             <tr class="border-b-2 border-t-0">
-                                <td class="bg-white text-left">{{$yearlyFees->text}} meters</td>
+                                <td class="bg-white text-left">{{$yearlyFees->text}}</td>
+                                @if($yearlyFees->price !== null)
+                                <td class="bg-white text-right">{{$yearlyFees->price}}</td>
+                                @endif
                             </tr>
                         @endforeach
                         @endif
@@ -64,16 +66,16 @@
                     </table>
 
                     <!--Monthly-->
-{{--                    <h1 class="text-xl font-semibold">Maandtarief</h1>--}}
-{{--                    <table>--}}
-{{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
-{{--                        <tr class="border-b-2 border-t-0">--}}
-{{--                          @foreach($parkingSpace)--}}
+                    <h1 class="text-xl font-semibold">Maandtarief</h1>
+                    <table>
+                        <tbody class="text-gray-400 text-sm lg:text-base">
+                        <tr class="border-b-2 border-t-0">
+                          @foreach($parkingSpace)
 
-{{--                          @endforeach--}}
-{{--                        </tr>--}}
-{{--                        </tbody>--}}
-{{--                    </table>--}}
+                          @endforeach
+                        </tr>
+                        </tbody>
+                    </table>
 
                     <!--Daily rates-->
 {{--                    <h1 class="text-xl font-semibold">Dagtarief </h1>--}}
@@ -109,7 +111,7 @@
 {{--                            </tr>--}}
 {{--                        @endforeach--}}
 {{--                        </tbody>--}}
-                    </table>
+{{--                    </table>--}}
 
                 </div>
             </div>

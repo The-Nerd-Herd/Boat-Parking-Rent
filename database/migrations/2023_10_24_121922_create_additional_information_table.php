@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('additional_information', function (Blueprint $table) {
             $table->id();
-            $table->string('information');
             $table->foreignId('parking_space_id')
                 ->references('id')
                 ->on('parking_spaces')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->string('text');
             $table->timestamps();
         });
     }

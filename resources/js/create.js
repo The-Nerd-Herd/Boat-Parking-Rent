@@ -1,3 +1,12 @@
+
+// CSS of the elements
+let minusDivClass = 'bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center';
+let mainDivClass = 'w-full  py-5';
+let inputDivClass = "flex gap-5";
+let inputFieldClass = 'border-gray-300 mt-5 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm w-full';
+
+
+// Counts of the inputs for the database
 let inputCounts = {
     year: 0,
     month: 0,
@@ -37,18 +46,26 @@ function addInput(rootDivId) {
     const minusDiv = document.createElement('div');
     const minus = document.createElement('p');
     const input = document.createElement('input');
+    const price = document.createElement('input');
+    const inputDiv= document.createElement('div');
 
-    minusDiv.className = 'bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center';
-    div.className = 'w-full lg:w-1/2 py-5';
-    input.className = 'border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm w-full';
+    minusDiv.className = minusDivClass;
+    div.className = mainDivClass;
+    inputDiv.className = inputDivClass;
+    input.className = inputFieldClass;
+    price.className =  inputFieldClass;
     minus.innerHTML = '-';
 
     minusDiv.addEventListener('click', deleteInput);
     input.required = 'required';
     input.autofocus = 'autofocus';
     input.name = `${rootDivId}${returnCount(rootDivId)}`;
+    price.name = `${rootDivId}Price${returnCount(rootDivId)}`;
 
-    div.appendChild(input);
+
+    inputDiv.appendChild(input);
+    if (rootDivId !== "additional") inputDiv.appendChild(price);
+    div.appendChild(inputDiv);
     div.appendChild(minusDiv);
     minusDiv.appendChild(minus);
     plusDiv.parentElement.insertBefore(div, plusDiv);

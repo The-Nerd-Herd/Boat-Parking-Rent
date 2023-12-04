@@ -19,6 +19,7 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->string('text');
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }

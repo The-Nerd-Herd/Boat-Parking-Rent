@@ -25,7 +25,7 @@ class ParkingSpace extends Model
     public function yearly(){
         return $this->hasMany(Yearly::class);
     }
-    public function montlyFees(){
+    public function monthly(){
         return $this->hasMany((Monthly::class));
     }
 

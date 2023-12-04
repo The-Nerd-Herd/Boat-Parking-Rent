@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             ParkingSpaceSeeder::class,
-//            AdditionalInformationSeeder::class,
-            SpecialRequirementsSeeder::class,
             HouseRulesSeeder::class,
             ArticleBulletPointsSeeder::class,
         ]);
