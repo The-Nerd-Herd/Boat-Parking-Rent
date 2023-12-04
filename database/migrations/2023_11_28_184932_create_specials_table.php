@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('specials', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')
+            $table->foreignId('parking_space_id')
                 ->references('id')
                 ->on('parking_spaces')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->string('text');
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('dailies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')
+            $table->foreignId('parking_space_id')
                 ->references('id')
                 ->on('parking_spaces')
                 ->onDelete('cascade')

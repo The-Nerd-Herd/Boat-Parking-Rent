@@ -50,10 +50,10 @@ class ParkingSpaceController extends Controller
         $newParking->save();
 
         // Adding things to other table
-        $newYear = new Yearly();
-        $newYear->parking_space_id = $newParking->id;
-        $newYear->text = $request->year;
-        $newYear->save();
+        $inputNames = ["year", "month", "day", "special", "additional"];
+        foreach ($inputNames as $inputName){
+            $this->saveToOtherTables($request,$inputName,$newParking->id);
+        }
 //        $newMonth = new Monthly();
 //        $newMonth->text = $request->month;
 
@@ -66,13 +66,19 @@ class ParkingSpaceController extends Controller
 
         $newParking->save();
 
-        $inputNames = ["year", "month", "day", "special", "additional"];
         foreach ($inputNames as $inputName) {
             $this->saveInput($request, $inputName, $newParking->id);
         }
 
         return redirect(route('parkingSpace.show', $newParking->id));
 
+    }
+
+    function saveToOtherTables($request,$name, $id){
+        $newRow = $this->chooseTable($name);
+        $newRow->parking_space_id = $id;
+        $newRow->text = $request->$name;
+        $newRow->save();
     }
 
     private function storeFile(Request $request, string $fileKey, string $storagePath)

@@ -49,69 +49,74 @@
                     class="bg-white w-full p-10 flex flex-col text-center rounded-md gap-5 lg:overflow-y-auto lg:h-[500px] shadow-xl">
                     <!--Boat length annual rate-->
 
-                    <h1 class="text-xl font-semibold">Jaartarief</h1>
-                    <table>
-                        <tbody class="text-gray-400 lg:text-base text-sm ">
-                        @if($parkingSpace->yearly)
-                        @foreach($parkingSpace->yearly as $yearlyFees)
-                            <tr class="border-b-2 border-t-0">
-                                <td class="bg-white text-left">{{$yearlyFees->text}}</td>
-                                @if($yearlyFees->price !== null)
-                                <td class="bg-white text-right">{{$yearlyFees->price}}</td>
-                                @endif
-                            </tr>
-                        @endforeach
-                        @endif
-                        </tbody>
-                    </table>
+                    @if(isset($parkingSpace->yearly))
+                        <h1 class="text-xl font-semibold">Jaartarief</h1>
+                        <table>
+                            <tbody class="text-gray-400 lg:text-base text-sm ">
+                            @foreach($parkingSpace->yearly as $yearlyFees)
+                                <tr class="border-b-2 border-t-0">
+                                    <td class="bg-white text-left">{{$yearlyFees->text}}</td>
+                                    @if($yearlyFees->price !== null)
+                                        <td class="bg-white text-right">{{$yearlyFees->price}}</td>
+                                    @endif
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    @endif
 
                     <!--Monthly-->
-                    <h1 class="text-xl font-semibold">Maandtarief</h1>
-                    <table>
-                        <tbody class="text-gray-400 text-sm lg:text-base">
-                        <tr class="border-b-2 border-t-0">
-                          @foreach($parkingSpace)
-
-                          @endforeach
-                        </tr>
-                        </tbody>
-                    </table>
+                    @if(isset($parkingSpace->montly))
+                        <h1 class="text-xl font-semibold">Maandtarief</h1>
+                        <table>
+                            <tbody class="text-gray-400 text-sm lg:text-base">
+                            @foreach($parkingSpace->montly as $montlyFees)
+                                <tr class="border-b-2 border-t-0">
+                                    <td class="bg-white text-left">{{$montlyFees->text}}</td>
+                                    @if($montlyFees->price !== null)
+                                        <td class="bg-white text-right">{{$montlyFees->price}}</td>
+                                    @endif
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    @endif
 
                     <!--Daily rates-->
-{{--                    <h1 class="text-xl font-semibold">Dagtarief </h1>--}}
-{{--                    <table>--}}
-{{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
-{{--                        <tr class="border-b-2 border-t-0">--}}
-{{--                            <td class="bg-white text-left">Dagtarief</td>--}}
-{{--                            <td class="bg-white text-right">{{$parkingSpace->dailyTariff}} € per meter</td>--}}
-{{--                        </tr>--}}
-{{--                        </tbody>--}}
-{{--                    </table>--}}
+                    {{--                    <h1 class="text-xl font-semibold">Dagtarief </h1>--}}
+                    {{--                    <table>--}}
+                    {{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
+                    {{--                        <tr class="border-b-2 border-t-0">--}}
+                    {{--                            <td class="bg-white text-left">Dagtarief</td>--}}
+                    {{--                            <td class="bg-white text-right">{{$parkingSpace->dailyTariff}} € per meter</td>--}}
+                    {{--                        </tr>--}}
+                    {{--                        </tbody>--}}
+                    {{--                    </table>--}}
 
                     <!--Special req.-->
-{{--                    <h1 class="text-xl font-semibold">Speciale vereisten</h1>--}}
-{{--                    <table>--}}
-{{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
-{{--                        @foreach($parkingSpace->specialRequirements as $requirement)--}}
-{{--                            <tr class="border-b-2 border-t-0">--}}
-{{--                                <td class="bg-white text-left">{{$requirement->requirement}}</td>--}}
-{{--                                <td class="bg-white text-right">{{$requirement->price}} €</td>--}}
-{{--                            </tr>--}}
-{{--                        @endforeach--}}
-{{--                        </tbody>--}}
-{{--                    </table>--}}
+                    {{--                    <h1 class="text-xl font-semibold">Speciale vereisten</h1>--}}
+                    {{--                    <table>--}}
+                    {{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
+                    {{--                        @foreach($parkingSpace->specialRequirements as $requirement)--}}
+                    {{--                            <tr class="border-b-2 border-t-0">--}}
+                    {{--                                <td class="bg-white text-left">{{$requirement->requirement}}</td>--}}
+                    {{--                                <td class="bg-white text-right">{{$requirement->price}} €</td>--}}
+                    {{--                            </tr>--}}
+                    {{--                        @endforeach--}}
+                    {{--                        </tbody>--}}
+                    {{--                    </table>--}}
 
                     <!--Additional req.-->
-{{--                    <h1 class="text-xl font-semibold">Aanvullende vereisten</h1>--}}
-{{--                    <table>--}}
-{{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
-{{--                        @foreach($parkingSpace->additionalInformation as $information)--}}
-{{--                            <tr class="border-b-2 border-t-0">--}}
-{{--                                <td class="bg-white text-left">{{$information->information}}</td>--}}
-{{--                            </tr>--}}
-{{--                        @endforeach--}}
-{{--                        </tbody>--}}
-{{--                    </table>--}}
+                    {{--                    <h1 class="text-xl font-semibold">Aanvullende vereisten</h1>--}}
+                    {{--                    <table>--}}
+                    {{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
+                    {{--                        @foreach($parkingSpace->additionalInformation as $information)--}}
+                    {{--                            <tr class="border-b-2 border-t-0">--}}
+                    {{--                                <td class="bg-white text-left">{{$information->information}}</td>--}}
+                    {{--                            </tr>--}}
+                    {{--                        @endforeach--}}
+                    {{--                        </tbody>--}}
+                    {{--                    </table>--}}
 
                 </div>
             </div>
@@ -163,7 +168,7 @@
         </form>
 
 
-    <a href="/storage/{{$parkingSpace->pdf_path}}" target="_blank" >PDF</a>
+        <a href="/storage/{{$parkingSpace->pdf_path}}" target="_blank">PDF</a>
 
         {{--        House rules       --}}
         <section class=" w-full p-20">
@@ -191,12 +196,12 @@
                     <span class="hidden" id="more-text">
                     <div class="px-12">
                         @foreach($parkingSpace->houseRules as $articles)
-                        <h3><strong class="text-black font-medium">{{$articles->title}}</strong></h3>
-                        <br>
+                            <h3><strong class="text-black font-medium">{{$articles->title}}</strong></h3>
+                            <br>
                             <ol class="text-black pl-4">
                         @foreach($articles->bulletPoints as $bulletpoints)
-                            <li>{{$bulletpoints->text}}</li>
-                        @endforeach
+                                    <li>{{$bulletpoints->text}}</li>
+                                @endforeach
                             <br>
                         </ol>
                         @endforeach
