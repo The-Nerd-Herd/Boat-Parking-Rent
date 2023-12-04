@@ -49,86 +49,41 @@
                     class="bg-white w-full p-10 flex flex-col text-center rounded-md gap-5 lg:overflow-y-auto lg:h-[500px] shadow-xl">
                     <!--Boat length annual rate-->
 
-                    @if(isset($parkingSpace->yearly))
-                        <h1 class="text-xl font-semibold">Jaartarief</h1>
-                        <table>
-                            <tbody class="text-gray-400 lg:text-base text-sm ">
-                            @foreach($parkingSpace->yearly as $yearlyFees)
-                                <tr class="border-b-2 border-t-0">
-                                    <td class="bg-white text-left">{{$yearlyFees->text}}</td>
-                                    @if($yearlyFees->price !== null)
-                                        <td class="bg-white text-right">{{$yearlyFees->price}}</td>
-                                    @endif
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    @endif
+                    @php
+                        function renderFees($fees, $title) {
+                            if (isset($fees)) {
+                                echo "<h1 class='text-xl font-semibold'>$title</h1>";
+                                echo "<table>";
+                                echo "<tbody class='text-gray-400 text-sm lg:text-base'>";
+                                foreach ($fees as $fee) {
+                                    echo "<tr class='border-b-2 border-t-0'>";
+                                    echo "<td class='bg-white text-left'>$fee->text</td>";
+                                    if ($fee->price !== null) {
+                                        echo "<td class='bg-white text-right'>$fee->price</td>";
+                                    }
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";
+                                echo "</table>";
+                            }
+                        }
+                    @endphp
 
-                    <!--Monthly-->
-                    @if(isset($parkingSpace->monthly))
-                        <h1 class="text-xl font-semibold">Maandtarief</h1>
-                        <table>
-                            <tbody class="text-gray-400 text-sm lg:text-base">
-                            @foreach($parkingSpace->monthly as $monthlyFees)
-                                <tr class="border-b-2 border-t-0">
-                                    <td class="bg-white text-left">{{$monthlyFees->text}}</td>
-                                    @if($monthlyFees->price !== null)
-                                        <td class="bg-white text-right">{{$monthlyFees->price}}</td>
-                                    @endif
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    @endif
+                        <!-- Yearly -->
+                    @php renderFees($parkingSpace->yearly, 'Jaartarief'); @endphp
 
-                    <!--Daily rates-->
-                    @if(isset($parkingSpace->daily))
-                        <h1 class="text-xl font-semibold">Dagtarief</h1>
-                        <table>
-                            <tbody class="text-gray-400 text-sm lg:text-base">
-                            @foreach($parkingSpace->daily as $dailyFees)
-                                <tr class="border-b-2 border-t-0">
-                                    <td class="bg-white text-left">{{$dailyFees->text}}</td>
-                                    @if($dailyFees->price !== null)
-                                        <td class="bg-white text-right">{{$dailyFees->price}}</td>
-                                    @endif
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    @endif
-                    <!--Special req.-->
-                    @if(isset($parkingSpace->special))
-                        <h1 class="text-xl font-semibold">Speciale vereisten</h1>
-                        <table>
-                            <tbody class="text-gray-400 text-sm lg:text-base">
-                            @foreach($parkingSpace->special as $specialFees)
-                                <tr class="border-b-2 border-t-0">
-                                    <td class="bg-white text-left">{{$specialFees->text}}</td>
-                                    @if($specialFees->price !== null)
-                                        <td class="bg-white text-right">{{$specialFees->price}}</td>
-                                    @endif
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    @endif
+                        <!-- Monthly -->
+                    @php renderFees($parkingSpace->monthly, 'Maandtarief'); @endphp
 
-                    <!--Additional req.-->
+                        <!-- Daily rates -->
+                    @php renderFees($parkingSpace->daily, 'Dagtarief'); @endphp
 
-                    @if(isset($parkingSpace->additional))
-                        <h1 class="text-xl font-semibold">Aanvullende vereisten</h1>
-                        <table>
-                            <tbody class="text-gray-400 text-sm lg:text-base">
-                            @foreach($parkingSpace->additional as $additionalFees)
-                                <tr class="border-b-2 border-t-0">
-                                    <td class="bg-white text-left">{{$additionalFees->text}}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    @endif
+                        <!-- Special requirements -->
+                    @php renderFees($parkingSpace->special, 'Speciale vereisten'); @endphp
+
+                        <!-- Additional requirements -->
+                    @php renderFees($parkingSpace->additional, 'Aanvullende vereisten'); @endphp
+
                 </div>
             </div>
         </section>
