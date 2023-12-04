@@ -66,15 +66,15 @@
                     @endif
 
                     <!--Monthly-->
-                    @if(isset($parkingSpace->montly))
+                    @if(isset($parkingSpace->monthly))
                         <h1 class="text-xl font-semibold">Maandtarief</h1>
                         <table>
                             <tbody class="text-gray-400 text-sm lg:text-base">
-                            @foreach($parkingSpace->montly as $montlyFees)
+                            @foreach($parkingSpace->monthly as $monthlyFees)
                                 <tr class="border-b-2 border-t-0">
-                                    <td class="bg-white text-left">{{$montlyFees->text}}</td>
-                                    @if($montlyFees->price !== null)
-                                        <td class="bg-white text-right">{{$montlyFees->price}}</td>
+                                    <td class="bg-white text-left">{{$monthlyFees->text}}</td>
+                                    @if($monthlyFees->price !== null)
+                                        <td class="bg-white text-right">{{$monthlyFees->price}}</td>
                                     @endif
                                 </tr>
                             @endforeach
@@ -83,41 +83,52 @@
                     @endif
 
                     <!--Daily rates-->
-                    {{--                    <h1 class="text-xl font-semibold">Dagtarief </h1>--}}
-                    {{--                    <table>--}}
-                    {{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
-                    {{--                        <tr class="border-b-2 border-t-0">--}}
-                    {{--                            <td class="bg-white text-left">Dagtarief</td>--}}
-                    {{--                            <td class="bg-white text-right">{{$parkingSpace->dailyTariff}} € per meter</td>--}}
-                    {{--                        </tr>--}}
-                    {{--                        </tbody>--}}
-                    {{--                    </table>--}}
-
+                    @if(isset($parkingSpace->daily))
+                        <h1 class="text-xl font-semibold">Dagtarief</h1>
+                        <table>
+                            <tbody class="text-gray-400 text-sm lg:text-base">
+                            @foreach($parkingSpace->daily as $dailyFees)
+                                <tr class="border-b-2 border-t-0">
+                                    <td class="bg-white text-left">{{$dailyFees->text}}</td>
+                                    @if($dailyFees->price !== null)
+                                        <td class="bg-white text-right">{{$dailyFees->price}}</td>
+                                    @endif
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    @endif
                     <!--Special req.-->
-                    {{--                    <h1 class="text-xl font-semibold">Speciale vereisten</h1>--}}
-                    {{--                    <table>--}}
-                    {{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
-                    {{--                        @foreach($parkingSpace->specialRequirements as $requirement)--}}
-                    {{--                            <tr class="border-b-2 border-t-0">--}}
-                    {{--                                <td class="bg-white text-left">{{$requirement->requirement}}</td>--}}
-                    {{--                                <td class="bg-white text-right">{{$requirement->price}} €</td>--}}
-                    {{--                            </tr>--}}
-                    {{--                        @endforeach--}}
-                    {{--                        </tbody>--}}
-                    {{--                    </table>--}}
+                    @if(isset($parkingSpace->special))
+                        <h1 class="text-xl font-semibold">Speciale vereisten</h1>
+                        <table>
+                            <tbody class="text-gray-400 text-sm lg:text-base">
+                            @foreach($parkingSpace->special as $specialFees)
+                                <tr class="border-b-2 border-t-0">
+                                    <td class="bg-white text-left">{{$specialFees->text}}</td>
+                                    @if($specialFees->price !== null)
+                                        <td class="bg-white text-right">{{$specialFees->price}}</td>
+                                    @endif
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    @endif
 
                     <!--Additional req.-->
-                    {{--                    <h1 class="text-xl font-semibold">Aanvullende vereisten</h1>--}}
-                    {{--                    <table>--}}
-                    {{--                        <tbody class="text-gray-400 text-sm lg:text-base">--}}
-                    {{--                        @foreach($parkingSpace->additionalInformation as $information)--}}
-                    {{--                            <tr class="border-b-2 border-t-0">--}}
-                    {{--                                <td class="bg-white text-left">{{$information->information}}</td>--}}
-                    {{--                            </tr>--}}
-                    {{--                        @endforeach--}}
-                    {{--                        </tbody>--}}
-                    {{--                    </table>--}}
 
+                    @if(isset($parkingSpace->additional))
+                        <h1 class="text-xl font-semibold">Aanvullende vereisten</h1>
+                        <table>
+                            <tbody class="text-gray-400 text-sm lg:text-base">
+                            @foreach($parkingSpace->additional as $additionalFees)
+                                <tr class="border-b-2 border-t-0">
+                                    <td class="bg-white text-left">{{$additionalFees->text}}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    @endif
                 </div>
             </div>
         </section>

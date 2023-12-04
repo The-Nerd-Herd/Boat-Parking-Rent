@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Monthly extends Model
 {
     use HasFactory;
+
+    function parkingSpace(){
+        return $this->belongsTo(ParkingSpace::class);
+    }
 }
