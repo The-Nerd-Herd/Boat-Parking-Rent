@@ -11,7 +11,6 @@ class SendEmailControler extends Controller
 {
     public function send(Request $request)
     {
-
         $data = array(
             'email'   =>   $request->email,
             'initials' => $request->initials,

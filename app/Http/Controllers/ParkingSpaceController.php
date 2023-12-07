@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class ParkingSpaceController extends Controller
 {
     public function index(){
-        return abort(404);
+        $parkingSpaces = ParkingSpace::all();
+        return view('parkingSpace.index', compact('parkingSpaces'));
     }
 
     /**
@@ -33,7 +34,6 @@ class ParkingSpaceController extends Controller
      */
     public function show(ParkingSpace $parkingSpace)
     {
-        dd(auth()->user()->id);
 
         return view('parkingSpace.show', ['parkingSpace' => $parkingSpace]);
     }
@@ -60,5 +60,17 @@ class ParkingSpaceController extends Controller
     public function destroy(ParkingSpace $parkingSpace)
     {
         //
+    }
+
+    public function fromOldToNew()
+    {
+        $parkingSpaces = ParkingSpace::orderBy('created_at', 'DESC')->get();
+        return view(('parkingSpace.index'), compact('parkingSpaces'));
+    }
+
+    public function fromNewToOld()
+    {
+        $parkingSpaces = ParkingSpace::orderBy('created_at', 'ASC')->get();
+        return view(('parkingSpace.index'), compact('parkingSpaces'));
     }
 }

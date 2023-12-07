@@ -15,9 +15,8 @@
     </section>
 
     <!-- One -->
-    <section id="one" class="wrapper style2">
-        <div class="inner">
-            <div class="grid-style justify-center">
+    <section id="one" class="wrapper style2 flex flex-col items-center">
+            <div class="grid-style w-[90%] items-center self-center justify-center">
                 <div>
                     <div class="box">
                         <div class="image fit">
@@ -36,10 +35,10 @@
                     </div>
                 </div>
                 @foreach($parkingSpaces as $parkingSpace)
-                    <div>
-                        <div class="box">
-                            <div class="image fit">
-                                <img src="{{$parkingSpace->picture}}" alt=""/>
+                    <div class="flex flex-col items-center">
+                        <div class="box flex flex-col items-center">
+                            <div>
+                                <img class="w-full h-[500px]" src="{{$parkingSpace->picture}}" alt="img"/>
                             </div>
                             <div class="content pl-8">
                                 <header class="align-center">
@@ -56,6 +55,8 @@
                 @endforeach
             </div>
         </div>
+        <a href="{{route('parkingSpace.index')}}" class="button alt">Lees meer</a>
+
     </section>
 
     <!-- Two -->
