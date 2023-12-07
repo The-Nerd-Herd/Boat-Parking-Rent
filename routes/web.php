@@ -30,7 +30,7 @@ Route::get('/hardCoded', function(){
    return view('show-hard-coded');
 });
 
+Route::get('parkingSpace/old-new', [ParkingSpaceController::class, 'fromOldToNew'])->name('parkingSpace.old-new');
 Route::resource('/parkingSpace', ParkingSpaceController::class);
-
 
 require __DIR__.'/auth.php';

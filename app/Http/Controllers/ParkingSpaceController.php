@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class ParkingSpaceController extends Controller
 {
     public function index(){
-        //TODO: Show the all parking spaces
-        return abort(404);
+        $parkingSpaces = ParkingSpace::all();
+        return view('parkingSpace.index', compact('parkingSpaces'));
     }
 
     /**
@@ -60,5 +60,11 @@ class ParkingSpaceController extends Controller
     public function destroy(ParkingSpace $parkingSpace)
     {
         //
+    }
+
+    public function fromOldToNew()
+    {
+        $parkingSpaces = ParkingSpace::all()->orderBy('created_at', 'DESC');
+        return redirect(route('parkingSpace'));
     }
 }
