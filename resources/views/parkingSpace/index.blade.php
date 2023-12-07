@@ -22,7 +22,7 @@
                         <a href="{{route('parkingSpace.old-new')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Old-New</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">New-Old</a>
+                        <a href="{{route('parkingSpace.new-old')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">New-Old</a>
                     </li>
                 </ul>
             </div>

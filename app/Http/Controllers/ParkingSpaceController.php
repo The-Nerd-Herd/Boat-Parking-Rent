@@ -64,7 +64,13 @@ class ParkingSpaceController extends Controller
 
     public function fromOldToNew()
     {
-        $parkingSpaces = ParkingSpace::all()->orderBy('created_at', 'DESC');
-        return redirect(route('parkingSpace'));
+        $parkingSpaces = ParkingSpace::orderBy('created_at', 'DESC')->get();
+        return view(('parkingSpace.index'), compact('parkingSpaces'));
+    }
+
+    public function fromNewToOld()
+    {
+        $parkingSpaces = ParkingSpace::orderBy('created_at', 'ASC')->get();
+        return view(('parkingSpace.index'), compact('parkingSpaces'));
     }
 }

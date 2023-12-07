@@ -31,6 +31,7 @@ Route::get('/hardCoded', function(){
 });
 
 Route::get('parkingSpace/old-new', [ParkingSpaceController::class, 'fromOldToNew'])->name('parkingSpace.old-new');
+Route::get('parkingSpace/new-old', [ParkingSpaceController::class, 'fromNewToOld'])->name('parkingSpace.new-old');
 Route::resource('/parkingSpace', ParkingSpaceController::class);
 
 require __DIR__.'/auth.php';
