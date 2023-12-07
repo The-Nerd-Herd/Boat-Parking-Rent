@@ -137,8 +137,16 @@
             </div>
         </section>
         <!--Contact info-->
+        <div class="flex flex-col items-center">
+            <h1>
+                If you are interested please contact me on this email adress
+            </h1>
+            <h2 class="font-bold">
+                ricardobeuken@hotmail.com
+            </h2>
+        </div>
         <form method="POST" action="{{route('email.send')}}"
-              class="mx-10 rounded-md shadow-xl lg:w-2/4 flex flex-col gap-6 p-4 bg-white">
+              class="mx-10 rounded-md shadow-xl lg:w-2/4 flex hidden flex-col gap-6 p-4 bg-white">
             <h1 class="text-xl">Contact the seller</h1>
             @csrf
             <div class="flex flex-col lg:flex-row gap-6 w-full">

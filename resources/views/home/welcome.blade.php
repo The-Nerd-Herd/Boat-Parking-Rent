@@ -55,7 +55,7 @@
                 @endforeach
             </div>
         </div>
-        <a href="{{route('parkingSpace.index')}}" class="button alt">Lees meer</a>
+        <a href="{{route('parkingSpace.index')}}" class="button alt">Show all</a>
 
     </section>
 
