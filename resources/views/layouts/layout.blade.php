@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="./public/images/paper-boat.jpg">
     <link rel="stylesheet" href="/assets/css/main.css"/>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     @yield('js')
     @vite('resources/css/app.css')
 </head>
@@ -46,6 +47,7 @@
 <script src="/assets/js/skel.min.js"></script>
 <script src="/assets/js/util.js"></script>
 <script src="/assets/js/main.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 </body>
 </html>

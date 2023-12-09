@@ -7,37 +7,38 @@
 @section('content')
     <script>
         let navBar = document.getElementById('header');
-        navBar.className = 'reveal'
+        navBar.className = 'reveal';
     </script>
 
-    {{-- TinyMCE initialization plus api key --}}
-    <script
-        src="https://cdn.tiny.cloud/1/0ewhjfzvt26dow7nw6xdawboqwvw2nn3w4ocvfrjphnaptyh/tinymce/6/tinymce.min.js"
-        referrerpolicy="origin"
-    ></script>
+    {{-- Include the Quill stylesheet --}}
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
-    {{-- TinyMCE configuration --}}
+    {{-- Include Quill script --}}
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    {{-- Quill initialization script --}}
     <script>
-        tinymce.init({
-            selector: '#editor',
-            plugins: 'powerpaste casechange searchreplace autolink directionality visualblocks visualchars image link media mediaembed codesample table charmap pagebreak nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker editimage help formatpainter permanentpen charmap linkchecker emoticons advtable export autosave',
-            toolbar: 'undo redo print spellcheckdialog formatpainter | blocks fontfamily fontsize | bold italic underline forecolor backcolor | link image | alignleft aligncenter alignright alignjustify',
-            height: '600px',
-            width: '1600px'
+        document.addEventListener("DOMContentLoaded", function() {
+            var options = {
+                modules: {
+                    toolbar: [
+                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                        ['bold', 'italic'],
+                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                        ['link'],
+                        ['clean']
+                    ],
+                },
+                theme: 'snow'
+            };
+
+            var editor = new Quill('#editor', options);
+            console.log('Quill initialized');
         });
     </script>
 
-    <style>
-        input::file-selector-button {
-            background: black;
-            color: white;
-            padding-bottom: 7px;
-            padding-top: 7px;
-        }
-    </style>
-
     <main class="bg-zinc-100 mt-[50px]">
-        <form method="POST" action="{{route('parkingSpace.store')}}" class="mx-10 rounded-md shadow-xl p-4 bg-white">
+        <form method="POST" action="{{ route('parkingSpace.store') }}" class="mx-10 rounded-md shadow-xl p-4 bg-white">
             <h1 class="text-xl">Create listing</h1>
             @csrf
             <div id="formContent" class="flex flex-wrap flex-col lg:flex-row gap-6 w-full">
@@ -56,14 +57,15 @@
             <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 mt rounded-md text-white"
                     type="submit">Submit
             </button>
-
-            {{-- TinyMCE text editor --}}
-            <h1>Write your House Rules</h1>
-            <div class="mt-2 flex justify-center">
-                <textarea id="editor" name="editorContent">Hello, World!</textarea>
-
-            </div>
         </form>
+        <div class="pl-96 pr-96 pb-10">
+            <div id="toolbar">
+                <!-- Toolbar buttons will be added by Quill -->
+            </div>
+            <div id="editor" style="height: 400px;"></div>
+            <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 mt rounded-md text-white"
+                    type="submit">Submit
+            </button>
+        </div>
     </main>
-
 @endsection
