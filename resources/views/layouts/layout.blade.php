@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/css/main.css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     @vite('resources/css/app.css')
     @yield('js')
 </head>
@@ -62,13 +63,18 @@
     </div>
 </footer>
 
-
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+{{--<script src="/public/assets/js/jquery.min.js"></script>
+<script src="/public/assets/js/jquery.scrollex.min.js"></script>
+<script src="/public/assets/js/skel.min.js"></script>
+<script src="/public/assets/js/util.js"></script>
+<script src="/public/assets/js/main.js"></script>--}}
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+    let navBar = document.getElementById('header');
+    navBar.className = 'reveal';
+</script>
+@yield('scripts')
 
 </body>
 </html>

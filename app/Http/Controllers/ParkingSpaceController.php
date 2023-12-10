@@ -18,7 +18,7 @@ class ParkingSpaceController extends Controller
      */
     public function create()
     {
-        //
+        return view('parkingSpace.create');
     }
 
     /**
