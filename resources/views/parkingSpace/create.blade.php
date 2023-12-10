@@ -33,12 +33,18 @@
 
         var editor = new Quill('#editor', options);
         console.log('Quill initialized');
+
+        $(document).ready(function() {
+            $('#identifier').on('submit', function() {
+                $('#hiddenArea').val($('#editor').html());
+            });
+        });
     });
 </script>
 
 @section('content')
     <main class="bg-zinc-100 mt-[50px]">
-        <form method="POST" action="{{ route('parkingSpace.store') }}" class="mx-10 rounded-md shadow-xl p-4 bg-white">
+        <form id="identifier" method="POST" action="{{ route('parkingSpace.store') }}" class="mx-10 rounded-md shadow-xl p-4 bg-white">
             <h1 class="text-xl">Create listing</h1>
             @csrf
             <div id="formContent" class="flex flex-wrap flex-col lg:flex-row gap-6 w-full">
@@ -53,21 +59,18 @@
             <div id="add" class="bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center">
                 <p class="text-center text-justify">+</p>
             </div>
-            <input id="inputCount" class="hidden" type="text" name="inputCount">
-            <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 mt rounded-md text-white"
-                    type="submit">Submit
-            </button>
             <!-- Quill rich text editor -->
             <div class="pl-96 pr-96 pb-10">
                 <h2 class="text-xl items-center pb-5">Schrijf je huisregels</h2>
                 <div id="toolbar">
                     <!-- Toolbar buttons will be added by Quill -->
                 </div>
-                <div id="editor" style="height: 400px;"></div>
+                <div id="editor" style="height: 400px;" ></div>
+            </div>
+                <textarea id="hiddenArea" name="houseRules" style="display:none" ></textarea>
                 <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 mt rounded-md text-white"
                         type="submit">Submit
                 </button>
-            </div>
         </form>
     </main>
 @endsection

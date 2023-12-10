@@ -26,7 +26,7 @@ class ParkingSpaceController extends Controller
      */
     public function store(Request $request)
     {
-
+        return view('test',compact('request'));
     }
 
     /**
