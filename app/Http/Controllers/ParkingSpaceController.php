@@ -40,9 +40,9 @@ class ParkingSpaceController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
         $newParking = new ParkingSpace();
         $newParking->user_id = $request->user()->id;
-        $newParking->description = $request->description;
         $newParking->title = $request->title;
         $newParking->street = $request->street;
         $newParking->number = $request->streetNumber;

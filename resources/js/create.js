@@ -25,7 +25,8 @@ function initialize() {
     });
 }
 function deleteInput() {
-    const divId = this.parentElement.parentElement.lastElementChild.id;
+    const divId = this.parentElement.parentElement.firstElementChild.lastElementChild.id;
+    console.log(divId);
     this.parentElement.remove();
     decreaseInputNumber(divId);
     updateInputCount();
@@ -68,7 +69,7 @@ function addInput(rootDivId) {
     div.appendChild(inputDiv);
     div.appendChild(minusDiv);
     minusDiv.appendChild(minus);
-    plusDiv.parentElement.insertBefore(div, plusDiv);
+    plusDiv.parentElement.parentElement.appendChild(div, plusDiv);
 }
 
 function increaseInputNumber(input) {
