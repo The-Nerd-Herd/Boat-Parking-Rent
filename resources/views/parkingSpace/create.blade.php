@@ -21,7 +21,7 @@
 
     <main class="bg-zinc-100">
         <div class="px-[10rem] pt-[3rem]">
-                <h1 class="text-[4rem] text-center">Create listing</h1>
+            <h1 class="text-[4rem] text-center">Create listing</h1>
             <form method="POST" action="{{route('parkingSpace.store')}}"
                   class=" rounded-md shadow-xl p-4 bg-white"
                   enctype="multipart/form-data">
@@ -36,29 +36,29 @@
                     </div>
 
                     <div class="flex w-[80%] mx-auto gap-4 py-5">
-                    <div class="w-[40%] ">
-                        <label for="street" value="text">City</label>
-                        <input
-                            class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                            type="text" name="city" required="required" autofocus="autofocus"
-                            autocomplete="text">
-                    </div>
+                        <div class="w-[40%] ">
+                            <label for="street" value="text">City</label>
+                            <input
+                                class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
+                                type="text" name="city" required="required" autofocus="autofocus"
+                                autocomplete="text">
+                        </div>
 
-                    <div class="w-[50%]">
-                        <label for="street" value="text">Street</label>
-                        <input
-                            class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                            type="text" name="street" required="required" autofocus="autofocus"
-                            autocomplete="text">
-                    </div>
+                        <div class="w-[50%]">
+                            <label for="street" value="text">Street</label>
+                            <input
+                                class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
+                                type="text" name="street" required="required" autofocus="autofocus"
+                                autocomplete="text">
+                        </div>
 
-                    <div class="w-[10%] ">
-                        <label for="street" value="text">Street number</label>
-                        <input
-                            class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                            type="number" name="streetNumber" required="required" autofocus="autofocus"
-                            autocomplete="text">
-                    </div>
+                        <div class="w-[15%] ">
+                            <label class="" for="street" value="text">Street number</label>
+                            <input
+                                class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
+                                type="number" name="streetNumber" required="required" autofocus="autofocus"
+                                autocomplete="text">
+                        </div>
                     </div>
 
                     <?php
@@ -83,45 +83,12 @@
                     }
 
 
-                    echo generateFeeInputGroup('Yearly fee (optional)', 'year', 'yearPrice' );
-                    echo generateFeeInputGroup('Monthly fee (optional)', 'month', 'monthPrice', );
-                    echo generateFeeInputGroup('Daily fee (optional)','day','dayPrice');
-                    echo generateFeeInputGroup('Special requirements (optional)','special', 'specialPrice');
-                    echo  generateFeeInputGroup('Additional (optional)', 'additional')
+                    echo generateFeeInputGroup('Yearly fee (optional)', 'year', 'yearPrice');
+                    echo generateFeeInputGroup('Monthly fee (optional)', 'month', 'monthPrice',);
+                    echo generateFeeInputGroup('Daily fee', 'day', 'dayPrice');
+                    echo generateFeeInputGroup('Special requirements (optional)', 'special', 'specialPrice');
+                    echo generateFeeInputGroup('Additional (optional)', 'additional')
                     ?>
-
-                    <div class="w-full ">
-                        <label for="day" value="text">Day</label>
-                        <input
-                            class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                            type="text" name="day" required="required" autofocus="autofocus" autocomplete="text">
-                        <div id="day" class="bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center">
-                            <p class="text-center">+</p>
-                        </div>
-                    </div>
-
-                    <div class="w-full ">
-                        <label for="special" value="text">special</label>
-                        <input
-                            class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                            type="text" name="special" required="required" autofocus="autofocus"
-                            autocomplete="text">
-                        <div id="special" class="bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center">
-                            <p class="text-center">+</p>
-                        </div>
-                    </div>
-
-                    <div class="w-full ">
-                        <label for="additional" value="text">additional</label>
-                        <input
-                            class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                            type="text" name="additional" required="required" autofocus="autofocus"
-                            autocomplete="text">
-                        <div id="additional"
-                             class="bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center">
-                            <p class="text-center">+</p>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="hidden">
@@ -132,9 +99,7 @@
                     <input id="additionalCount" type="text" name="additionalCount">
                 </div>
                 <div class="mt-2 flex justify-center">
-                    <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 mt rounded-md text-white"
-                            type="submit">Submit
-                    </button>
+
                     <div>
                         <label>Image</label>
                         <input type="file" name="image" accept="image/png, image/jpeg">
@@ -144,6 +109,11 @@
                         <input type="file" name="pdf" accept="application/pdf">
                     </div>
                 </div>
+
+                <div class="flex items-center justify-center py-4">
+                    <button class="w-1/4 bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit</button>
+                </div>
+
             </form>
         </div>
     </main>

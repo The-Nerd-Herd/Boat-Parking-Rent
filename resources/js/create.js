@@ -25,9 +25,9 @@ function initialize() {
     });
 }
 function deleteInput() {
-    const divId = this.parentElement.parentElement.firstElementChild.lastElementChild.id;
+    const divId = this.parentElement.parentElement.parentElement.firstElementChild.lastElementChild.id;
     console.log(divId);
-    this.parentElement.remove();
+    this.parentElement.parentElement.remove();
     decreaseInputNumber(divId);
     updateInputCount();
 }
@@ -67,7 +67,7 @@ function addInput(rootDivId) {
     inputDiv.appendChild(input);
     if (rootDivId !== "additional") inputDiv.appendChild(price);
     div.appendChild(inputDiv);
-    div.appendChild(minusDiv);
+    inputDiv.appendChild(minusDiv);
     minusDiv.appendChild(minus);
     plusDiv.parentElement.parentElement.appendChild(div, plusDiv);
 }
