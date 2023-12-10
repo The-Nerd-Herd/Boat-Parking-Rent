@@ -10,8 +10,8 @@
         var options = {
             modules: {
                 toolbar: [
-                    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-                    ['blockquote', 'code-block'],
+                    ['italic', 'underline', 'strike'],        // toggled buttons
+                    ['blockquote'],
 
                     [{ 'header': 1 }, { 'header': 2 }],               // custom button values
                     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
@@ -20,7 +20,6 @@
                     [{ 'direction': 'rtl' }],                         // text direction
 
                     [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
 
                     [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
                     [{ 'font': [] }],
@@ -36,9 +35,6 @@
         console.log('Quill initialized');
     });
 </script>
-@section('scripts')
-
-@endsection
 
 @section('content')
     <main class="bg-zinc-100 mt-[50px]">
@@ -61,16 +57,17 @@
             <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 mt rounded-md text-white"
                     type="submit">Submit
             </button>
-        </form>
-        <div class="pl-96 pr-96 pb-10">
-            <h2 class="text-xl items-center pb-5">Schrijf je huisregels</h2>
-            <div id="toolbar">
-                <!-- Toolbar buttons will be added by Quill -->
+            <!-- Quill rich text editor -->
+            <div class="pl-96 pr-96 pb-10">
+                <h2 class="text-xl items-center pb-5">Schrijf je huisregels</h2>
+                <div id="toolbar">
+                    <!-- Toolbar buttons will be added by Quill -->
+                </div>
+                <div id="editor" style="height: 400px;"></div>
+                <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 mt rounded-md text-white"
+                        type="submit">Submit
+                </button>
             </div>
-            <div id="editor" style="height: 400px;"></div>
-            <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 mt rounded-md text-white"
-                    type="submit">Submit
-            </button>
-        </div>
+        </form>
     </main>
 @endsection

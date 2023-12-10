@@ -64,11 +64,11 @@
 </footer>
 
 <!-- Scripts -->
-{{--<script src="/public/assets/js/jquery.min.js"></script>
-<script src="/public/assets/js/jquery.scrollex.min.js"></script>
-<script src="/public/assets/js/skel.min.js"></script>
-<script src="/public/assets/js/util.js"></script>
-<script src="/public/assets/js/main.js"></script>--}}
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
     let navBar = document.getElementById('header');
