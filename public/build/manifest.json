@@ -1,12 +1,21 @@
 {
+  "public/images/login.jpg": {
+    "file": "assets/login-5ba7cb47.jpg",
+    "src": "public/images/login.jpg"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-4bf562cc.css",
+    "file": "assets/app-00b3fb69.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-4a08c204.js",
+    "file": "assets/app-240da583.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "resources/js/user-delete-popup.js": {
+    "file": "assets/user-delete-popup-978a7210.js",
+    "isEntry": true,
+    "src": "resources/js/user-delete-popup.js"
   }
 }
