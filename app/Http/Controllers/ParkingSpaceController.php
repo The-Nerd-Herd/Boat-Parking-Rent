@@ -40,6 +40,7 @@ class ParkingSpaceController extends Controller
 
     public function store(Request $request)
     {
+
         dd($request);
         $newParking = new ParkingSpace();
         $newParking->user_id = $request->user()->id;
@@ -54,8 +55,6 @@ class ParkingSpaceController extends Controller
         foreach ($inputNames as $inputName){
             $this->saveToOtherTables($request,$inputName,$newParking->id);
         }
-//        $newMonth = new Monthly();
-//        $newMonth->text = $request->month;
 
 
         $imagePath = $this->storeFile($request, 'image', 'images');
@@ -78,6 +77,8 @@ class ParkingSpaceController extends Controller
         $newRow = $this->chooseTable($name);
         $newRow->parking_space_id = $id;
         $newRow->text = $request->$name;
+        $price ="${name}Price";
+        if($name != "additional") $newRow->price = $request->$price;
         $newRow->save();
     }
 

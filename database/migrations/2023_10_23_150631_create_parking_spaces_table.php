@@ -19,7 +19,6 @@ return new class extends Migration {
                 ->onUpdate('cascade');
             $table->string('picture')->nullable();
             $table->string('pdf_path')->nullable();
-            $table->string('description');
             $table->string('rules')->nullable();
             $table->string('title');
             $table->string('street');

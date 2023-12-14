@@ -29,7 +29,7 @@ Route::get('/hardCoded', function(){
    return view('show-hard-coded');
 });
 
-Route::resource('/parkingSpace', ParkingSpaceController::class);
+Route::resource('/parkingSpace', ParkingSpaceController::class)->middleware(['auth','verified']);
 
 Route::get('/parkingSpace/{id}/houseRules', [ParkingSpaceController::class, 'houseRules']);
 

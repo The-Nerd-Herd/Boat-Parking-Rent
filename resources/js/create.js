@@ -1,6 +1,6 @@
 
 // CSS of the elements
-let minusDivClass = 'bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center';
+let minusDivClass = 'bg-gray-800 text-white h-[2rem] w-[5rem] mt-[1.5rem] flex items-center justify-center';
 let mainDivClass = 'w-full  py-5';
 let inputDivClass = "flex gap-5";
 let inputFieldClass = 'border-gray-300 mt-5 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm w-full';

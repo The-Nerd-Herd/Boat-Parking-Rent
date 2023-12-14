@@ -19,7 +19,7 @@
         }
     </style>
 
-    <main class="bg-zinc-100">
+    <main class="bg-zinc-100 pb-10">
         <div class="px-[10rem] pt-[3rem]">
             <h1 class="text-[4rem] text-center">Create listing</h1>
             <form method="POST" action="{{route('parkingSpace.store')}}"
@@ -72,7 +72,7 @@
                         $html .= '<div class="flex gap-4">';
                         $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $name . '" required="required" autofocus="autofocus" autocomplete="text">';
                         if ($priceName) $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $priceName . '" required="required" autofocus="autofocus" autocomplete="text">';
-                        $html .= '<div id="' . $name . '" class="bg-gray-800 mb-4 text-white w-[4%] mt-2 flex items-center justify-center">';
+                        $html .= '<div id="' . $name . '" class="bg-gray-800 mb-4 text-white h-[2rem] w-[5rem] mt-2 flex items-center justify-center">';
                         $html .= '<p class="text-center">+</p>';
                         $html .= '</div>';
                         $html .= '</div>';
@@ -90,7 +90,21 @@
                     echo generateFeeInputGroup('Additional (optional)', 'additional')
                     ?>
                 </div>
+                <div class="mt-[3rem] flex justify-center">
 
+                    <div>
+                        <label for="image">Image</label>
+                        <input type="file" name="image" accept="image/png, image/jpeg">
+                    </div>
+                    <div>
+                        <label for="pdf">Pdf</label>
+                        <input type="file" name="pdf" accept="application/pdf">
+                    </div>
+                </div>
+
+                <div class="mt-[3rem] flex items-center justify-center py-4">
+                    <button class="w-1/4 bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit</button>
+                </div>
                 <div class="hidden">
                     <input id="yearCount" type="text" name="yearCount">
                     <input id="monthCount" type="text" name="monthCount">
@@ -98,21 +112,7 @@
                     <input id="specialCount" type="text" name="specialCount">
                     <input id="additionalCount" type="text" name="additionalCount">
                 </div>
-                <div class="mt-2 flex justify-center">
 
-                    <div>
-                        <label>Image</label>
-                        <input type="file" name="image" accept="image/png, image/jpeg">
-                    </div>
-                    <div>
-                        <label>Pdf</label>
-                        <input type="file" name="pdf" accept="application/pdf">
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-center py-4">
-                    <button class="w-1/4 bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit</button>
-                </div>
 
             </form>
         </div>
