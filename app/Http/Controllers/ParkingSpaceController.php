@@ -67,6 +67,7 @@ class ParkingSpaceController extends Controller
     }
 
     function saveToOtherTables($request,$name, $id){
+        if($request->$name == null) return;
         $newRow = $this->chooseTable($name);
         $newRow->parking_space_id = $id;
         $newRow->text = $request->$name;

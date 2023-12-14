@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('rules')->nullable();
             $table->string('title');
             $table->string('street');
-            $table->integer('number');
+            $table->integer('number')->nullable();
             $table->string('city');
             $table->timestamps();
         });

@@ -18,7 +18,7 @@ return new class extends Migration
                 ->on('parking_spaces')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->string('text');
+            $table->string('text')->nullable();
             $table->string('price')->nullable();
             $table->timestamps();
         });

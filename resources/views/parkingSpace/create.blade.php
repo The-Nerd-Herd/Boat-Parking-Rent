@@ -28,7 +28,7 @@
                 @csrf
                 <div class=" w-full">
                     <div class="w-[80%]  mx-auto py-5">
-                        <label for="title" value="text">Name of the post</label>
+                        <label for="title" value="text">Name of the post <span class="text-red-600">*</span></label>
                         <input
                             class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                             type="text" name="title" required="required" autofocus="autofocus"
@@ -37,7 +37,7 @@
 
                     <div class="flex w-[80%] mx-auto gap-4 py-5">
                         <div class="w-[40%] ">
-                            <label for="street" value="text">City</label>
+                            <label for="street" value="text">City <span class="text-red-600">*</span></label>
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                                 type="text" name="city" required="required" autofocus="autofocus"
@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="w-[50%]">
-                            <label for="street" value="text">Street</label>
+                            <label for="street" value="text">Street <span class="text-red-600">*</span></label>
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                                 type="text" name="street" required="required" autofocus="autofocus"
@@ -53,10 +53,10 @@
                         </div>
 
                         <div class="w-[15%] ">
-                            <label class="" for="street" value="text">Street number</label>
+                            <label class="" for="street" value="text">Street number (opt.)</label>
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                                type="number" name="streetNumber" required="required" autofocus="autofocus"
+                                type="number" name="streetNumber" autofocus="autofocus"
                                 autocomplete="text">
                         </div>
                     </div>
@@ -70,8 +70,14 @@
                         $html .= '</div>';
                         $html .= '<div>';
                         $html .= '<div class="flex gap-4">';
-                        $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $name . '" required="required" autofocus="autofocus" autocomplete="text">';
-                        if ($priceName) $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $priceName . '" required="required" autofocus="autofocus" autocomplete="text">';
+                        $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $name . '"';
+                        if ($name == "day") $html .= ' required="required"';
+                        $html .= ' autofocus="autofocus" autocomplete="text">';
+                        if ($priceName) {
+                            $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $priceName . '"';
+                            if ($name == "day") $html .= ' required="required"';
+                            $html .= ' autofocus="autofocus" autocomplete="text">';
+                        }
                         $html .= '<div id="' . $name . '" class="bg-gray-800 mb-4 text-white h-[2rem] w-[5rem] mt-2 flex items-center justify-center">';
                         $html .= '<p class="text-center">+</p>';
                         $html .= '</div>';
@@ -85,7 +91,7 @@
 
                     echo generateFeeInputGroup('Yearly fee (optional)', 'year', 'yearPrice');
                     echo generateFeeInputGroup('Monthly fee (optional)', 'month', 'monthPrice',);
-                    echo generateFeeInputGroup('Daily fee', 'day', 'dayPrice');
+                    echo generateFeeInputGroup('Daily fee <span class="text-red-600">*</span>', 'day', 'dayPrice');
                     echo generateFeeInputGroup('Special requirements (optional)', 'special', 'specialPrice');
                     echo generateFeeInputGroup('Additional (optional)', 'additional')
                     ?>
@@ -103,7 +109,8 @@
                 </div>
 
                 <div class="mt-[3rem] flex items-center justify-center py-4">
-                    <button class="w-1/4 bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit</button>
+                    <button class="w-1/4 bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit
+                    </button>
                 </div>
                 <div class="hidden">
                     <input id="yearCount" type="text" name="yearCount">

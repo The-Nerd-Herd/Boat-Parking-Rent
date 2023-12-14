@@ -51,7 +51,7 @@
 
                     @php
                         function renderFees($fees, $title) {
-                            if (isset($fees)) {
+                            if ($fees->count() <=0 ) return;
                                 echo "<h1 class='text-xl font-semibold'>$title</h1>";
                                 echo "<table>";
                                 echo "<tbody class='text-gray-400 text-sm lg:text-base'>";
@@ -65,7 +65,6 @@
                                 }
                                 echo "</tbody>";
                                 echo "</table>";
-                            }
                         }
                     @endphp
 
