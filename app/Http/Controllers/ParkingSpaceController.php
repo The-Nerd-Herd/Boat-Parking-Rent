@@ -40,14 +40,16 @@ class ParkingSpaceController extends Controller
 
     public function store(Request $request)
     {
-
-        dd($request);
         $newParking = new ParkingSpace();
         $newParking->user_id = $request->user()->id;
         $newParking->title = $request->title;
         $newParking->street = $request->street;
         $newParking->number = $request->streetNumber;
         $newParking->city = $request->city;
+        $imagePath = $this->storeFile($request, 'image', 'images');
+        $pdfPath = $this->storeFile($request, 'pdf', 'pdfs');
+        $newParking->pdf_path = $pdfPath;
+        $newParking->picture = $imagePath;
         $newParking->save();
 
         // Adding things to other table
@@ -55,15 +57,6 @@ class ParkingSpaceController extends Controller
         foreach ($inputNames as $inputName){
             $this->saveToOtherTables($request,$inputName,$newParking->id);
         }
-
-
-        $imagePath = $this->storeFile($request, 'image', 'images');
-        $pdfPath = $this->storeFile($request, 'pdf', 'pdfs');
-
-        $newParking->pdf_path = $pdfPath;
-        $newParking->picture = $imagePath;
-
-        $newParking->save();
 
         foreach ($inputNames as $inputName) {
             $this->saveInput($request, $inputName, $newParking->id);
