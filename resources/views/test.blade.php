@@ -1,2 +1,2 @@
 Hi this is a test
-{!! $request->houseRules !!}
+<div id="displayContent">{!! $htmlContent !!}</div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ParkingSpace;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Symfony\Component\DomCrawler\Crawler;
 
 class ParkingSpaceController extends Controller
 {
@@ -26,7 +27,12 @@ class ParkingSpaceController extends Controller
      */
     public function store(Request $request)
     {
-        return view('test',compact('request'));
+        $crawler = new Crawler($request->houseRules);
+
+        $textContent = $crawler->html();
+
+        return view('test', ['htmlContent' => $textContent]);
+//        return view('test',compact('request'));
     }
 
     /**
