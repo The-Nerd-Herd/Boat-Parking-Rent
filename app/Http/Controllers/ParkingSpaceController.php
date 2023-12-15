@@ -29,7 +29,7 @@ class ParkingSpaceController extends Controller
     {
         $crawler = new Crawler($request->houseRules);
 
-        $textContent = $crawler->html();
+        $textContent =$crawler->filterXPath('//div[1]')->html();
 
         return view('test', ['htmlContent' => $textContent]);
 //        return view('test',compact('request'));
