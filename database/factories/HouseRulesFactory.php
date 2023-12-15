@@ -20,5 +20,6 @@ class HouseRulesFactory extends Factory
             'title'=>$this->faker->text(20),
             'parking_space_id'=>$this->faker->numberBetween(1,10),
         ];
+
     }
 }

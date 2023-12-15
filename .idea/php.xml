@@ -132,7 +132,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/http-client" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/stripe/stripe-php" />
-      <path value="$PROJECT_DIR$/vendor/tinymce/tinymce" />
       <path value="$PROJECT_DIR$/vendor/tonysm/rich-text-laravel" />
       <path value="$PROJECT_DIR$/vendor/tonysm/globalid-laravel" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-package-tools" />

@@ -6,8 +6,40 @@
 
 @section('content')
     <script>
-        let navBar = document.getElementById('header');
-        navBar.className = 'reveal'
+          document.addEventListener("DOMContentLoaded", function() {
+        var options = {
+            modules: {
+                toolbar: [
+                    ['bold' ,'italic', 'underline', 'strike'],        // toggled buttons
+                    ['blockquote'],
+
+                    [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+                    [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+                    [{ 'direction': 'rtl' }],                         // text direction
+
+                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  // custom dropdown
+
+                    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+                    [{ 'font': [] }],
+                    [{ 'align': [] }],
+
+                    ['clean']
+                ],
+            },
+            theme: 'snow'
+        };
+
+        var editor = new Quill('#editor', options);
+        console.log('Quill initialized');
+
+        $(document).ready(function() {
+            $('#identifier').on('submit', function() {
+                $('#hiddenArea').val($('#editor').html());
+            });
+        });
+    });
     </script>
 
     <style>
@@ -108,6 +140,20 @@
                     </div>
                 </div>
 
+
+            <div id="add" class="bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center">
+                <p class="text-center text-justify">+</p>
+            </div>
+            <!-- Quill rich text editor -->
+            <div class="w-full flex flex-col">
+                <h2 class="text-xl items-center pb-5">Schrijf je huisregels</h2>
+                <div id="toolbar">
+                    <!-- Toolbar buttons will be added by Quill -->
+                </div>
+                <div id="editor" style="height: 400px;" ></div>
+            </div>
+                <textarea id="hiddenArea" name="houseRules" style="display:none" class="w-full flex flex-col items-center"></textarea>
+
                 <div class="mt-[3rem] flex items-center justify-center py-4">
                     <button class="w-1/4 bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit
                     </button>
@@ -124,5 +170,4 @@
             </form>
         </div>
     </main>
-
 @endsection

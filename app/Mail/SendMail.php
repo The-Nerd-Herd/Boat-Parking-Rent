@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Arr;
 
 class SendMail extends Mailable
 {
@@ -18,12 +19,10 @@ class SendMail extends Mailable
      */
     /**
      * @var $data
-     * @type  array
      */
-    public array $data;
-    public function __construct($data)
+    public function __construct(public $data)
     {
-        $this->data = $data;
+
     }
 
     /**

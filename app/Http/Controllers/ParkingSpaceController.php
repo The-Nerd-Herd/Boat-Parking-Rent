@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use function Laravel\Prompts\error;
 use function Webmozart\Assert\Tests\StaticAnalysis\resource;
+use Symfony\Component\DomCrawler\Crawler;
 
 class ParkingSpaceController extends Controller
 {
@@ -20,9 +21,10 @@ class ParkingSpaceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return abort(404);
+    public function index(){
+        $parkingSpaces = ParkingSpace::all();
+        return view('parkingSpace.index', compact('parkingSpaces'));
+
     }
 
     /**
@@ -51,6 +53,11 @@ class ParkingSpaceController extends Controller
         $newParking->pdf_path = $pdfPath;
         $newParking->picture = $imagePath;
         $newParking->save();
+
+
+        // Getting house rules
+        $crawler = new Crawler($request->houseRules);
+        $textContent =$crawler->filterXPath('//div[1]')->html();
 
         // Adding things to other table
         $inputNames = ["year", "month", "day", "special", "additional"];
@@ -128,6 +135,7 @@ class ParkingSpaceController extends Controller
      */
     public function show(ParkingSpace $parkingSpace)
     {
+
         return view('parkingSpace.show', ['parkingSpace' => $parkingSpace]);
     }
 
@@ -155,10 +163,16 @@ class ParkingSpaceController extends Controller
         //
     }
 
-    public function houseRules(ParkingSpace $parkingSpace, $description)
-    {
-        $rules = ParkingSpace::findOrFail($description);
 
-        return view('parkingSpace.houseRules', ['rules' => $rules]);
+    public function fromOldToNew()
+    {
+        $parkingSpaces = ParkingSpace::orderBy('created_at', 'DESC')->get();
+        return view(('parkingSpace.index'), compact('parkingSpaces'));
+    }
+
+    public function fromNewToOld()
+    {
+        $parkingSpaces = ParkingSpace::orderBy('created_at', 'ASC')->get();
+        return view(('parkingSpace.index'), compact('parkingSpaces'));
     }
 }

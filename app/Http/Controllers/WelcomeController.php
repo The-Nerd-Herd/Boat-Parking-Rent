@@ -12,7 +12,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $parkingSpaces = ParkingSpace::all();
+        $parkingSpaces = ParkingSpace::all()->take(5);
         return view('home.welcome', compact('parkingSpaces'));
     }
 }
