@@ -26,6 +26,36 @@
             houseRule.className = 'align-center text-black font-bold bg-gradient-to-b from-black to-transparent text-transparent bg-clip-text';
         });
     });
+
+    function updateContentEditableAttribute() {
+        // Select the Quill editor element by its class
+        var quillEditor = document.querySelector('.ql-editor');
+
+        // Check if the Quill editor element is present
+        if (quillEditor) {
+            // Set the contenteditable attribute to 'false'
+            quillEditor.setAttribute('contenteditable', 'false');
+
+            console.log('Quill editor contenteditable attribute set to false.');
+
+            // Remove the .ql-clipboard div
+            var qlClipboard = document.querySelector('.ql-clipboard');
+            if (qlClipboard) {
+                qlClipboard.parentNode.removeChild(qlClipboard);
+                console.log('.ql-clipboard div is deleted.');
+            } else {
+                console.log('.ql-clipboard div not found.');
+            }
+        } else {
+            console.log('Quill editor element not found.');
+        }
+    }
+
+    // Example of how to use the function
+    document.addEventListener("DOMContentLoaded", function() {
+        // Wait for the DOM to be ready
+        updateContentEditableAttribute();
+    });
 </script>
 
 
@@ -37,7 +67,7 @@
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
             <article class="flex p-8 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
-                <img class="object-scale-down" src="{{$parkingSpace->picture}}" alt="image"/>
+                <img class="object-scale-down mx-auto" src="/storage/{{$parkingSpace->picture}}" alt="image"/>
             </article>
 
             <div class="flex flex-col lg:h-[600px] lg:w-[1000px] justify-between">
@@ -49,66 +79,39 @@
                     class="bg-white w-full p-10 flex flex-col text-center rounded-md gap-5 lg:overflow-y-auto lg:h-[500px] shadow-xl">
                     <!--Boat length annual rate-->
 
-                    <h1 class="text-xl font-semibold">Jaartarief</h1>
-                    <table>
-                        <tbody class="text-gray-400 lg:text-base text-sm ">
-                        @foreach($parkingSpace->yearlyFees as $yearlyFees)
-                            <tr class="border-b-2 border-t-0">
-                                <td class="bg-white text-left">{{$yearlyFees->length}} meters</td>
-                                <td class="bg-white text-right ">{{$yearlyFees->amount}} € / meter</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                    @php
+                        function renderFees($fees, $title) {
+                            if ($fees->count() <=0 ) return;
+                                echo "<h1 class='text-xl font-semibold'>$title</h1>";
+                                echo "<table>";
+                                echo "<tbody class='text-gray-400 text-sm lg:text-base'>";
+                                foreach ($fees as $fee) {
+                                    echo "<tr class='border-b-2 border-t-0'>";
+                                    echo "<td class='bg-white text-left'>$fee->text</td>";
+                                    if ($fee->price !== null) {
+                                        echo "<td class='bg-white text-right'>$fee->price</td>";
+                                    }
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";
+                                echo "</table>";
+                        }
+                    @endphp
 
-                    <!--Monthly-->
-                    <h1 class="text-xl font-semibold">Maandtarief</h1>
-                    <table>
-                        <tbody class="text-gray-400 text-sm lg:text-base">
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Maandtarief</td>
-                            <td class="bg-white text-right">Jaartarief / 10
-                                €({{$parkingSpace->yearlyFees[0]->amount / 10}})
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                        <!-- Yearly -->
+                    @php renderFees($parkingSpace->yearly, 'Jaartarief'); @endphp
 
-                    <!--Daily rates-->
-                    <h1 class="text-xl font-semibold">Dagtarief </h1>
-                    <table>
-                        <tbody class="text-gray-400 text-sm lg:text-base">
-                        <tr class="border-b-2 border-t-0">
-                            <td class="bg-white text-left">Dagtarief</td>
-                            <td class="bg-white text-right">{{$parkingSpace->dailyTariff}} € per meter</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                        <!-- Monthly -->
+                    @php renderFees($parkingSpace->monthly, 'Maandtarief'); @endphp
 
-                    <!--Special req.-->
-                    <h1 class="text-xl font-semibold">Speciale vereisten</h1>
-                    <table>
-                        <tbody class="text-gray-400 text-sm lg:text-base">
-                        @foreach($parkingSpace->specialRequirements as $requirement)
-                            <tr class="border-b-2 border-t-0">
-                                <td class="bg-white text-left">{{$requirement->requirement}}</td>
-                                <td class="bg-white text-right">{{$requirement->price}} €</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                        <!-- Daily rates -->
+                    @php renderFees($parkingSpace->daily, 'Dagtarief'); @endphp
 
-                    <!--Additional req.-->
-                    <h1 class="text-xl font-semibold">Aanvullende vereisten</h1>
-                    <table>
-                        <tbody class="text-gray-400 text-sm lg:text-base">
-                        @foreach($parkingSpace->additionalInformation as $information)
-                            <tr class="border-b-2 border-t-0">
-                                <td class="bg-white text-left">{{$information->information}}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                        <!-- Special requirements -->
+                    @php renderFees($parkingSpace->special, 'Speciale vereisten'); @endphp
+
+                        <!-- Additional requirements -->
+                    @php renderFees($parkingSpace->additional, 'Aanvullende vereisten'); @endphp
 
                 </div>
             </div>
@@ -159,6 +162,9 @@
             </button>
         </form>
 
+
+        <a href="/storage/{{$parkingSpace->pdf_path}}" target="_blank">PDF</a>
+
         {{--        House rules       --}}
         <section class=" w-full p-20">
             <div id="accordion-collapse" data-accordion="collapse"
@@ -184,16 +190,7 @@
                     <br>
                     <span class="hidden" id="more-text">
                     <div class="px-12">
-                        @foreach($parkingSpace->houseRules as $articles)
-                        <h3><strong class="text-black font-medium">{{$articles->title}}</strong></h3>
-                        <br>
-                            <ol class="text-black pl-4">
-                        @foreach($articles->bulletPoints as $bulletpoints)
-                            <li>{{$bulletpoints->text}}</li>
-                        @endforeach
-                            <br>
-                        </ol>
-                        @endforeach
+                       {!! $parkingSpace->rules !!}
                     </div>
                     </span>
                 </h2>

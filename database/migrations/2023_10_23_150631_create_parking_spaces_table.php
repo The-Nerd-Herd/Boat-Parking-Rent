@@ -17,13 +17,13 @@ return new class extends Migration {
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->string('picture')->nullable();
+            $table->string('pdf_path')->nullable();
+            $table->string('rules')->nullable();
             $table->string('title');
             $table->string('street');
-            $table->integer('number');
+            $table->integer('number')->nullable();
             $table->string('city');
-            $table->string('picture');
-            $table->string('description');
-            $table->integer('dailyTariff');
             $table->timestamps();
         });
     }

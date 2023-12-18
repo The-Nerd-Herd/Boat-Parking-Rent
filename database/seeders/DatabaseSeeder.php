@@ -17,17 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             ParkingSpaceSeeder::class,
-            AdditionalInformationSeeder::class,
-            YearlyFeesSeeder::class,
-            SpecialRequirementsSeeder::class,
-            HouseRulesSeeder::class,
-            ArticleBulletPointsSeeder::class,
         ]);
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

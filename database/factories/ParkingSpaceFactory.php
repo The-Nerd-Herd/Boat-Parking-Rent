@@ -23,8 +23,6 @@ class ParkingSpaceFactory extends Factory
             'number'=>$this->faker->buildingNumber,
             'city'=>$this->faker->city,
             'picture'=>$this->faker->imageUrl,
-            'description'=>$this->faker->sentence,
-            'dailyTariff'=>$this->faker->numberBetween(0,100),
             'created_at'=>now(),
             'updated_at'=>now()
         ];
