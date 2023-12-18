@@ -7,8 +7,10 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'resources/js/user-delete-popup.js',
             ],
             refresh: true,
         }),
     ],
 });
+

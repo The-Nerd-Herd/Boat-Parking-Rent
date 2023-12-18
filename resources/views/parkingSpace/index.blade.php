@@ -34,7 +34,7 @@
                 <div>
                     <div class="box">
                         <div class="image fit">
-                            <img src="images/ricardo.jpg" alt=""/>
+                            <img src="/images/ricardo.jpg" alt=""/>
                         </div>
                         <div class="content pl-8">
                             <header class="align-center">
@@ -43,7 +43,7 @@
                             </header>
                             <p class="align-center pb-6"> Ligplaatsen te huur bij Neeltje Jans</p>
                             <footer class="align-center">
-                                <a href="hardCoded" class="button alt">Lees meer</a>
+                                <a href="/hardCoded" class="button alt">Lees meer</a>
                             </footer>
                         </div>
                     </div>
