@@ -54,7 +54,7 @@
     <main class="bg-zinc-100 pb-10">
         <div class="px-[10rem] pt-[3rem]">
             <h1 class="text-[4rem] text-center">Create listing</h1>
-            <form method="POST" action="{{route('parkingSpace.store')}}"
+            <form id="identifier" method="POST" action="{{route('parkingSpace.store')}}"
                   class=" rounded-md shadow-xl p-4 bg-white"
                   enctype="multipart/form-data">
                 @csrf
@@ -140,10 +140,6 @@
                     </div>
                 </div>
 
-
-            <div id="add" class="bg-gray-800 text-white w-[4%] mt-2 flex items-center justify-center">
-                <p class="text-center text-justify">+</p>
-            </div>
             <!-- Quill rich text editor -->
             <div class="w-full flex flex-col">
                 <h2 class="text-xl items-center pb-5">Schrijf je huisregels</h2>

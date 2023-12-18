@@ -42,12 +42,19 @@ class ParkingSpaceController extends Controller
 
     public function store(Request $request)
     {
+        $textContent=null;
+        // Getting house rules
+        if($request->houseRules != null){
+            $crawler = new Crawler($request->houseRules);
+            $textContent =$crawler->filterXPath('//div[1]')->html();
+        }
         $newParking = new ParkingSpace();
         $newParking->user_id = $request->user()->id;
         $newParking->title = $request->title;
         $newParking->street = $request->street;
         $newParking->number = $request->streetNumber;
         $newParking->city = $request->city;
+        $newParking->rules = $textContent;
         $imagePath = $this->storeFile($request, 'image', 'images');
         $pdfPath = $this->storeFile($request, 'pdf', 'pdfs');
         $newParking->pdf_path = $pdfPath;
@@ -55,9 +62,6 @@ class ParkingSpaceController extends Controller
         $newParking->save();
 
 
-        // Getting house rules
-        $crawler = new Crawler($request->houseRules);
-        $textContent =$crawler->filterXPath('//div[1]')->html();
 
         // Adding things to other table
         $inputNames = ["year", "month", "day", "special", "additional"];
