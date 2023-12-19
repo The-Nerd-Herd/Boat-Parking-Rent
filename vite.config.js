@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/js/user-delete-popup.js',
+                'resources/js/create.js',
             ],
             refresh: true,
         }),
