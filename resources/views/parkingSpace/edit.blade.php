@@ -94,8 +94,14 @@
                     </div>
 
                     <?php
-                    function generateFeeInputGroup($label, $name, $text, $priceName = false)
+                    function generateFeeInputGroup($label, $name, $value , $priceName = false,)
                     {
+                        $text ="";
+                        $price ="";
+                        if ($value->count() > 0){
+                            $text= $value[0]->text;
+                            $price= $value[0]->price;
+                        } $value="";
                         $html = '<div class="w-[80%] mx-auto">';
                         $html .= '<div class="flex justify-between">';
                         $html .= '<label for="' . $name . '" value="text">' . $label . '</label>';
@@ -104,11 +110,12 @@
                         $html .= '<div class="flex gap-4">';
                         $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $name . '"';
                         if ($name == "day") $html .= ' required="required"';
-                        $html .= ' autofocus="autofocus" autocomplete="text" value="'. $text->text .'">';
+                        $html .= ' autofocus="autofocus" autocomplete="text"';
+                        $html .= 'value="'. $text .'">';
                         if ($priceName) {
                             $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $priceName . '"';
                             if ($name == "day") $html .= ' required="required"';
-                            $html .= ' autofocus="autofocus" autocomplete="text">';
+                            $html .= ' autofocus="autofocus" autocomplete="text" value="'. $price .'" >';
                         }
                         $html .= '<div id="' . $name . '" class="bg-gray-800 mb-4 text-white h-[2rem] w-[5rem] mt-2 flex items-center justify-center">';
                         $html .= '<p class="text-center">+</p>';
@@ -120,21 +127,11 @@
                         return $html;
                     }
 
-                    foreach ($parkingSpace->yearly as $yearly){
-                    echo generateFeeInputGroup('Yearly fee (optional)', 'year', $yearly, 'yearPrice');
-                    }
-                    foreach ($parkingSpace->monthly as $monthly){
-                    echo generateFeeInputGroup('Monthly fee (optional)', 'month', $monthly, 'monthPrice');
-                    }
-                    foreach ($parkingSpace->daily as $daily){
-                    echo generateFeeInputGroup('Daily fee <span class="text-red-600">*</span>', 'day', $daily, 'dayPrice');
-                    }
-                    foreach ($parkingSpace->special as $special){
-                    echo generateFeeInputGroup('Special requirements (optional)', 'special', $special, 'specialPrice');
-                    }
-                    foreach ($parkingSpace->additional as $additional){
-                    echo generateFeeInputGroup('Additional (optional)', 'additional', $additional);
-                    }
+                    echo generateFeeInputGroup('Yearly fee (optional)', 'year', $parkingSpace->yearly, 'yearPrice');
+                    echo generateFeeInputGroup('Monthly fee (optional)', 'month',$parkingSpace->monthly, 'monthPrice');
+                    echo generateFeeInputGroup('Daily fee <span class="text-red-600">*</span>', 'day', $parkingSpace->daily, 'dayPrice');
+                    echo generateFeeInputGroup('Special requirements (optional)', 'special', $parkingSpace->special, 'specialPrice');
+                    echo generateFeeInputGroup('Additional (optional)', 'additional', $parkingSpace->additional);
                     ?>
                 </div>
                 <div class="mt-[3rem] flex justify-center">
