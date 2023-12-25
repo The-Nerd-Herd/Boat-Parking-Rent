@@ -148,7 +148,7 @@ class ParkingSpaceController extends Controller
      */
     public function edit(ParkingSpace $parkingSpace)
     {
-        //
+        return view('parkingSpace.edit',['parkingSpace' =>$parkingSpace]);
     }
 
     /**
