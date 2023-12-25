@@ -156,7 +156,7 @@ class ParkingSpaceController extends Controller
      */
     public function update(Request $request, ParkingSpace $parkingSpace)
     {
-        //
+        dd($request,$parkingSpace);
     }
 
     /**

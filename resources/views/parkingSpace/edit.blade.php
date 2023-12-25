@@ -54,10 +54,11 @@
     <main class="bg-zinc-100 pb-10">
         <div class="px-[10rem] pt-[3rem]">
             <h1 class="text-[4rem] text-center">Create listing</h1>
-            <form id="identifier" method="POST" action="{{route('parkingSpace.store')}}"
+            <form id="identifier" method="POST" action="{{route('parkingSpace.update',$parkingSpace)}}"
                   class=" rounded-md shadow-xl p-4 bg-white"
                   enctype="multipart/form-data">
                 @csrf
+                @method('PATCH')
                 <div class=" w-full">
                     <div class="w-[80%]  mx-auto py-5">
                         <label for="title" value="text">Name of the post <span class="text-red-600">*</span></label>
@@ -152,9 +153,9 @@
                     <div id="toolbar">
                         <!-- Toolbar buttons will be added by Quill -->
                     </div>
-                    <div id="editor" style="height: 400px;" ></div>
+                    <div id="editor" style="height: 400px;" >{!! $parkingSpace->rules !!}</div>
                 </div>
-                <textarea id="hiddenArea" name="houseRules" style="display:none" class="w-full flex flex-col items-center"></textarea>
+                <textarea id="hiddenArea" name="houseRules" style="display:none" class="w-full flex flex-col items-center" ></textarea>
 
                 <div class="mt-[3rem] flex items-center justify-center py-4">
                     <button class="w-1/4 bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit
