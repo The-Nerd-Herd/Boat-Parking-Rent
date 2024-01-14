@@ -75,6 +75,19 @@
 <script>
     let navBar = document.getElementById('header');
     navBar.className = 'reveal';
+
+    // testing, doesn't work
+    document.addEventListener('DOMContentLoaded', function () {
+        let menuLink = document.querySelector('a[href="#menu"]');
+        let menuSection = document.getElementById('menu');
+
+        if (menuLink && menuSection) {
+            menuLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                menuSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+    });
 </script>
 @yield('scripts')
 
