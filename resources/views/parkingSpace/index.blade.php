@@ -32,9 +32,9 @@
             <section id="one" class="wrapper style2 flex flex-col items-center w-full">
                 <div class="grid grid-cols-2 w-[85%] gap-y-[1.5rem] gap-x-[3rem] items-center self-center justify-center p-10">
                     <div>
-                        <div class="box">
+                        <div class="box rounded-md overflow-hidden hover:scale-105 duration-100" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
                             <div class="image fit">
-                                <img class="h-[25rem] w-[43rem] object-none" src="images/ricardo.jpg" alt=""/>
+                                <img class="h-[25rem] w-[43rem] object-none" src="images/ricardo.jpg" alt="img"/>
                             </div>
                             <div class="content pl-8 w-full h-[15.5rem]">
                                 <header class="align-center">
@@ -50,7 +50,7 @@
                     </div>
                     @foreach($parkingSpaces as $parkingSpace)
                         <div class="flex flex-col items-center">
-                            <div class="box">
+                            <div class="box rounded-md overflow-hidden hover:scale-105 duration-100" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
                                 <div class="">
                                     <img class="h-[25rem] w-[43rem] object-none" src="{{$parkingSpace->picture}}" alt="img"/>
                                 </div>
