@@ -66,18 +66,15 @@ class ParkingSpaceController extends Controller
         // Adding things to other table
         $inputNames = ["year", "month", "day", "special", "additional"];
         foreach ($inputNames as $inputName){
-            $this->saveToOtherTables($request,$inputName,$newParking->id);
-        }
-
-        foreach ($inputNames as $inputName) {
-            $this->saveInput($request, $inputName, $newParking->id);
+            $this->SaveFirstInput($request,$inputName,$newParking->id);
+            $this->saveGeneratedInputs($request, $inputName, $newParking->id);
         }
 
         return redirect(route('parkingSpace.show', $newParking->id));
 
     }
 
-    function saveToOtherTables($request,$name, $id){
+    function SaveFirstInput($request, $name, $id){
         if($request->$name == null) return;
         $newRow = $this->chooseTable($name);
         $newRow->parking_space_id = $id;
@@ -98,19 +95,17 @@ class ParkingSpaceController extends Controller
         return $filePath;
     }
 
-    private function saveInput(Request $request, string $name, int $id)
+    private function saveGeneratedInputs(Request $request, string $name, int $id)
     {
         $inputReference = "${name}Count";
-        if (
-            $request->$inputReference === null) {
-            return;
-        }
+        if ($request->$inputReference === null) return;
         for ($i = 1; $i <= $request->$inputReference; $i++) {
             $table = $this->chooseTable($name);
             $inputName = "${name}${i}";
             $price ="${name}Price${i}";
             $table->parking_space_id = $id;
             $table->text = $request->$inputName;
+            if ($table->text === null) return;
             if($name != "additional") $table->price = $request->$price;
             $table->save();
         }
@@ -156,7 +151,35 @@ class ParkingSpaceController extends Controller
      */
     public function update(Request $request, ParkingSpace $parkingSpace)
     {
-        dd($request,$parkingSpace);
+        $inputNames = ["year", "month", "day", "special", "additional"];
+        $this->deleteRowsFrom($parkingSpace->yearly);
+        $this->deleteRowsFrom($parkingSpace->monthly);
+       $this->deleteRowsFrom($parkingSpace->daily);
+       $this->deleteRowsFrom($parkingSpace->special);
+       $this->deleteRowsFrom($parkingSpace->additional);
+        $textContent=null;
+        // Getting house rules
+        if($request->houseRules != null){
+            $crawler = new Crawler($request->houseRules);
+            $textContent =$crawler->filterXPath('//div[1]')->html();
+        }
+        // Adding things to other table
+        $inputNames = ["year", "month", "day", "special", "additional"];
+        foreach ($inputNames as $inputName){
+            $this->SaveFirstInput($request,$inputName,$parkingSpace->id);
+            $this->saveGeneratedInputs($request, $inputName, $parkingSpace->id);
+        }
+        $parkingSpace->title = $request->title;
+        $parkingSpace->street = $request->street;
+        $parkingSpace->number = $request->streetNumber;
+        $parkingSpace->city = $request->city;
+        $parkingSpace->rules = $textContent;
+        $imagePath = $this->storeFile($request, 'image', 'images');
+        $pdfPath = $this->storeFile($request, 'pdf', 'pdfs');
+        $parkingSpace->pdf_path = $pdfPath;
+        $parkingSpace->picture = $imagePath;
+        $parkingSpace->save();
+        return redirect(route('parkingSpace.show', $parkingSpace->id));
     }
 
     /**
@@ -178,5 +201,12 @@ class ParkingSpaceController extends Controller
     {
         $parkingSpaces = ParkingSpace::orderBy('created_at', 'ASC')->get();
         return view(('parkingSpace.index'), compact('parkingSpaces'));
+    }
+
+    private function deleteRowsFrom($tableName)
+    {
+        foreach ($tableName as $row){
+            $row->delete();
+        }
     }
 }

@@ -52,7 +52,7 @@
                     <div>
                         <div class="box">
                             <div class="image fit">
-                                <img src="{{$parkingSpace->picture}}" alt=""/>
+                                <img src="/storage/{{$parkingSpace->picture}}" alt=""/>
                             </div>
                             <div class="content pl-8">
                                 <header class="align-center">
