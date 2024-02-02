@@ -53,14 +53,14 @@
 
     <main class="bg-zinc-100 pb-10">
         <div class="px-[10rem] pt-[3rem]">
-            <h1 class="text-[4rem] text-center">Create listing</h1>
+            <h1 class="text-[4rem] text-center">Maak een vermelding</h1>
             <form id="identifier" method="POST" action="{{route('parkingSpace.store')}}"
                   class=" rounded-md shadow-xl p-4 bg-white"
                   enctype="multipart/form-data">
                 @csrf
                 <div class=" w-full">
                     <div class="w-[80%]  mx-auto py-5">
-                        <label for="title" value="text">Name of the post <span class="text-red-600">*</span></label>
+                        <label for="title" value="text">Naam van het bericht<span class="text-red-600">*</span></label>
                         <input
                             class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                             type="text" name="title" required="required" autofocus="autofocus"
@@ -69,7 +69,7 @@
 
                     <div class="flex w-[80%] mx-auto gap-4 py-5">
                         <div class="w-[40%] ">
-                            <label for="street" value="text">City <span class="text-red-600">*</span></label>
+                            <label for="street" value="text">Stad<span class="text-red-600">*</span></label>
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                                 type="text" name="city" required="required" autofocus="autofocus"
@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="w-[50%]">
-                            <label for="street" value="text">Street <span class="text-red-600">*</span></label>
+                            <label for="street" value="text">Straat <span class="text-red-600">*</span></label>
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                                 type="text" name="street" required="required" autofocus="autofocus"
@@ -85,7 +85,7 @@
                         </div>
 
                         <div class="w-[15%] ">
-                            <label class="" for="street" value="text">Street number (opt.)</label>
+                            <label class="" for="street" value="text">Nummer (opt.)</label>
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                                 type="number" name="streetNumber" autofocus="autofocus"
@@ -121,17 +121,17 @@
                     }
 
 
-                    echo generateFeeInputGroup('Yearly fee (optional)', 'year', 'yearPrice');
-                    echo generateFeeInputGroup('Monthly fee (optional)', 'month', 'monthPrice',);
-                    echo generateFeeInputGroup('Daily fee <span class="text-red-600">*</span>', 'day', 'dayPrice');
-                    echo generateFeeInputGroup('Special requirements (optional)', 'special', 'specialPrice');
-                    echo generateFeeInputGroup('Additional (optional)', 'additional')
+                    echo generateFeeInputGroup('Jaar Tarief (opt.)', 'year', 'yearPrice');
+                    echo generateFeeInputGroup('Maand Tarief (opt.)', 'month', 'monthPrice',);
+                    echo generateFeeInputGroup('Dag Tarief <span class="text-red-600">*</span>', 'day', 'dayPrice');
+                    echo generateFeeInputGroup('Speciale vereisten (opt.)', 'special', 'specialPrice');
+                    echo generateFeeInputGroup('Aanvullende vereisten (opt.)', 'additional')
                     ?>
                 </div>
                 <div class="mt-[3rem] flex justify-center">
 
                     <div>
-                        <label for="image">Image</label>
+                        <label for="image">Afbeelding</label>
                         <input type="file" name="image" accept="image/png, image/jpeg">
                     </div>
                     <div>
@@ -161,8 +161,6 @@
                     <input id="specialCount" type="text" name="specialCount">
                     <input id="additionalCount" type="text" name="additionalCount">
                 </div>
-
-
             </form>
         </div>
     </main>

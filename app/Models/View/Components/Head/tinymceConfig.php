@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\Head;
+namespace App\Models\View\Components\Head;
 
 use Closure;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
 class tinymceConfig extends Component
 {
