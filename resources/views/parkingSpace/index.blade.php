@@ -27,49 +27,49 @@
                 </ul>
             </div>
         </section>
-        <div class="w-full bg-gray-100 flex items-center flex-col p-20">
+        <div class="w-full bg-gray-100 flex items-center flex-col">
 
-        <section id="one" class="wrapper style2">
-            <div class="grid-style justify-center">
-                <div>
-                    <div class="box">
-                        <div class="image fit">
-                            <img src="/images/ricardo.jpg" alt=""/>
-                        </div>
-                        <div class="content pl-8">
-                            <header class="align-center">
-                                <p>Neeltje Jans</p>
-                                <h2>Ligplaatsverhuur van Ricardo Beuken</h2>
-                            </header>
-                            <p class="align-center pb-6"> Ligplaatsen te huur bij Neeltje Jans</p>
-                            <footer class="align-center">
-                                <a href="/hardCoded" class="button alt">Lees meer</a>
-                            </footer>
-                        </div>
-                    </div>
-                </div>
-                @foreach($parkingSpaces as $parkingSpace)
+            <section id="one" class="wrapper style2 flex flex-col items-center w-full">
+                <div class="grid grid-cols-2 w-[85%] gap-y-[1.5rem] gap-x-[3rem] items-center self-center justify-center p-10">
                     <div>
                         <div class="box">
                             <div class="image fit">
-                                <img src="{{$parkingSpace->picture}}" alt=""/>
+                                <img class="h-[25rem] w-[43rem] object-none" src="images/ricardo.jpg" alt=""/>
                             </div>
-                            <div class="content pl-8">
+                            <div class="content pl-8 w-full h-[15.5rem]">
                                 <header class="align-center">
-                                    <p>{{$parkingSpace->title}}</p>
-                                    <h2>{{$parkingSpace->user->name}}</h2>
+                                    <p>Neeltje Jans</p>
+                                    <h2>Ligplaatsverhuur van Ricardo Beuken</h2>
                                 </header>
-                                <p class="align-center pb-6"> {{$parkingSpace->description}}</p>
+                                <p class="align-center pb-6"> Ligplaatsen te huur bij Neeltje Jans</p>
                                 <footer class="align-center">
-                                    <a href="{{route('parkingSpace.show', $parkingSpace->id)}}" class="button alt">Lees meer</a>
+                                    <a href="hardCoded" class="button alt">Lees meer</a>
                                 </footer>
                             </div>
                         </div>
                     </div>
-                @endforeach
-            </div>
-
+                    @foreach($parkingSpaces as $parkingSpace)
+                        <div class="flex flex-col items-center">
+                            <div class="box">
+                                <div class="">
+                                    <img class="h-[25rem] w-[43rem] object-none" src="{{$parkingSpace->picture}}" alt="img"/>
+                                </div>
+                                <div class="content pl-8 w-full h-[15.5rem]">
+                                    <header class="align-center">
+                                        <p>{{$parkingSpace->title}}</p>
+                                        <h2>{{$parkingSpace->user->name}}</h2>
+                                    </header>
+                                    <p class="align-center pb-6"> {{$parkingSpace->description}}</p>
+                                    <footer class="align-center">
+                                        <a href="{{route('parkingSpace.show', $parkingSpace->id)}}" class="button alt">Lees meer</a>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
         </section>
+        </div>
         </div>
     </main>
 @endsection
