@@ -66,6 +66,7 @@
     </script>
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
+        <a href="{{route('parkingSpace.edit',$parkingSpace)}}">Edit</a>
             <article class="flex p-8 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
                 <img class="object-scale-down mx-auto" src="/storage/{{$parkingSpace->picture}}" alt="image"/>
             </article>
@@ -168,7 +169,7 @@
         {{--        House rules       --}}
         <section class=" w-full p-20">
             <div id="accordion-collapse" data-accordion="collapse"
-                 class="bg-white rounded-xl shadow-xl pt-7 flex flex-col items-center">
+                 class="bg-white rounded-xl shadow-xl pt-7 items-center wrapper break-words">
 
                 <h2 id="accordion-collapse-heading-1">
                     <div class="align-center">
@@ -188,14 +189,16 @@
                         </button>
                     </div>
                     <br>
-                    <span class="hidden" id="more-text">
-                    <div class="px-12">
-                       {!! $parkingSpace->rules !!}
-                    </div>
-                    </span>
                 </h2>
+                    <div class="hidden" id="more-text">
+                        <div class="p-10">
+                        {!! $parkingSpace->rules !!}
+                        </div>
+                    </div>
 
-                <button id="hide-btn" class="hidden mt-4 text-blue-500 focus:outline-none">Hide</button>
+                <div class="flex flex-col items-center">
+                <button id="hide-btn" class="hidden mt-4 text-blue-500 focus:outline-none ">Hide</button>
+                </div>
             </div>
         </section>
     </main>
