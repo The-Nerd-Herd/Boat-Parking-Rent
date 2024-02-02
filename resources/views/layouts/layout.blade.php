@@ -22,7 +22,7 @@
     @else
         <a href="/" class="logo"><img class="scale-50" src="./../images/paper-boat.jpg"></a>
     @endif
-    <div class="flex gap-6 justify-end h-[80%] w-full pr-10" >
+    <div class="flex gap-6 justify-end h-[80%] w-full pr-10  my-1.5">
         @if (auth()->check())
             <form method="POST" class="h-full flex items-center flex-col justify-center" action="{{route('logout')}}">
                 @csrf
@@ -43,9 +43,9 @@
 <!-- Nav -->
 <nav id="menu" >
     <ul class="links">
-        <li><a href="/">Home</a></li>
-        <li><a href="@if(auth()->check()){{route('profile.edit')}}@else{{route('login')}}@endif">Profile</a></li>
-{{--        <li><a href="elements.html">Elements</a></li>--}}
+        <li><a href="/" class="my-3">Home</a></li>
+        <li><a href="@if(auth()->check()){{route('profile.edit')}}@else{{route('login')}}@endif" class="my-3">Profile</a></li>
+        {{--<li><a href="elements.html">Elements</a></li>--}}
     </ul>
 </nav>
 <!-- Body -->
@@ -70,13 +70,13 @@
 <script src="assets/js/jquery.scrollex.min.js"></script>
 <script src="assets/js/skel.min.js"></script>
 <script src="assets/js/util.js"></script>
-<script src="./public/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
     let navBar = document.getElementById('header');
     navBar.className = 'reveal';
 
-    // testing, doesn't work
+    // it werk
     document.addEventListener('DOMContentLoaded', function () {
         let menuLink = document.querySelector('a[href="#menu"]');
         let menuSection = document.getElementById('menu');
