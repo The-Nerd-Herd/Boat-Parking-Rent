@@ -34,7 +34,7 @@
                     <div>
                         <div class="box rounded-md overflow-hidden hover:scale-105 duration-100" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
                             <div class="image fit">
-                                <img class="h-[25rem] w-[43rem] object-none" src="/storage/{{$parkingSpace->picture}}" alt="img"/>
+                                <img class="h-[25rem] w-[43rem] object-none" src="" alt="img"/>
                             </div>
                             <div class="content pl-8 w-full h-[15.5rem]">
                                 <header class="align-center">

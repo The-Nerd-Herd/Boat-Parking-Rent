@@ -66,7 +66,13 @@
     </script>
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
-        <a href="{{route('parkingSpace.edit',$parkingSpace)}}">Edit</a>
+            @if(auth()->user()->id == $parkingSpace->user_id)
+                <div class="inline-block float-right">
+
+                    <a href="{{route('parkingSpace.edit',$parkingSpace)}}">Edit</a>
+                </div>
+            @endif
+
             <article class="flex p-8 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
                 <img class="object-scale-down mx-auto" src="/storage/{{$parkingSpace->picture}}" alt="image"/>
             </article>
@@ -169,7 +175,7 @@
         {{--        House rules       --}}
         <section class=" w-full p-20">
             <div id="accordion-collapse" data-accordion="collapse"
-                 class="bg-white rounded-xl shadow-xl pt-7 items-center wrapper break-words">
+                 class="bg-white rounded-xl shadow-xl pb-0 pt-7 items-center wrapper break-words">
 
                 <h2 id="accordion-collapse-heading-1">
                     <div class="align-center">
@@ -185,7 +191,7 @@
                         {{--                        turning date from database into d-m-y date format--}}
                         <p>Datum: {{date('d-m-y',strtotime($parkingSpace->created_at))}}</p>
                         <button id="toggle-btn"
-                                class="mt-4 bg-black hover:bg-gray-400 text-white py-2 px-4 rounded-full">Read More
+                                class="alt button my-5">Lees Meer
                         </button>
                     </div>
                     <br>
@@ -197,7 +203,7 @@
                     </div>
 
                 <div class="flex flex-col items-center">
-                <button id="hide-btn" class="hidden mt-4 text-blue-500 focus:outline-none ">Hide</button>
+                <button id="hide-btn" class="hidden alt button my-4">Verbergen</button>
                 </div>
             </div>
         </section>
