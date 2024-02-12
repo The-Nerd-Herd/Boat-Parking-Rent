@@ -6,40 +6,40 @@
 
 @section('content')
     <script>
-          document.addEventListener("DOMContentLoaded", function() {
-        var options = {
-            modules: {
-                toolbar: [
-                    ['bold' ,'italic', 'underline', 'strike'],        // toggled buttons
-                    ['blockquote'],
+        document.addEventListener("DOMContentLoaded", function() {
+            var options = {
+                modules: {
+                    toolbar: [
+                        ['bold' ,'italic', 'underline', 'strike'],        // toggled buttons
+                        ['blockquote'],
 
-                    [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                    [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-                    [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-                    [{ 'direction': 'rtl' }],                         // text direction
+                        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+                        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+                        [{ 'direction': 'rtl' }],                         // text direction
 
-                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  // custom dropdown
+                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  // custom dropdown
 
-                    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-                    [{ 'font': [] }],
-                    [{ 'align': [] }],
+                        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+                        [{ 'font': [] }],
+                        [{ 'align': [] }],
 
-                    ['clean']
-                ],
-            },
-            theme: 'snow'
-        };
+                        ['clean']
+                    ],
+                },
+                theme: 'snow'
+            };
 
-        var editor = new Quill('#editor', options);
-        console.log('Quill initialized');
+            var editor = new Quill('#editor', options);
+            console.log('Quill initialized');
 
-        $(document).ready(function() {
-            $('#identifier').on('submit', function() {
-                $('#hiddenArea').val($('#editor').html());
+            $(document).ready(function() {
+                $('#identifier').on('submit', function() {
+                    $('#hiddenArea').val($('#editor').html());
+                });
             });
         });
-    });
     </script>
 
     <style>
@@ -94,7 +94,7 @@
                     </div>
 
                     <?php
-                    function generateFeeInputGroup($label, $name, $priceName = false)
+                    function generateFeeInputGroupCreate($label, $name, $priceName = false)
                     {
                         $html = '<div class="w-[80%] mx-auto">';
                         $html .= '<div class="flex justify-between">';
@@ -121,11 +121,11 @@
                     }
 
 
-                    echo generateFeeInputGroup('Jaar Tarief (opt.)', 'year', 'yearPrice');
-                    echo generateFeeInputGroup('Maand Tarief (opt.)', 'month', 'monthPrice',);
-                    echo generateFeeInputGroup('Dag Tarief <span class="text-red-600">*</span>', 'day', 'dayPrice');
-                    echo generateFeeInputGroup('Speciale vereisten (opt.)', 'special', 'specialPrice');
-                    echo generateFeeInputGroup('Aanvullende vereisten (opt.)', 'additional')
+                    echo generateFeeInputGroupCreate('Jaar Tarief (opt.)', 'year', 'yearPrice');
+                    echo generateFeeInputGroupCreate('Maand Tarief (opt.)', 'month', 'monthPrice',);
+                    echo generateFeeInputGroupCreate('Dag Tarief <span class="text-red-600">*</span>', 'day', 'dayPrice');
+                    echo generateFeeInputGroupCreate('Speciale vereisten (opt.)', 'special', 'specialPrice');
+                    echo generateFeeInputGroupCreate('Aanvullende vereisten (opt.)', 'additional')
                     ?>
                 </div>
                 <div class="mt-[3rem] flex justify-center">
@@ -140,14 +140,14 @@
                     </div>
                 </div>
 
-            <!-- Quill rich text editor -->
-            <div class="w-full flex flex-col">
-                <h2 class="text-xl items-center pb-5">Schrijf je huisregels</h2>
-                <div id="toolbar">
-                    <!-- Toolbar buttons will be added by Quill -->
+                <!-- Quill rich text editor -->
+                <div class="w-full flex flex-col">
+                    <h2 class="text-xl items-center pb-5">Schrijf je huisregels</h2>
+                    <div id="toolbar">
+                        <!-- Toolbar buttons will be added by Quill -->
+                    </div>
+                    <div id="editor" style="height: 400px;" ></div>
                 </div>
-                <div id="editor" style="height: 400px;" ></div>
-            </div>
                 <textarea id="hiddenArea" name="houseRules" style="display:none" class="w-full flex flex-col items-center"></textarea>
 
                 <div class="mt-[3rem] flex items-center justify-center py-4">
