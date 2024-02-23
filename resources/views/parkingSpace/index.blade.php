@@ -70,6 +70,5 @@
                 </div>
         </section>
         </div>
-        </div>
     </main>
 @endsection

@@ -28,14 +28,14 @@
                 @csrf
                 @method('POST')
                 <div class="flex items-center h-full flex-col">
-                    <button class="flex items-center justify-center bg-white w-20 h-full rounded-lg  bg-opacity-80 hover:bg-opacity-100" type="submit" >Log Out</button>
+                    <button class="flex items-center text-center justify-center w-20 h-full rounded-lg hover:bg-black" type="submit"><p class="text-white m-0 hover:text-white text-opacity-50">LOG OUT</p></button>
                 </div>
             </form>
         @else
-            <a class="flex items-center text-black justify-center bg-white w-20 h-full rounded-lg  bg-opacity-80 hover:bg-opacity-100" href="{{ route('login') }}">Login</a>
+            <a class="flex items-center text-black justify-center w-20 h-full rounded-lg hover:bg-black" href="{{ route('login') }}"><p class="text-white m-0 hover:text-white text-opacity-50">LOGIN</p></a>
         @endif
-            <div class="flex transform duration-100 flex-col items-center justify-center bg-white bg-opacity-80 hover:bg-opacity-100 h-full w-20 rounded-lg">
-                <a href="#menu" class="text-black">Menu</a>
+            <div class="flex transform duration-100 flex-col items-center justify-center h-full w-20 rounded-lg">
+                <a href="#menu"><p class="text-white m-0 hover:text-white text-opacity-50">MENU</p></a>
             </div>
     </div>
 </header>
@@ -67,10 +67,10 @@
 <!-- Scripts -->
 
 <script src="/assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
     let navBar = document.getElementById('header');
