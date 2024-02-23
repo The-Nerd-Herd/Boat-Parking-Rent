@@ -27,33 +27,41 @@
             <button id="deleteUserButton" class="w-1/2 rounded-lg mt-10 hover:bg-red-500">Delete account</button>
         </div>
     </div>
-    <h1 class="text-4xl font-semibold pt-[15px] pb-[10px]">
+    <h1 class="text-4xl font-semibold pt-[10px] pb-[10px]">
         Your listings
     </h1>
         @if(sizeof($parkingSpaces) >= 1)
         <a class="button alt" href="{{route('parkingSpace.create')}}" >Create</a>
-    <div class="w-full h-full text-center grid lg:grid-cols-3 grid-cols-1 grid-auto-rows gap-10 lg:w-[1450px] rounded-md p-5 mb-[10px]">
-        @foreach($parkingSpaces as $space)
-            <div class="flex flex-col items-center bg-white justify-center hover:scale-105 duration-100 rounded-md overflow-hidden" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
-                <a href="{{route('parkingSpace.show', $space->id)}}"><img src="{{$space->picture}}" alt="img"></a>
-                <div class="flex row items-center h-6 gap-10 w-full justify-center lg:gap-10 pl-[4.5rem] p-10">
-                    <a class="hover:cursor-pointer text-center p-3 text-white rounded-md hover:bg-orange-500 bg-orange-600">
-                        <i class="fa-solid fa-edit" ></i>
+        <div class="w-full text-center grid lg:grid-cols-3 grid-cols-1 grid-auto-rows gap-10 lg:w-[1450px] rounded-md p-5 mb-[10px]">
+            @foreach($parkingSpaces as $space)
+                <div class="flex flex-col items-center bg-white justify-center hover:scale-105 duration-100 rounded-md overflow-hidden" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
+                    <a href="{{route('parkingSpace.show', $space->id)}}" class="block w-full h-[250px] overflow-hidden">
+                        <img src="storage/{{$space->picture}}" alt="img" class="w-full h-full object-cover object-center">
                     </a>
-                    <a class="hover:cursor-pointer text-center p-3 text-white rounded-md hover:bg-red-500 bg-red-600">
-                        <i class="fa-solid fa-trash-can hover:fa-spin" ></i>
-                    </a>
+                    <div class="flex row items-center h-6 gap-10 w-full justify-center lg:gap-10 pl-[4.5rem] p-10">
+                        <a href="{{ route('parkingSpace.edit', $space) }}" class="hover:cursor-pointer text-center p-3 text-white rounded-md hover:bg-orange-500 bg-orange-600">
+                            <i class="fa-solid fa-edit"></i>
+                        </a>
+                        <form action="{{ route('parkingSpace.destroy', $space) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="pt-7">
+                                <button type="submit" class="hover:cursor-pointer text-center p-3 rounded-md hover:bg-red-500 bg-red-600">
+                                    <i class="fa-solid fa-trash-can hover:fa-spin text-white"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        @endforeach
-    </div>
+            @endforeach
+        </div>
         @else
             <h1 class="text-xl font-semibold pb-[15px]">
-                Your Currently don't have any listings, create a new one here <a class="button alt" href="{{route('parkingSpace.create')}}" >Create</a>
+                Your Currently don't have any listings
             </h1>
         @endif
-    <div id="mask" class="absolute backdrop-filter backdrop-blur-sm h-[100%]  w-full z-50 bg-gray-600 bg-opacity-25 " style="display: none">
-        <div class="h-full w-full flex items-center justify-center">
+    <div id="mask" class="absolute backdrop-filter backdrop-blur-[20px] h-[100%]  w-full z-50 bg-gray-600 bg-opacity-25 " style="display: none">
+        <div class="h-full w-full flex items-center justify-center mb-2">
             @include('profile.partials.delete-user-pop-up')
         </div>
     </div>
