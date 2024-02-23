@@ -31,6 +31,7 @@
         Your listings
     </h1>
         @if(sizeof($parkingSpaces) >= 1)
+        <a class="button alt" href="{{route('parkingSpace.create')}}" >Create</a>
     <div class="w-full h-full text-center grid lg:grid-cols-3 grid-cols-1 grid-auto-rows gap-10 lg:w-[1450px] rounded-md p-5 mb-[10px]">
         @foreach($parkingSpaces as $space)
             <div class="flex flex-col items-center bg-white justify-center hover:scale-105 duration-100 rounded-md overflow-hidden" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
@@ -48,7 +49,7 @@
     </div>
         @else
             <h1 class="text-xl font-semibold pb-[15px]">
-                Your Currently don't have any listings
+                Your Currently don't have any listings, create a new one here <a class="button alt" href="{{route('parkingSpace.create')}}" >Create</a>
             </h1>
         @endif
     <div id="mask" class="absolute backdrop-filter backdrop-blur-sm h-[100%]  w-full z-50 bg-gray-600 bg-opacity-25 " style="display: none">
