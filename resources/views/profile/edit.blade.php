@@ -27,7 +27,7 @@
             <button id="deleteUserButton" class="w-1/2 rounded-lg mt-10 hover:bg-red-500">Delete account</button>
         </div>
     </div>
-    <h1 class="text-4xl font-semibold pt-[10px] pb-[10px]">
+    <h1 class="text-4xl font-semibold pt-[15px] pb-[10px]">
         Your listings
     </h1>
         @if(sizeof($parkingSpaces) >= 1)
