@@ -28,20 +28,19 @@
             </div>
         </section>
         <div class="w-full bg-gray-100 flex items-center flex-col">
-
             <section id="one" class="wrapper style2 flex flex-col items-center w-full">
-                <div class="grid grid-cols-2 w-[85%] gap-y-[1.5rem] gap-x-[3rem] items-center self-center justify-center p-10">
+                <div class="grid lg:grid-cols-2 grid-cols-1 w-[85%] gap-y-[1.5rem] gap-x-[3rem] items-center self-center justify-center lg:p-10 p-3">
                     <div>
                         <div class="box rounded-md overflow-hidden hover:scale-105 duration-100" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
                             <div class="image fit">
-                                <img class="h-[25rem] w-[43rem] object-none" src="" alt="img"/>
+                                <img class="lg:h-[25rem] h-[21rem] lg:w-[43rem] w-[15.5rem] object-none" src="images/ricardo.jpg" alt=""/>
                             </div>
                             <div class="content pl-8 w-full h-[15.5rem]">
                                 <header class="align-center">
                                     <p>Neeltje Jans</p>
                                     <h2>Ligplaatsverhuur van Ricardo Beuken</h2>
                                 </header>
-                                <p class="align-center pb-6"> Ligplaatsen te huur bij Neeltje Jans</p>
+                                <p class="align-center lg:pb-6"> Ligplaatsen te huur bij Neeltje Jans</p>
                                 <footer class="align-center">
                                     <a href="hardCoded" class="button alt">Lees meer</a>
                                 </footer>
@@ -51,8 +50,8 @@
                     @foreach($parkingSpaces as $parkingSpace)
                         <div class="flex flex-col items-center">
                             <div class="box rounded-md overflow-hidden hover:scale-105 duration-100" style="box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;">
-                                <div class="">
-                                    <img class="h-[25rem] w-[43rem] object-none" src="{{$parkingSpace->picture}}" alt="img"/>
+                                <div>
+                                    <img class="lg:h-[25rem] h-[21rem] lg:w-[43rem] w-[15.5rem] object-none" src="{{$parkingSpace->picture}}" alt="img"/>
                                 </div>
                                 <div class="content pl-8 w-full h-[15.5rem]">
                                     <header class="align-center">
