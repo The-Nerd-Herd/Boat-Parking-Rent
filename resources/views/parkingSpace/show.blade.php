@@ -170,7 +170,7 @@
         </form>
 
 
-        <a href="/storage/{{$parkingSpace->pdf_path}}" target="_blank">PDF</a>
+        <a class="button alt" href="/storage/{{$parkingSpace->pdf_path}}" target="_blank">PDF - Reglement</a>
 
         {{--        House rules       --}}
         <section class=" w-full p-20">
