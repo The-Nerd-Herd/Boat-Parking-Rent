@@ -6,24 +6,24 @@
 
 @section('content')
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             var options = {
                 modules: {
                     toolbar: [
-                        ['bold' ,'italic', 'underline', 'strike'],        // toggled buttons
+                        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
                         ['blockquote'],
 
-                        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-                        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-                        [{ 'direction': 'rtl' }],                         // text direction
+                        [{'header': 1}, {'header': 2}],               // custom button values
+                        [{'list': 'ordered'}, {'list': 'bullet'}],
+                        [{'script': 'sub'}, {'script': 'super'}],      // superscript/subscript
+                        [{'indent': '-1'}, {'indent': '+1'}],          // outdent/indent
+                        [{'direction': 'rtl'}],                         // text direction
 
-                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  // custom dropdown
+                        [{'header': [1, 2, 3, 4, 5, 6, false]}],  // custom dropdown
 
-                        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-                        [{ 'font': [] }],
-                        [{ 'align': [] }],
+                        [{'color': []}, {'background': []}],          // dropdown with defaults from theme
+                        [{'font': []}],
+                        [{'align': []}],
 
                         ['clean']
                     ],
@@ -34,8 +34,8 @@
             var editor = new Quill('#editor', options);
             console.log('Quill initialized');
 
-            $(document).ready(function() {
-                $('#identifier').on('submit', function() {
+            $(document).ready(function () {
+                $('#identifier').on('submit', function () {
                     $('#hiddenArea').val($('#editor').html());
                 });
             });
@@ -95,13 +95,13 @@
                     </div>
 
                     <?php
-                    function generateFeeInputGroup($label, $name, $value , $priceName = false)
+                    function generateFeeInputGroupEdit($label, $name, $value, $priceName = false)
                     {
-                        $text ="";
-                        $price ="";
-                        if ($value->count() > 0){
-                            $text= $value[0]->text;
-                            $price= $value[0]->price;
+                        $text = "";
+                        $price = "";
+                        if ($value->count() > 0) {
+                            $text = $value[0]->text;
+                            $price = $value[0]->price;
                         }
                         $html = '<div class="w-[80%] mx-auto">';
                         $html .= '<div class="flex justify-between">';
@@ -112,11 +112,11 @@
                         $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $name . '"';
                         if ($name == "day") $html .= ' required="required"';
                         $html .= ' autofocus="autofocus" autocomplete="text"';
-                        $html .= 'value="'. $text .'">';
+                        $html .= 'value="' . $text . '">';
                         if ($priceName) {
                             $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $priceName . '"';
                             if ($name == "day") $html .= ' required="required"';
-                            $html .= ' autofocus="autofocus" autocomplete="text" value="'. $price .'" >';
+                            $html .= ' autofocus="autofocus" autocomplete="text" value="' . $price . '" >';
                         }
                         $html .= '<div id="' . $name . '" class="bg-gray-800 mb-4 text-white h-[2rem] w-[5rem] mt-2 flex items-center justify-center">';
                         $html .= '<p class="text-center">+</p>';
@@ -128,30 +128,30 @@
                         return $html;
                     }
 
-                    function generateFeeInputs( $name, $value , $priceName = false)
+                    function generateFeeInputsEdit($name, $value, $priceName = false)
                     {
                         $html = "";
-                        for($i=1; $i<$value->count();$i++){
-                            $text=$value[$i]->text;
-                            $price=$value[$i]->price;
-                        $html .= '<div class="w-[80%] mx-auto">';
-                        $html .= '<div>';
-                        $html .= '<div class="flex gap-4">';
-                        $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $name . $i . '"';
-                        if ($name == "day") $html .= ' required="required"';
-                        $html .= ' autofocus="autofocus" autocomplete="text"';
-                        $html .= 'value="'. $text .'">';
-                        if ($priceName) {
-                            $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $priceName . $i . '"';
+                        for ($i = 1; $i < $value->count(); $i++) {
+                            $text = $value[$i]->text;
+                            $price = $value[$i]->price;
+                            $html .= '<div class="w-[80%] mx-auto">';
+                            $html .= '<div>';
+                            $html .= '<div class="flex gap-4">';
+                            $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $name . $i . '"';
                             if ($name == "day") $html .= ' required="required"';
-                            $html .= ' autofocus="autofocus" autocomplete="text" value="'. $price .'" >';
-                        }
-                        $html .= '<div id="' . $name.$i . 'Delete" class="bg-gray-800 mb-4 text-white h-[2rem] w-[5rem] mt-2 flex items-center justify-center">';
-                        $html .= '<p class="text-center">-</p>';
-                        $html .= '</div>';
-                        $html .= '</div>';
-                        $html .= '</div>';
-                        $html .= '</div>';
+                            $html .= ' autofocus="autofocus" autocomplete="text"';
+                            $html .= 'value="' . $text . '">';
+                            if ($priceName) {
+                                $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $priceName . $i . '"';
+                                if ($name == "day") $html .= ' required="required"';
+                                $html .= ' autofocus="autofocus" autocomplete="text" value="' . $price . '" >';
+                            }
+                            $html .= '<div id="' . $name . $i . 'Delete" class="bg-gray-800 mb-4 text-white h-[2rem] w-[5rem] mt-2 flex items-center justify-center">';
+                            $html .= '<p class="text-center">-</p>';
+                            $html .= '</div>';
+                            $html .= '</div>';
+                            $html .= '</div>';
+                            $html .= '</div>';
 
                         }
                         return $html;
@@ -159,16 +159,16 @@
 
 
 
-                    echo generateFeeInputGroup('Jaar tarief (opt.)', 'year', $parkingSpace->yearly, 'yearPrice');
-                    echo generateFeeInputs('year',$parkingSpace->yearly,'yearPrice');
-                    echo generateFeeInputGroup('Maand tarief (opt.)', 'month',$parkingSpace->monthly, 'monthPrice');
-                    echo generateFeeInputs('month',$parkingSpace->monthly,'monthPrice');
-                    echo generateFeeInputGroup('Dag Tarief <span class="text-red-600">*</span>', 'day', $parkingSpace->daily, 'dayPrice');
-                    echo generateFeeInputs('day',$parkingSpace->daily,'dayPrice');
-                    echo generateFeeInputGroup('Speciale vereisten (opt.)', 'special', $parkingSpace->special, 'specialPrice');
-                    echo generateFeeInputs('special',$parkingSpace->special,'specialPrice');
-                    echo generateFeeInputGroup('Aanvullende vereisten (opt.)', 'additional', $parkingSpace->additional);
-                    echo generateFeeInputs('additional',$parkingSpace->additional);
+                    echo generateFeeInputGroupEdit('Jaar tarief (opt.)', 'year', $parkingSpace->yearly, 'yearPrice');
+                    echo generateFeeInputsEdit('year', $parkingSpace->yearly, 'yearPrice');
+                    echo generateFeeInputGroupEdit('Maand tarief (opt.)', 'month', $parkingSpace->monthly, 'monthPrice');
+                    echo generateFeeInputsEdit('month', $parkingSpace->monthly, 'monthPrice');
+                    echo generateFeeInputGroupEdit('Dag Tarief <span class="text-red-600">*</span>', 'day', $parkingSpace->daily, 'dayPrice');
+                    echo generateFeeInputsEdit('day', $parkingSpace->daily, 'dayPrice');
+                    echo generateFeeInputGroupEdit('Speciale vereisten (opt.)', 'special', $parkingSpace->special, 'specialPrice');
+                    echo generateFeeInputsEdit('special', $parkingSpace->special, 'specialPrice');
+                    echo generateFeeInputGroupEdit('Aanvullende vereisten (opt.)', 'additional', $parkingSpace->additional);
+                    echo generateFeeInputsEdit('additional', $parkingSpace->additional);
                     ?>
                 </div>
                 <div class="mt-[3rem] flex justify-center">
@@ -189,9 +189,10 @@
                     <div id="toolbar">
                         <!-- Toolbar buttons will be added by Quill -->
                     </div>
-                    <div id="editor" style="height: 400px;" >{!! $parkingSpace->rules !!}</div>
+                    <div id="editor" style="height: 400px;">{!! $parkingSpace->rules !!}</div>
                 </div>
-                <textarea id="hiddenArea" name="houseRules" style="display:none" class="w-full flex flex-col items-center" ></textarea>
+                <textarea id="hiddenArea" name="houseRules" style="display:none"
+                          class="w-full flex flex-col items-center"></textarea>
 
                 <div class="mt-[3rem] flex items-center justify-center py-4">
                     <button class="w-1/4 bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">Submit
@@ -201,8 +202,10 @@
                     <input id="yearCount" type="text" name="yearCount" value="{{$parkingSpace->yearly->count()}}">
                     <input id="monthCount" type="text" name="monthCount" value="{{$parkingSpace->monthly->count()}}">
                     <input id="dayCount" type="text" name="dayCount" value="{{$parkingSpace->daily->count()}}">
-                    <input id="specialCount" type="text" name="specialCount" value="{{$parkingSpace->special->count()}}">
-                    <input id="additionalCount" type="text" name="additionalCount" value="{{$parkingSpace->additional->count()}}">
+                    <input id="specialCount" type="text" name="specialCount"
+                           value="{{$parkingSpace->special->count()}}">
+                    <input id="additionalCount" type="text" name="additionalCount"
+                           value="{{$parkingSpace->additional->count()}}">
                 </div>
             </form>
         </div>

@@ -27,7 +27,7 @@
             <button id="deleteUserButton" class="w-1/2 rounded-lg mt-10 hover:bg-red-500">Delete account</button>
         </div>
     </div>
-    <h1 class="text-4xl font-semibold pt-[10px] pb-[10px]">
+    <h1 class="text-4xl font-semibold pt-[15px] pb-[10px]">
         Your listings
     </h1>
         @if(sizeof($parkingSpaces) >= 1)
@@ -51,8 +51,8 @@
                 Your Currently don't have any listings
             </h1>
         @endif
-    <div id="mask" class="absolute backdrop-filter backdrop-blur-[20px] h-[100%]  w-full z-50 bg-gray-600 bg-opacity-25 " style="display: none">
-        <div class="h-full w-full flex items-center justify-center mb-2">
+    <div id="mask" class="absolute backdrop-filter backdrop-blur-sm h-[100%]  w-full z-50 bg-gray-600 bg-opacity-25 " style="display: none">
+        <div class="h-full w-full flex items-center justify-center">
             @include('profile.partials.delete-user-pop-up')
         </div>
     </div>
