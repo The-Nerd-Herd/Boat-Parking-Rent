@@ -60,10 +60,7 @@
 
 
 @section('content')
-    <script>
-        let navBar = document.getElementById('header');
-        navBar.className = 'reveal'
-    </script>
+
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
             @if(auth()->user()->id == $parkingSpace->user_id)
