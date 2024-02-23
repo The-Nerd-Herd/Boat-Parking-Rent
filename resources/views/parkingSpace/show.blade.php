@@ -64,14 +64,9 @@
         let navBar = document.getElementById('header');
         navBar.className = 'reveal'
     </script>
+
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
-            @if(auth()->user()->id == $parkingSpace->user_id)
-                <div class="inline-block float-right">
-
-                    <a href="{{route('parkingSpace.edit',$parkingSpace)}}">Edit</a>
-                </div>
-            @endif
 
             <article class="flex p-8 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
                 <img class="object-scale-down mx-auto" src="/storage/{{$parkingSpace->picture}}" alt="image"/>

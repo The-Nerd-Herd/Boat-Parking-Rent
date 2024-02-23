@@ -187,7 +187,8 @@ class ParkingSpaceController extends Controller
      */
     public function destroy(ParkingSpace $parkingSpace)
     {
-        //
+        $parkingSpace->delete();
+        return redirect(route("profile.edit"));
     }
 
 
