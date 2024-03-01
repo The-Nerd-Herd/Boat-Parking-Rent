@@ -12,15 +12,15 @@
         const toggleBtnEl = document.getElementById('toggle-btn');
         const moreTextEl = document.getElementById('more-text');
         const hideBtnEl = document.getElementById('hide-btn');
-        const contactPDF = document.getElementById('contactPDF')
-        const contactForm = document.getElementById('contactForm')
+        const contactPDF = document.getElementById('contactPDF');
+        const contactForm = document.getElementById('contactForm');
 
         toggleBtnEl.addEventListener('click', () => {
             moreTextEl.classList.toggle('hidden');
             toggleBtnEl.classList.toggle('hidden');
             hideBtnEl.classList.toggle('hidden');
             contactPDF.classList.replace('grid-cols-2', 'grid-cols-1');
-            contactForm.classList.toggle('hidden');
+            contactForm.classList.replace('w-full', 'w-[45rem]');
             houseRule.className = 'align-center text-black font-bold';
         });
 
@@ -29,7 +29,7 @@
             toggleBtnEl.classList.toggle('hidden');
             hideBtnEl.classList.toggle('hidden');
             contactPDF.classList.replace('grid-cols-1', 'grid-cols-2');
-            contactForm.classList.toggle('hidden');
+            contactForm.classList.replace('w-[45rem]', 'w-full');
             houseRule.className = 'align-center text-black font-bold bg-gradient-to-b from-black to-transparent text-transparent bg-clip-text';
         });
     });
@@ -121,7 +121,7 @@
             </div>
         </section>
 
-        <div id="contactPDF" class="grid grid-cols-2 w-full px-8 pb-8 gap-8">
+        <div id="contactPDF" class="grid grid-cols-2 w-full px-8 pb-8 gap-8 place-items-center">
         {{--        House rules       --}}
         <section class="w-full">
             <div id="accordion-collapse" data-accordion="collapse"
@@ -143,7 +143,7 @@
                         {{--                        turning date from database into d-m-y date format--}}
                         <p>Datum: {{date('d-m-y',strtotime($parkingSpace->created_at))}}</p>
                         <button id="toggle-btn"
-                                class="alt button mt-4">Lees Meer
+                                class="alt button mt-[2.2rem]">Lees Meer
                         </button>
                     </div>
                     <br>
@@ -199,7 +199,7 @@
                             autocomplete="name">
                     </div>
                 </div>
-                <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">
+                <button class="lg:w-1/4 w-full button alt self-end" type="submit">
                     Submit
                 </button>
             </form>
