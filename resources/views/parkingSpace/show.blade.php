@@ -12,10 +12,15 @@
         const toggleBtnEl = document.getElementById('toggle-btn');
         const moreTextEl = document.getElementById('more-text');
         const hideBtnEl = document.getElementById('hide-btn');
+        const contactPDF = document.getElementById('contactPDF')
+        const contactForm = document.getElementById('contactForm')
+
         toggleBtnEl.addEventListener('click', () => {
             moreTextEl.classList.toggle('hidden');
             toggleBtnEl.classList.toggle('hidden');
             hideBtnEl.classList.toggle('hidden');
+            contactPDF.classList.replace('grid-cols-2', 'grid-cols-1');
+            contactForm.classList.toggle('hidden');
             houseRule.className = 'align-center text-black font-bold';
         });
 
@@ -23,6 +28,8 @@
             moreTextEl.classList.toggle('hidden');
             toggleBtnEl.classList.toggle('hidden');
             hideBtnEl.classList.toggle('hidden');
+            contactPDF.classList.replace('grid-cols-1', 'grid-cols-2');
+            contactForm.classList.toggle('hidden');
             houseRule.className = 'align-center text-black font-bold bg-gradient-to-b from-black to-transparent text-transparent bg-clip-text';
         });
     });
@@ -62,14 +69,7 @@
 @section('content')
 
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
-        <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
-            @if(auth()->user()->id == $parkingSpace->user_id)
-                <div class="inline-block float-right">
-
-                    <a href="{{route('parkingSpace.edit',$parkingSpace)}}">Edit</a>
-                </div>
-            @endif
-
+        <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] px-8 pt-8 pb-3">
             <article class="flex p-8 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
                 <img class="object-scale-down mx-auto" src="/storage/{{$parkingSpace->picture}}" alt="image"/>
             </article>
@@ -121,59 +121,14 @@
             </div>
         </section>
 
-        <!--Contact info-->
-        <form method="POST" action="{{route('email.send')}}"
-              class="mx-10 rounded-md shadow-xl lg:w-2/4 flex flex-col gap-6 p-4 bg-white">
-            <h1 class="text-xl">Contact the seller</h1>
-            @csrf
-            <div class="flex flex-col lg:flex-row gap-6 w-full">
-                <div class="w-full lg:w-1/2">
-                    <label for="email" value="email">Email</label>
-                    <input
-                        class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
-                        id="email" type="email" name="email" required="required" autofocus="autofocus"
-                        autocomplete="email">
-                </div>
-
-                <div class="w-full lg:w-1/2">
-                    <label for="phone">Phone</label>
-                    <input
-                        class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
-                        id="phone" type="text" name="phone" required="required" autofocus="autofocus"
-                        autocomplete="phone">
-                </div>
-            </div>
-
-            <div class="flex flex-row justify-between gap-6 ">
-                <div>
-                    <label for="initials">Initial</label>
-                    <input
-                        class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
-                        id="initials" type="text" name="initials" maxlength="1" autofocus="autofocus"
-                        autocomplete="name">
-                </div>
-
-                <div class="w-3/4">
-                    <label for="surname">Surname</label>
-                    <input
-                        class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full"
-                        id="surname" type="text" name="surname" required="required" autofocus="autofocus"
-                        autocomplete="name">
-                </div>
-            </div>
-            <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">
-                Submit
-            </button>
-        </form>
-
-
-        <a class="button alt" href="/storage/{{$parkingSpace->pdf_path}}" target="_blank">PDF - Reglement</a>
-
+        <div id="contactPDF" class="grid grid-cols-2 w-full px-8 pb-8 gap-8">
         {{--        House rules       --}}
-        <section class=" w-full p-20">
+        <section class="w-full">
             <div id="accordion-collapse" data-accordion="collapse"
-                 class="bg-white rounded-xl shadow-xl pb-0 pt-7 items-center wrapper break-words">
-
+                 class="bg-white rounded-xl shadow-xl pb-0 pt-[4rem] items-center wrapper break-words h-full">
+                @if(!empty($parkingSpace->pdf_path))
+                    <a class="button alt z-10 absolute right-5 top-5" href="/storage/{{$parkingSpace->pdf_path}}" target="_blank">PDF - Reglement</a>
+                @endif
                 <h2 id="accordion-collapse-heading-1">
                     <div class="align-center">
                         <strong class="text-black font-bold">Havenreglement</strong>
@@ -188,7 +143,7 @@
                         {{--                        turning date from database into d-m-y date format--}}
                         <p>Datum: {{date('d-m-y',strtotime($parkingSpace->created_at))}}</p>
                         <button id="toggle-btn"
-                                class="alt button my-5">Lees Meer
+                                class="alt button mt-4">Lees Meer
                         </button>
                     </div>
                     <br>
@@ -204,5 +159,50 @@
                 </div>
             </div>
         </section>
+            <!--Contact info-->
+            <form method="POST" action="{{route('email.send')}}"
+                  class="rounded-md shadow-xl w-full flex flex-col bg-white h-full mb-0 p-5 gap-3" id="contactForm">
+                <h1 class="text-xl">Contact the seller</h1>
+                @csrf
+                <div class="flex flex-col lg:flex-row gap-6 w-full">
+                    <div class="w-full lg:w-1/2">
+                        <label for="email" value="email">Email</label>
+                        <input
+                            class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
+                            id="email" type="email" name="email" required="required" autofocus="autofocus"
+                            autocomplete="email">
+                    </div>
+
+                    <div class="w-full lg:w-1/2">
+                        <label for="phone">Phone</label>
+                        <input
+                            class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
+                            id="phone" type="text" name="phone" required="required" autofocus="autofocus"
+                            autocomplete="phone">
+                    </div>
+                </div>
+
+                <div class="flex flex-row justify-between gap-6 ">
+                    <div>
+                        <label for="initials">Initial</label>
+                        <input
+                            class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
+                            id="initials" type="text" name="initials" maxlength="1" autofocus="autofocus"
+                            autocomplete="name">
+                    </div>
+
+                    <div class="w-3/4">
+                        <label for="surname">Surname</label>
+                        <input
+                            class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full"
+                            id="surname" type="text" name="surname" required="required" autofocus="autofocus"
+                            autocomplete="name">
+                    </div>
+                </div>
+                <button class="lg:w-1/4 w-full self-end bg-zinc-200 hover:bg-green-100 rounded-md text-white" type="submit">
+                    Submit
+                </button>
+            </form>
+        </div>
     </main>
 @endsection
