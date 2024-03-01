@@ -55,10 +55,10 @@
         <div class="sm:px-[10rem] pt-[3rem]">
             <h1 class="sm:text-[4rem] text-[3rem] text-center">Maak een vermelding</h1>
             <form id="identifier" method="POST" action="{{route('parkingSpace.store')}}"
-                  class=" rounded-md shadow-xl p-4 bg-white"
+                  class=" rounded-md shadow-xl mx-6 sm:mx-0 sm:p-4 p-2 bg-white"
                   enctype="multipart/form-data">
                 @csrf
-                <div class=" w-full">
+                <div class=" w-full ">
                     <div class="w-[80%]  mx-auto py-5">
                         <label for="title" value="text">Naam van het bericht<span class="text-red-600">*</span></label>
                         <input
@@ -72,7 +72,7 @@
                             <label for="street" value="text">Stad<span class="text-red-600">*</span></label>
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                                type="text" name="city" required="required" autofocus="autofocus"
+          .)                      type="text" name="city" required="required" autofocus="autofocus"
                                 autocomplete="text">
                         </div>
 
@@ -85,7 +85,7 @@
                         </div>
 
                         <div class="w-[15%] ">
-                            <label class="" for="street" value="text">Nummer (opt.)</label>
+                            <label class="" for="street" value="text">Nummer</label>
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                                 type="number" name="streetNumber" autofocus="autofocus"
@@ -121,11 +121,11 @@
                     }
 
 
-                    echo generateFeeInputGroupCreate('Jaar Tarief (opt.)', 'year', 'yearPrice');
-                    echo generateFeeInputGroupCreate('Maand Tarief (opt.)', 'month', 'monthPrice',);
+                    echo generateFeeInputGroupCreate('Jaar Tarief', 'year', 'yearPrice');
+                    echo generateFeeInputGroupCreate('Maand Tarief', 'month', 'monthPrice',);
                     echo generateFeeInputGroupCreate('Dag Tarief <span class="text-red-600">*</span>', 'day', 'dayPrice');
-                    echo generateFeeInputGroupCreate('Speciale vereisten (opt.)', 'special', 'specialPrice');
-                    echo generateFeeInputGroupCreate('Aanvullende vereisten (opt.)', 'additional')
+                    echo generateFeeInputGroupCreate('Speciale vereisten', 'special', 'specialPrice');
+                    echo generateFeeInputGroupCreate('Aanvullende vereisten', 'additional')
                     ?>
                 </div>
                 <div class="mt-[3rem] flex flex-col sm:flex-row gap-5 justify-center">
