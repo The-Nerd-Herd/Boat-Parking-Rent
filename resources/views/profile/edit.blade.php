@@ -22,9 +22,9 @@
                 @include('profile.partials.update-password-form')
             </div>
         </div>
-        <div class="snap-center lg:snap-none flex flex-col lg:w-[360px] items-center justify-center bg-white shadow-xl rounded-md pl-5 pr-5">
+        <div class="snap-center lg:snap-none flex flex-col lg:w-[360px] w-[15rem] items-center justify-center bg-white shadow-xl rounded-md px-10">
             <i class="fa fa-user" style="font-size: 200px"></i>
-            <button id="deleteUserButton" class="w-1/2 rounded-lg mt-10 hover:bg-red-500">Delete account</button>
+            <button id="deleteUserButton" class="lg:w-1/2 rounded-lg mt-10 hover:bg-red-500 sm:w-full">Delete account</button>
         </div>
     </div>
     <h1 class="text-4xl font-semibold pt-[15px] pb-[10px]">
@@ -47,8 +47,8 @@
         @endforeach
     </div>
         @else
-            <h1 class="text-xl font-semibold pb-[15px]">
-                Your Currently don't have any listings
+            <h1 class="text-xl font-semibold pb-[15px] text-center">
+                Your currently don't have any listings
             </h1>
         @endif
     <div id="mask" class="absolute backdrop-filter backdrop-blur-sm h-[100%]  w-full z-50 bg-gray-600 bg-opacity-25 " style="display: none">

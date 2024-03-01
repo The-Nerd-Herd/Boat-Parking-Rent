@@ -66,7 +66,6 @@
                         </div>
                     @endforeach
                 </div>
-                <a href="{{route('parkingSpace.index')}}" class="button alt lg:w-[30%] lg:mb-0 mb-12 w-[50%]">Show all</a>
             </section>
         </div>
     </main>
