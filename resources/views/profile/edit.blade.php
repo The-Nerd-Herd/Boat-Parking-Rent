@@ -22,9 +22,9 @@
                 @include('profile.partials.update-password-form')
             </div>
         </div>
-        <div class="snap-center lg:snap-none flex flex-col lg:w-[360px] items-center justify-center bg-white shadow-xl rounded-md pl-5 pr-5">
+        <div class="snap-center lg:snap-none flex flex-col lg:w-[360px] w-[15rem] items-center justify-center bg-white shadow-xl rounded-md px-10">
             <i class="fa fa-user" style="font-size: 200px"></i>
-            <button id="deleteUserButton" class="w-1/2 rounded-lg mt-10 hover:bg-red-500">Account Verwijderen</button>
+            <button id="deleteUserButton" class="lg:w-1/2 rounded-lg mt-10 hover:bg-red-500 sm:w-full">Account Verwijderen</button>
         </div>
     </div>
     <h1 class="text-4xl font-semibold pt-[10px] pb-[10px]">
@@ -56,7 +56,7 @@
             @endforeach
         </div>
         @else
-            <h1 class="text-xl font-semibold pb-[15px]">
+            <h1 class="text-xl font-semibold pb-[15px] text-center">
                 Uw heeft momenteel geen vermeldingen
             </h1>
         @endif
