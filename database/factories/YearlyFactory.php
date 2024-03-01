@@ -17,7 +17,9 @@ class YearlyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'parking_space_id' => 1,
+            'text'=>'xd',
+            'price'=>'22',
         ];
     }
 }
