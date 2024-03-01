@@ -22,7 +22,7 @@
     @else
         <a href="/" class="logo"><img class="scale-50" src="./../images/paper-boat.jpg"></a>
     @endif
-    <div class="flex gap-6 justify-end h-[80%] w-full pr-10  my-1.5">
+    <div class="flex lg:gap-6 gap-1 justify-end h-[80%] w-full lg:pr-10 pr-3 my-1.5">
         @if (auth()->check())
             <form method="POST" class="h-full flex items-center flex-col justify-center" action="{{route('logout')}}">
                 @csrf
