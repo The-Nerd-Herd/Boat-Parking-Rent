@@ -19,8 +19,8 @@
             moreTextEl.classList.toggle('hidden');
             toggleBtnEl.classList.toggle('hidden');
             hideBtnEl.classList.toggle('hidden');
-            contactPDF.classList.replace('grid-cols-2', 'grid-cols-1');
-            contactForm.classList.replace('w-full', 'w-[45rem]');
+            contactPDF.classList.replace('lg:grid-cols-2', 'lg:grid-cols-1');
+            contactForm.classList.replace('lg:w-full', 'lg:w-[45rem]');
             houseRule.className = 'align-center text-black font-bold';
         });
 
@@ -28,8 +28,8 @@
             moreTextEl.classList.toggle('hidden');
             toggleBtnEl.classList.toggle('hidden');
             hideBtnEl.classList.toggle('hidden');
-            contactPDF.classList.replace('grid-cols-1', 'grid-cols-2');
-            contactForm.classList.replace('w-[45rem]', 'w-full');
+            contactPDF.classList.replace('lg:grid-cols-1', 'lg:grid-cols-2');
+            contactForm.classList.replace('lg:w-[45rem]', 'lg:w-full');
             houseRule.className = 'align-center text-black font-bold bg-gradient-to-b from-black to-transparent text-transparent bg-clip-text';
         });
     });
@@ -76,7 +76,7 @@
 
             <div class="flex flex-col lg:h-[600px] lg:w-[1000px] justify-between">
                 <h1 class="text-4xl">Parkeerplaats huren in {{$parkingSpace->city}}</h1>
-                <p class="text-xl">{{$parkingSpace->street}} {{$parkingSpace->number}}</p>
+                <p class="text-xl lg:pb-0 pb-4">{{$parkingSpace->street}} {{$parkingSpace->number}}</p>
 
                 <!--Price info-->
                 <div
@@ -121,15 +121,15 @@
             </div>
         </section>
 
-        <div id="contactPDF" class="grid grid-cols-2 w-full px-8 pb-8 gap-8 place-items-center">
+        <div id="contactPDF" class="grid lg:grid-cols-2 grid-cols-1 w-full px-8 pb-8 gap-8 place-items-center">
         {{--        House rules       --}}
         <section class="w-full">
             <div id="accordion-collapse" data-accordion="collapse"
-                 class="bg-white rounded-xl shadow-xl pb-0 pt-[4rem] items-center wrapper break-words h-full">
+                 class="bg-white rounded-xl shadow-xl pb-0 lg:pt-[4rem] pt-5 items-center wrapper break-words h-full">
                 @if(!empty($parkingSpace->pdf_path))
-                    <a class="button alt z-10 absolute right-5 top-5" href="/storage/{{$parkingSpace->pdf_path}}" target="_blank">PDF - Reglement</a>
+                    <a class="button alt lg:z-10 lg:absolute lg:right-5 lg:top-5 lg:w-full w-[16.95rem] lg:m-0 ml-[1.25rem] mb-7" href="/storage/{{$parkingSpace->pdf_path}}" target="_blank">PDF - Reglement</a>
                 @endif
-                <h2 id="accordion-collapse-heading-1">
+                <h2 id="accordion-collapse-heading-1" class="lg:px-0 px-5">
                     <div class="align-center">
                         <strong class="text-black font-bold">Havenreglement</strong>
                     </div>
@@ -154,14 +154,14 @@
                         </div>
                     </div>
 
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center lg:px-0 px-5">
                 <button id="hide-btn" class="hidden alt button my-4">Verbergen</button>
                 </div>
             </div>
         </section>
             <!--Contact info-->
             <form method="POST" action="{{route('email.send')}}"
-                  class="rounded-md shadow-xl w-full flex flex-col bg-white h-full mb-0 p-5 gap-3" id="contactForm">
+                  class="rounded-md shadow-xl lg:w-full w-full flex flex-col bg-white h-full mb-0 p-5 gap-3" id="contactForm">
                 <h1 class="text-xl">Contact the seller</h1>
                 @csrf
                 <div class="flex flex-col lg:flex-row gap-6 w-full">
@@ -176,7 +176,7 @@
                     <div class="w-full lg:w-1/2">
                         <label for="phone">Phone</label>
                         <input
-                            class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
+                            class="border-gray-300 bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
                             id="phone" type="text" name="phone" required="required" autofocus="autofocus"
                             autocomplete="phone">
                     </div>
@@ -199,7 +199,7 @@
                             autocomplete="name">
                     </div>
                 </div>
-                <button class="lg:w-1/4 w-full button alt self-end" type="submit">
+                <button class="lg:w-1/4 w-full button alt self-end lg:mt-0 mt-4" type="submit">
                     Submit
                 </button>
             </form>
