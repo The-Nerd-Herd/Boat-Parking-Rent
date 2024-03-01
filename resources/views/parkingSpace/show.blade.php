@@ -117,7 +117,7 @@
         <!--Contact info-->
         <form method="POST" action="{{route('email.send')}}"
               class="mx-10 rounded-md shadow-xl lg:w-2/4 flex flex-col gap-6 p-4 bg-white">
-            <h1 class="text-xl">Contact the seller</h1>
+            <h1 class="text-xl">Verkoper Contacteren</h1>
             @csrf
             <div class="flex flex-col lg:flex-row gap-6 w-full">
                 <div class="w-full lg:w-1/2">
@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="w-full lg:w-1/2">
-                    <label for="phone">Phone</label>
+                    <label for="phone">Telefoon</label>
                     <input
                         class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
                         id="phone" type="text" name="phone" required="required" autofocus="autofocus"
@@ -139,7 +139,7 @@
 
             <div class="flex flex-row justify-between gap-6 ">
                 <div>
-                    <label for="initials">Initial</label>
+                    <label for="initials">Initialen</label>
                     <input
                         class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 "
                         id="initials" type="text" name="initials" maxlength="1" autofocus="autofocus"
@@ -147,7 +147,7 @@
                 </div>
 
                 <div class="w-3/4">
-                    <label for="surname">Surname</label>
+                    <label for="surname">Achternaam</label>
                     <input
                         class="border-gray-300  bg-gray-100 text-black focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full"
                         id="surname" type="text" name="surname" required="required" autofocus="autofocus"
