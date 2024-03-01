@@ -107,11 +107,11 @@
                         $html .= '</div>';
                         $html .= '<div>';
                         $html .= '<div class="flex gap-4">';
-                        $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $name . '"';
+                        $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $name . '" placeholder="Eerste 15 meter"';
                         if ($name == "day") $html .= ' required="required"';
                         $html .= ' autofocus="autofocus" autocomplete="text">';
                         if ($priceName) {
-                            $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $priceName . '"';
+                            $html .= '<input class="border-gray-300 bg-gray-100 text-black focus:border-black focus:ring-black rounded-sm shadow-sm" type="text" name="' . $priceName . '" placeholder="50 €" ';
                             if ($name == "day") $html .= ' required="required"';
                             $html .= ' autofocus="autofocus" autocomplete="text">';
                         }

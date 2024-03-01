@@ -13,6 +13,6 @@ class ParkingSpaceSeeder extends Seeder
      */
     public function run(): void
     {
-       ParkingSpace::factory(10)->create();
+        ParkingSpace::factory(1)->create();
     }
 }
