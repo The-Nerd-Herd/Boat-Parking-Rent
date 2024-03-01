@@ -176,8 +176,8 @@ class ParkingSpaceController extends Controller
         $parkingSpace->rules = $textContent;
         $imagePath = $this->storeFile($request, 'image', 'images');
         $pdfPath = $this->storeFile($request, 'pdf', 'pdfs');
-        $parkingSpace->pdf_path = $pdfPath;
-        $parkingSpace->picture = $imagePath;
+        if($pdfPath != null) $parkingSpace->pdf_path = $pdfPath;
+        if($imagePath != null) $parkingSpace->picture = $imagePath;
         $parkingSpace->save();
         return redirect(route('parkingSpace.show', $parkingSpace->id));
     }

@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/user-delete-popup.js',
                 'resources/js/jquery.min.js',
+                'resources/js/edit.js',
             ],
             refresh: true,
         }),
