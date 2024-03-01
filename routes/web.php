@@ -29,11 +29,10 @@ Route::middleware('auth')->group(function () {
 Route::get('/hardCoded', function(){
    return view('show-hard-coded');
 });
-Route::resource('/parkingSpace', ParkingSpaceController::class)->middleware(['auth','verified']);
-Route::get('/parkingSpace/{id}/houseRules', [ParkingSpaceController::class, 'houseRules']);
 Route::get('parkingSpace/old-new', [ParkingSpaceController::class, 'fromOldToNew'])->name('parkingSpace.old-new');
 Route::get('parkingSpace/new-old', [ParkingSpaceController::class, 'fromNewToOld'])->name('parkingSpace.new-old');
-
+Route::resource('/parkingSpace', ParkingSpaceController::class)->middleware(['auth','verified']);
+Route::get('/parkingSpace/{id}/houseRules', [ParkingSpaceController::class, 'houseRules']);
 
 require __DIR__.'/auth.php';
 

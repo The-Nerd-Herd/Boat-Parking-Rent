@@ -67,7 +67,6 @@
 
 
 @section('content')
-
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] px-8 pt-8 pb-3">
             <article class="flex lg:p-8 p-3 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">

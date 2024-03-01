@@ -52,19 +52,21 @@
     </style>
 
     <main class="bg-zinc-100 pb-10">
-        <div class="px-[10rem] pt-[3rem]">
-            <h1 class="text-[4rem] text-center">Maak een vermelding</h1>
+        <div class="sm:px-[10rem] pt-[3rem]">
+            <h1 class="sm:text-[4rem] text-[3rem] text-center">Maak een vermelding</h1>
             <form id="identifier" method="POST" action="{{route('parkingSpace.store')}}"
-                  class=" rounded-md shadow-xl p-4 bg-white"
+                  class=" rounded-md shadow-xl mx-6 sm:mx-0 sm:p-4 p-2 bg-white"
                   enctype="multipart/form-data">
                 @csrf
-                <div class=" w-full">
+                <div class=" w-full ">
                     <div class="w-[80%]  mx-auto py-5">
                         <label for="title" value="text">Naam van het bericht<span class="text-red-600">*</span></label>
                         <input
                             class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                             type="text" name="title" required="required" autofocus="autofocus"
-                            autocomplete="text">
+                            value="{{old('title')}}"
+                            autocomplete="text"
+                        placeholder="">
                     </div>
 
                     <div class="flex w-[80%] mx-auto gap-4 py-5">
@@ -72,7 +74,8 @@
                             <label for="street" value="text">Stad<span class="text-red-600">*</span></label>
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
-                                type="text" name="city" required="required" autofocus="autofocus"
+          .)                      type="text" name="city" required="required" autofocus="autofocus"
+                                value="{{old('city')}}"
                                 autocomplete="text">
                         </div>
 
@@ -81,14 +84,16 @@
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                                 type="text" name="street" required="required" autofocus="autofocus"
+                                value="{{old('street')}}"
                                 autocomplete="text">
                         </div>
 
                         <div class="w-[15%] ">
-                            <label class="" for="street" value="text">Nummer (opt.)</label>
+                            <label class="" for="street" value="text">Nummer</label>
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                                 type="number" name="streetNumber" autofocus="autofocus"
+                                value="{{old('streetNumber')}}"
                                 autocomplete="text">
                         </div>
                     </div>
@@ -121,14 +126,14 @@
                     }
 
 
-                    echo generateFeeInputGroupCreate('Jaar Tarief (opt.)', 'year', 'yearPrice');
-                    echo generateFeeInputGroupCreate('Maand Tarief (opt.)', 'month', 'monthPrice',);
+                    echo generateFeeInputGroupCreate('Jaar Tarief', 'year', 'yearPrice');
+                    echo generateFeeInputGroupCreate('Maand Tarief', 'month', 'monthPrice',);
                     echo generateFeeInputGroupCreate('Dag Tarief <span class="text-red-600">*</span>', 'day', 'dayPrice');
-                    echo generateFeeInputGroupCreate('Speciale vereisten (opt.)', 'special', 'specialPrice');
-                    echo generateFeeInputGroupCreate('Aanvullende vereisten (opt.)', 'additional')
+                    echo generateFeeInputGroupCreate('Speciale vereisten', 'special', 'specialPrice');
+                    echo generateFeeInputGroupCreate('Aanvullende vereisten', 'additional')
                     ?>
                 </div>
-                <div class="mt-[3rem] flex justify-center">
+                <div class="mt-[3rem] flex flex-col sm:flex-row gap-5 justify-center">
 
                     <div>
                         <label for="image">Afbeelding</label>
@@ -142,7 +147,7 @@
 
                 <!-- Quill rich text editor -->
                 <div class="w-full flex flex-col">
-                    <h2 class="text-xl items-center pb-5">Schrijf je huisregels</h2>
+                    <h2 class="text-xl items-center pb-5 mt-5">Schrijf je huisregels</h2>
                     <div id="toolbar">
                         <!-- Toolbar buttons will be added by Quill -->
                     </div>

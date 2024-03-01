@@ -52,10 +52,10 @@
     </style>
 
     <main class="bg-zinc-100 pb-10">
-        <div class="px-[10rem] pt-[3rem]">
-            <h1 class="text-[4rem] text-center">Vermelding bewerken</h1>
+        <div class="sm:px-[10rem] pt-[3rem]">
+            <h1 class="sm:text-[4rem] text-[3rem] text-center">Vermelding bewerken</h1>
             <form id="identifier" method="POST" action="{{route('parkingSpace.update',$parkingSpace)}}"
-                  class=" rounded-md shadow-xl p-4 bg-white"
+                  class=" rounded-md shadow-xl mx-6 sm:mx-0 sm:p-4 p-2 bg-white"
                   enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
@@ -86,7 +86,7 @@
                         </div>
 
                         <div class="w-[15%] ">
-                            <label class="" for="street" value="text">Nummer (opt.)</label>
+                            <label class="" for="street" value="text">Nummer</label>
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                                 type="number" name="streetNumber" autofocus="autofocus"
@@ -159,19 +159,19 @@
 
 
 
-                    echo generateFeeInputGroupEdit('Jaar tarief (opt.)', 'year', $parkingSpace->yearly, 'yearPrice');
+                    echo generateFeeInputGroupEdit('Jaar tarief', 'year', $parkingSpace->yearly, 'yearPrice');
                     echo generateFeeInputsEdit('year', $parkingSpace->yearly, 'yearPrice');
-                    echo generateFeeInputGroupEdit('Maand tarief (opt.)', 'month', $parkingSpace->monthly, 'monthPrice');
+                    echo generateFeeInputGroupEdit('Maand tarief', 'month', $parkingSpace->monthly, 'monthPrice');
                     echo generateFeeInputsEdit('month', $parkingSpace->monthly, 'monthPrice');
                     echo generateFeeInputGroupEdit('Dag Tarief <span class="text-red-600">*</span>', 'day', $parkingSpace->daily, 'dayPrice');
                     echo generateFeeInputsEdit('day', $parkingSpace->daily, 'dayPrice');
-                    echo generateFeeInputGroupEdit('Speciale vereisten (opt.)', 'special', $parkingSpace->special, 'specialPrice');
+                    echo generateFeeInputGroupEdit('Speciale vereisten', 'special', $parkingSpace->special, 'specialPrice');
                     echo generateFeeInputsEdit('special', $parkingSpace->special, 'specialPrice');
-                    echo generateFeeInputGroupEdit('Aanvullende vereisten (opt.)', 'additional', $parkingSpace->additional);
+                    echo generateFeeInputGroupEdit('Aanvullende vereisten', 'additional', $parkingSpace->additional);
                     echo generateFeeInputsEdit('additional', $parkingSpace->additional);
                     ?>
                 </div>
-                <div class="mt-[3rem] flex justify-center">
+                <div class="mt-[3rem] flex flex-col sm:flex-row gap-5 justify-center">
 
                     <div>
                         <label for="image">Afbeelding</label>
@@ -185,7 +185,7 @@
 
                 <!-- Quill rich text editor -->
                 <div class="w-full flex flex-col">
-                    <h2 class="text-xl items-center pb-5">Schrijf je huisregels</h2>
+                    <h2 class="text-xl items-center pb-5 mt-5">Schrijf je huisregels</h2>
                     <div id="toolbar">
                         <!-- Toolbar buttons will be added by Quill -->
                     </div>
