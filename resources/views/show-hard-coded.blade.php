@@ -35,8 +35,8 @@
     </script>
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] p-8">
-            <article class="flex p-8 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
-                <img class="object-scale-down" src="./../images/ricardo.jpg" alt="image"/>
+            <article class="flex lg:p-8 p-2 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
+                <img class="object-scale-down rounded-md" src="./../images/ricardo.jpg" alt="image"/>
             </article>
 
             <div class="flex flex-col lg:h-[600px] lg:w-[1000px] justify-between">
@@ -45,7 +45,7 @@
 
                 <!--Price info-->
                 <div
-                    class="bg-white w-full p-10 flex flex-col text-center rounded-md gap-5 lg:overflow-y-auto lg:h-[500px] shadow-xl">
+                    class="bg-white w-full lg:p-10 p-5 flex flex-col text-center rounded-md gap-5 lg:overflow-y-auto lg:h-[500px] shadow-xl">
                     <!--Boat length annual rate-->
 
                     <h1 class="text-xl font-semibold">Jaartarief</h1>
@@ -137,7 +137,7 @@
             </div>
         </section>
         <!--Contact info-->
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center text-center p-5">
             <h1>
                 If you are interested please contact me on this email adress
             </h1>
@@ -190,11 +190,9 @@
         </form>
 
         <!--Contact info-->
-        <section class=" w-full p-20">
-
+        <section class=" w-full p-8">
             <div id="accordion-collapse" data-accordion="collapse"
-                 class="bg-white rounded-xl shadow-xl pt-7 flex flex-col items-center">
-
+                 class="bg-white rounded-xl shadow-xl pt-7 px-2 flex flex-col items-center">
                 <h2 id="accordion-collapse-heading-1">
                     <div class="align-center">
                         <strong class="text-black font-bold">Havenreglement</strong>
@@ -207,8 +205,7 @@
                         <p>Dit Reglement geldt in de haven van:</p>
                         <p>“Hoop Maritiem BV”</p>
                         <p>Datum: 1-8-2023</p>
-                        <button id="toggle-btn"
-                                class="mt-4 bg-black hover:bg-gray-400 text-white py-2 px-4 rounded-full">Read More
+                        <button id="toggle-btn" class="button alt w-[50%] mt-3">Read More
                         </button>
                     </div>
                     <br>
@@ -458,7 +455,7 @@
                     </span>
                 </h2>
 
-                <button id="hide-btn" class="hidden mt-4 text-blue-500 focus:outline-none">Hide</button>
+                <button id="hide-btn" class="hidden button alt mt-10 mb-5">Hide the overview</button>
             </div>
 
         </section>
