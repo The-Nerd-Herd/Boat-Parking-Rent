@@ -70,8 +70,8 @@
 
     <main class="flex flex-col items items-center bg-zinc-100 gap-6">
         <section class="flex lg:flex-row flex-col items-start w-full gap-8 mt-[50px] px-8 pt-8 pb-3">
-            <article class="flex p-8 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
-                <img class="object-scale-down mx-auto" src="/storage/{{$parkingSpace->picture}}" alt="image"/>
+            <article class="flex lg:p-8 p-3 bg-white shadow-xl rounded-md lg:w-[1400px] lg:h-[600px]">
+                <img class="object-scale-down rounded-md mx-auto" src="/storage/{{$parkingSpace->picture}}" alt="image"/>
             </article>
 
             <div class="flex flex-col lg:h-[600px] lg:w-[1000px] justify-between">
@@ -127,7 +127,7 @@
             <div id="accordion-collapse" data-accordion="collapse"
                  class="bg-white rounded-xl shadow-xl pb-0 lg:pt-[4rem] pt-5 items-center wrapper break-words h-full">
                 @if(!empty($parkingSpace->pdf_path))
-                    <a class="button alt lg:z-10 lg:absolute lg:right-5 lg:top-5 lg:w-full w-[16.95rem] lg:m-0 ml-[1.25rem] mb-7" href="/storage/{{$parkingSpace->pdf_path}}" target="_blank">PDF - Reglement</a>
+                    <a class="button alt lg:z-10 lg:absolute lg:right-5 lg:top-5 lg:w-1/4 w-[16.95rem] lg:m-0 ml-[1.25rem] mb-7" href="/storage/{{$parkingSpace->pdf_path}}" target="_blank">PDF - Reglement</a>
                 @endif
                 <h2 id="accordion-collapse-heading-1" class="lg:px-0 px-5">
                     <div class="align-center">
