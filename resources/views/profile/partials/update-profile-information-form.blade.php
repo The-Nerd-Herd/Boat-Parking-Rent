@@ -44,7 +44,7 @@
             </div>
 
             <div class="flex items-center gap-4 h-[30px]">
-                <x-primary-button>{{ __('Opslaan') }}</x-primary-button>
+                <button class="button alt">{{ __('Opslaan') }}</button>
 
                 @if (session('status') === 'profile-updated')
                     <p

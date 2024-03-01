@@ -24,7 +24,7 @@
         </div>
         <div class="snap-center lg:snap-none flex flex-col lg:w-[360px] w-[15rem] items-center justify-center bg-white shadow-xl rounded-md px-10">
             <i class="fa fa-user" style="font-size: 200px"></i>
-            <button id="deleteUserButton" class="lg:w-1/2 rounded-lg mt-10 hover:bg-red-500 sm:w-full">Account Verwijderen</button>
+            <button id="deleteUserButton" class="mt-10 hover:bg-red-500 px-5" style="border: solid 2.5px #e3e3e3;" onmouseover ="this.style.borderColor='#bd111c'" onmouseout="this.style.borderColor='#e3e3e3'"><p>ACCOUNT VERWIJDEREN</p></button>
         </div>
     </div>
     <h1 class="text-4xl font-semibold pt-[10px] pb-[10px]">
