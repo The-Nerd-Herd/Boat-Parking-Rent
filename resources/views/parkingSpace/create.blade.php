@@ -64,7 +64,9 @@
                         <input
                             class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                             type="text" name="title" required="required" autofocus="autofocus"
-                            autocomplete="text">
+                            value="{{old('title')}}"
+                            autocomplete="text"
+                        placeholder="">
                     </div>
 
                     <div class="flex w-[80%] mx-auto gap-4 py-5">
@@ -73,6 +75,7 @@
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
           .)                      type="text" name="city" required="required" autofocus="autofocus"
+                                value="{{old('city')}}"
                                 autocomplete="text">
                         </div>
 
@@ -81,6 +84,7 @@
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                                 type="text" name="street" required="required" autofocus="autofocus"
+                                value="{{old('street')}}"
                                 autocomplete="text">
                         </div>
 
@@ -89,6 +93,7 @@
                             <input
                                 class="border-gray-300  bg-gray-100 text-black focus:border-black  focus:ring-black rounded-sm shadow-sm w-full"
                                 type="number" name="streetNumber" autofocus="autofocus"
+                                value="{{old('streetNumber')}}"
                                 autocomplete="text">
                         </div>
                     </div>
