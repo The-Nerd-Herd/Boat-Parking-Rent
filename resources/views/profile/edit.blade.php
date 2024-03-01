@@ -56,8 +56,9 @@
             @endforeach
         </div>
         @else
-            <h1 class="text-xl font-semibold pb-[15px] text-center">
-                Uw heeft momenteel geen vermeldingen
+            <h1 class="text-xl font-semibold pb-[15px]">
+                Uw heeft momenteel geen vermeldingen,
+                <a class="button alt" href="{{route('parkingSpace.create')}}" >Creëren</a>
             </h1>
         @endif
     <div id="mask" class="absolute backdrop-filter backdrop-blur-[20px] h-[100%]  w-full z-50 bg-gray-600 bg-opacity-25 " style="display: none">
