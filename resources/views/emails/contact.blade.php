@@ -18,7 +18,7 @@
                     <p class="mt-2 leading-loose text-gray-600 dark:text-gray-300 lg:text-xl">
                         <!--//$data["surname"]}}-->Someone wants to rent your parking space.
                     </p>
-                <h2 class="text-3xl bold mt-10"> Information about potential buyer</h2>
+                <h2 class="text-xl bold mt-10"> Information <about></about> potential buyer</h2>
                     <ul class="mt-5">
                         <div class="mt-2 leading-loose text-gray-600 dark:text-gray-300 text-wrap">
                             <b><!--//$data["phone"]}}</b>--> Name:</b> S. Potocnak
@@ -27,7 +27,7 @@
                             <b><!--//$data["phone"]}}</b>--> Phone number:</b> +421 000 000 000
                         </div>
                         <div class="mt-2 leading-loose text-gray-600 dark:text-gray-300 text-wrap">
-                            <b><!--//$data["phone"]}}</b>--> Email:</b> simon.potocnak@gmail.com
+                            <b><!--//$data["phone"]}}</b>--> Email:</b><a href="https://mail.google.com/mail/u/0/#inbox?compose=new"> simon.potocnak@gmail.com</a>
                         </div>
                     </ul>
                     <p class="mt-8 text-gray-600 dark:text-gray-300">
