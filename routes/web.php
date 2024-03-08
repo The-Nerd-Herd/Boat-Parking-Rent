@@ -31,7 +31,7 @@ Route::get('/hardCoded', function(){
 });
 
 Route::get('/test-email', function() {
-    return view('emails.contact');
+    return view('emails.contact-confirm');
 });
 
 Route::get('parkingSpace/old-new', [ParkingSpaceController::class, 'fromOldToNew'])->name('parkingSpace.old-new');
